@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch 2025-29 - Narayan e-Gurukul</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <h1>Narayan <span>e-Gurukul Platform</span></h1>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="batch.html" class="active">Batch</a></li>
+            <li><a href="index.html#about">About</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section" style="padding-top: 8rem;">
+            <div class="section-header">
+                <span class="badge">Poornima University</span>
+                <h2>1st Year Study Portal</h2>
+                <p>Curated engineering resources for all PU 1st-year specializations.</p>
+            </div>
+
+            <div class="grid">
+                <!-- B.Tech Core -->
+                <div class="card">
+                    <div class="card-icon"><i class="ri-instance-line"></i></div>
+                    <h3>B.Tech Core</h3>
+                    <p>Foundational resources for all engineering disciplines in the first year.</p>
+                    <ul class="feature-list">
+                        <li><i class="ri-book-3-line"></i> 1st Year Notes</li>
+                        <li><i class="ri-history-line"></i> Solved PYQs</li>
+                        <li><i class="ri-book-open-line"></i> Core E-Books</li>
+                    </ul>
+                    <a href="btech-studymaterial.html" class="btn primary-btn">Open Resources <i
+                            class="ri-external-link-line"></i></a>
+                </div>
+
+                <!-- B.Tech CSE (AIDS) -->
+                <div class="card">
+                    <div class="card-icon"><i class="ri-database-2-line"></i></div>
+                    <h3>CSE (AIDS)</h3>
+                    <p>Specialized materials for Artificial Intelligence & Data Science.</p>
+                    <ul class="feature-list">
+                        <li><i class="ri-code-s-line"></i> Specialization Notes</li>
+                        <li><i class="ri-file-list-3-line"></i> Batch PYQs</li>
+                        <li><i class="ri-folder-info-line"></i> AIDS Resources</li>
+                    </ul>
+                    <a href="btech-studymaterial.html" class="btn primary-btn">Open Resources <i
+                            class="ri-external-link-line"></i></a>
+                </div>
+
+                <!-- B.Tech CSE (AIML) -->
+                <div class="card">
+                    <div class="card-icon"><i class="ri-robot-2-line"></i></div>
+                    <h3>CSE (AIML)</h3>
+                    <p>Advanced learning materials for AI & Machine Learning paths.</p>
+                    <ul class="feature-list">
+                        <li><i class="ri-cpu-line"></i> Specialization Notes</li>
+                        <li><i class="ri-file-chart-line"></i> Solved PYQs</li>
+                        <li><i class="ri-brain-line"></i> AIML E-Books</li>
+                    </ul>
+                    <a href="btech-studymaterial.html" class="btn primary-btn">Open Resources <i
+                            class="ri-external-link-line"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="footer-logo">Narayan <span>e-Gurukul Platform</span></a>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="batch.html">Batch</a>
+                <a href="founder.html">Founders</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.4);">
+            &copy; 2026 Narayan e-Gurukul Educational Platform. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+
+</html>
