@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.Tech Study Materials - Narayan e-Gurukul</title>
+    <meta name="description" content="College Level Study Material - Coming Soon">
+    <title>College Study Material - Coming Soon</title>
+
+    <link rel="icon" type="image/png" href="coming-soon.png">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,244 +15,80 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
-        /* Specific overrides for study material page to maintain the complex filtering UI but in the new theme */
-        .filter-container {
+        .coming-soon-section {
+            min-height: calc(100vh - var(--navbar-height));
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--navbar-height) + 4rem) 6% 4rem;
+            text-align: center;
+            background-color: var(--white);
         }
 
-        .subject-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
+        .poster-container {
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 2.5rem;
         }
 
-        .mat-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.25rem;
-            transition: var(--transition);
+        .poster-container img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
         }
 
-        .mat-item:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
+        .coming-soon-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
 
-        .sem-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .sem-btn {
-            padding: 0.5rem 1.25rem;
-            border-radius: var(--radius-full);
-            border: 1px solid var(--border);
-            background: var(--surface);
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .sem-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+        .coming-soon-text p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar" id="navbar">
-        <a href="index.html" class="logo">
-            <h1>Narayan <span>e-Gurukul Platform</span></h1>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="batch.html">Batch</a></li>
-            <li><a href="index.html#about">About</a></li>
-        </ul>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="logo">
+                <h1>Narayan <span>e-Gurukul</span></h1>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#colleges">Colleges</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="college-studymaterial.html" class="nav-cta active">Study Material</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
     <main>
-        <section class="section" style="padding-top: 8rem;">
-            <div class="section-header" style="text-align: left;">
-                <span class="badge">Poornima University & Core</span>
-                <h2>Study Materials Hub</h2>
-                <p>High-quality engineering resources for Poornima University and major technical colleges.</p>
+        <section class="coming-soon-section reveal active">
+            <div class="poster-container">
+                <img src="02.png" alt="Coming Soon Poster">
             </div>
-
-            <!-- BRANCH FILTER -->
-            <div class="filter-container">
-                <button class="btn secondary-btn active" onclick="setBranch('cse', this)">CSE / IT</button>
-                <button class="btn secondary-btn" onclick="setBranch('ece', this)">ECE / EE</button>
-                <button class="btn secondary-btn" onclick="setBranch('me', this)">Mechanical</button>
-                <button class="btn secondary-btn" onclick="setBranch('ce', this)">Civil</button>
-            </div>
-
-            <!-- SEMESTER FILTER -->
-            <div class="sem-tabs">
-                <button class="sem-btn active" onclick="setSem(1, this)">Semester 1</button>
-                <button class="sem-btn" onclick="setSem(2, this)">Semester 2</button>
-                <button class="sem-btn" onclick="setSem(3, this)">Semester 3</button>
-                <button class="sem-btn" onclick="setSem(4, this)">Semester 4</button>
-            </div>
-
-            <div id="contentArea" class="subject-grid">
-                <!-- Content injected by JS -->
+            <div class="coming-soon-text">
+                <h2>B.Tech Study Material <br><span>Coming Soon</span></h2>
+                <p>We are working hard to bring you the best B.Tech study resources, PYQs, and notes. Stay tuned
+                    for the launch!</p>
+                <a href="index.html" class="btn primary-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <a href="index.html" class="footer-logo">Narayan <span>e-Gurukul Platform</span></a>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="batch.html">Batch</a>
-                <a href="founder.html">Founders</a>
-            </div>
-        </div>
-        <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.4);">
-            &copy; 2026 Narayan e-Gurukul Educational Platform. All Rights Reserved.
-        </p>
-    </footer>
-
-    <script>
-        const PU_FIRST_YEAR_SEM1 = [
-            {
-                subject: 'Engineering Mathematics-I', code: 'MA101', icon: 'ri-functions',
-                materials: [
-                    { type: 'Notes', title: 'Calculus & Linear Algebra', size: '4.8 MB' },
-                    { type: 'PYQ', title: 'PU 2023 Solved Paper', size: '1.2 MB' },
-                    { type: 'Formula', title: 'Integration & Differentiation Sheet', size: '0.8 MB' }
-                ]
-            },
-            {
-                subject: 'Engineering Physics', code: 'PY101', icon: 'ri-flashlight-line',
-                materials: [
-                    { type: 'Notes', title: 'Quantum Mechanics & Optics', size: '6.5 MB' },
-                    { type: 'Lab', title: 'Physics Lab Manual', size: '2.4 MB' },
-                    { type: 'PYQ', title: 'PU Mid-Term Papers', size: '1.5 MB' }
-                ]
-            },
-            {
-                subject: 'Programming for Problem Solving', code: 'CS101', icon: 'ri-code-s-slash-line',
-                materials: [
-                    { type: 'Notes', title: 'C Programming Complete Guide', size: '5.2 MB' },
-                    { type: 'Manual', title: 'PPS Lab Assignment Set', size: '3.1 MB' }
-                ]
-            }
-        ];
-
-        const PU_FIRST_YEAR_SEM2 = [
-            {
-                subject: 'Engineering Mathematics-II', code: 'MA102', icon: 'ri-functions',
-                materials: [
-                    { type: 'Notes', title: 'Differential Equations & Transforms', size: '5.0 MB' },
-                    { type: 'PYQ', title: 'PU 2024 Predicted Papers', size: '1.4 MB' }
-                ]
-            },
-            {
-                subject: 'Engineering Chemistry', code: 'CH101', icon: 'ri-flask-line',
-                materials: [
-                    { type: 'Notes', title: 'Water Technology & Polymers', size: '4.2 MB' },
-                    { type: 'Lab', title: 'Chemistry Lab Manual', size: '2.1 MB' }
-                ]
-            },
-            {
-                subject: 'Basic Electrical Engineering', code: 'EE101', icon: 'ri-battery-2-charge-line',
-                materials: [
-                    { type: 'Notes', title: 'AC/DC Circuits & Transformers', size: '5.8 MB' },
-                    { type: 'PYQ', title: 'PU Previous Year Solved', size: '2.0 MB' }
-                ]
-            }
-        ];
-
-        const DATA = {
-            cse: { 1: PU_FIRST_YEAR_SEM1, 2: PU_FIRST_YEAR_SEM2 },
-            ece: { 1: PU_FIRST_YEAR_SEM1, 2: PU_FIRST_YEAR_SEM2 },
-            me: { 1: PU_FIRST_YEAR_SEM1, 2: PU_FIRST_YEAR_SEM2 },
-            ce: { 1: PU_FIRST_YEAR_SEM1, 2: PU_FIRST_YEAR_SEM2 }
-        };
-
-        let activeBranch = 'cse';
-        let activeSem = 1;
-
-        function buildSection(subj) {
-            const cards = subj.materials.map(m => `
-                <div class="mat-item">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">${m.type}</span>
-                            <h4 style="font-size: 1rem; margin: 0.25rem 0;">${m.title}</h4>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">${m.size}</span>
-                        </div>
-                        <a href="#" class="btn secondary-btn" style="padding: 0.5rem 1rem;"><i class="ri-download-line"></i></a>
-                    </div>
-                </div>
-            `).join('');
-
-            return `
-                <div>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
-                        <div class="card-icon" style="width: 48px; height: 48px; font-size: 1.5rem;"><i class="${subj.icon}"></i></div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; margin-bottom: 0;">${subj.subject}</h3>
-                            <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">CODE: ${subj.code}</span>
-                        </div>
-                    </div>
-                    <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-                        ${cards}
-                    </div>
-                </div>
-            `;
-        }
-
-        function render() {
-            const subjects = (DATA[activeBranch] || {})[activeSem] || [];
-            const html = subjects.length
-                ? subjects.map(buildSection).join('')
-                : `<div style="text-align:center;padding:4rem;background:var(--surface);border-radius:var(--radius-lg);border:1px dashed var(--border);">
-                    <i class="ri-folder-info-line" style="font-size:3rem;color:var(--border);display:block;margin-bottom:1rem;"></i>
-                    <p style="color:var(--text-muted);">Curating materials for this semester. Stay tuned!</p>
-                   </div>`;
-            document.getElementById('contentArea').innerHTML = html;
-        }
-
-        function setBranch(branch, el) {
-            activeBranch = branch;
-            document.querySelectorAll('.filter-container .btn').forEach(b => b.classList.remove('active'));
-            el.classList.add('active');
-            render();
-        }
-
-        function setSem(sem, el) {
-            activeSem = sem;
-            document.querySelectorAll('.sem-btn').forEach(b => b.classList.remove('active'));
-            el.classList.add('active');
-            render();
-        }
-
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
-
-        document.addEventListener('DOMContentLoaded', render);
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
