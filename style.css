@@ -419,75 +419,25 @@ a {
     color: var(--primary);
 }
 
-/* Promo Banner */
-.promo-section {
-    padding: 4rem 6%;
-}
-
-.promo-banner {
-    background: var(--white);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-xl);
-    border-radius: var(--radius-xl);
-    padding: 5rem 2rem;
-    position: relative;
-    overflow: hidden;
+/* Announcement Banner */
+.announcement-banner {
+    padding: 8rem 0 2rem;
     text-align: center;
-    color: var(--text-main);
 }
 
-.ribbon {
-    position: absolute;
-    top: 30px;
-    left: -50px;
-    background: var(--accent);
-    color: var(--white);
-    padding: 8px 60px;
-    transform: rotate(-45deg);
-    font-weight: 900;
-    font-size: 1.1rem;
-    box-shadow: var(--shadow-md);
-}
-
-.promo-title {
-    font-size: 4rem;
-    font-weight: 900;
-    margin: 2rem 0;
-    color: var(--primary);
-}
-
-.promo-title span { color: var(--accent); }
-
-.promo-features {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin-top: 4rem;
-}
-
-.p-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary);
-}
-
-.p-item i { font-size: 2.5rem; color: var(--accent); opacity: 1; }
-
-.promo-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.announcement-img {
     width: 100%;
-    background: var(--accent);
-    color: var(--white);
-    padding: 1.25rem;
-    font-weight: 900;
-    font-size: 1.25rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    max-width: 1200px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.announcement-img:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-light);
 }
 
 /* Launch Section */
@@ -848,6 +798,10 @@ footer {
     .section { padding: 4rem 0; }
     .section-header h2 { font-size: 2rem; }
     .footer-main { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    
+    .announcement-banner {
+        padding: 4rem 0 1rem;
+    }
     
     .why-header-bar {
         padding: 1rem 2rem;
