@@ -1,21 +1,21 @@
 :root {
-    /* Color Palette - Premium White & Black Mixed Theme */
-    --primary: #000000;
-    --primary-light: #333333;
-    --accent: #000000;
-    --accent-dark: #222222;
-    --accent-light: #888888;
+    /* Color Palette - Premium Blue & White Theme */
+    --primary: #0f172a;
+    --primary-light: #1e293b;
+    --accent: #2563eb;
+    --accent-dark: #1d4ed8;
+    --accent-light: #60a5fa;
     --bg: #ffffff;
-    --bg-alt: #f9f9f9;
-    --text-main: #000000;
-    --text-muted: #555555;
-    --border: #dddddd;
-    --border-light: #eeeeee;
+    --bg-alt: #f8fafc;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --border-light: #f1f5f9;
     --white: #ffffff;
     
     /* Gradients */
-    --grad-primary: linear-gradient(135deg, #000000 0%, #333333 100%);
-    --grad-light: linear-gradient(135deg, #f9f9f9 0%, #eeeeee 100%);
+    --grad-primary: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    --grad-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     
     /* Shadows & Elevations (Soft for Light Theme) */
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
@@ -43,12 +43,47 @@
     scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Text Selection */
+::selection {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Focus Outline for Accessibility */
+*:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 body {
     font-family: 'Outfit', sans-serif;
-    background-color: var(--bg);
+    background: linear-gradient(-45deg, var(--bg), var(--bg-alt), #e0f2fe, var(--white));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -102,6 +137,11 @@ a {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+.primary-btn:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 .secondary-btn {
     background: var(--white);
     color: var(--primary);
@@ -113,6 +153,10 @@ a {
     border-color: var(--accent);
     color: var(--accent);
     transform: translateY(-2px);
+}
+
+.secondary-btn:active {
+    transform: translateY(0) scale(0.98);
 }
 
 /* Navbar */
@@ -474,7 +518,7 @@ a {
 /* Grid & Cards */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     padding: 0 6%;
 }
@@ -751,6 +795,19 @@ footer {
     #btech-exclusive h2 {
         font-size: 2.25rem !important;
     }
+    
+    .launch-section {
+        padding: 2.5rem 1.5rem;
+        margin: 2rem 4%;
+    }
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .stats-row {
+        gap: 2rem;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -758,4 +815,13 @@ footer {
     .hero-content h2 { font-size: 2rem; }
     .section-header h2 { font-size: 1.75rem; }
     #btech-exclusive h2 { font-size: 1.75rem !important; }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .stats-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 }
