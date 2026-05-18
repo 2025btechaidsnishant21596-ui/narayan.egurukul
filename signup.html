@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create an account for Narayan e-Gurukul">
+    <title>Sign Up - Narayan e-Gurukul</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .auth-section {
+            min-height: calc(100vh - var(--navbar-height));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--navbar-height) + 4rem) 6% 4rem;
+        }
+
+        .auth-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .auth-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            color: var(--primary);
+        }
+
+        .auth-card p {
+            margin-bottom: 2.5rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .auth-form .form-group {
+            text-align: left;
+            margin-bottom: 1.25rem;
+        }
+
+        .auth-form input {
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .auth-footer {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .auth-footer a {
+            color: var(--accent);
+            font-weight: 800;
+        }
+        
+        .social-login {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .btn-google {
+            background: var(--white);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .btn-google:hover {
+            background: var(--bg-alt);
+            border-color: var(--border);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-google:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .btn-google i {
+            color: #DB4437;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .auth-card h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="logo">
+                <h1>Narayan <span>e-Gurukul</span></h1>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="btech-studymaterial.html" class="nav-cta">Study Material</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-section reveal active">
+            <div class="auth-card">
+                <h2>Create Account</h2>
+                <p>Join Narayan e-Gurukul today!</p>
+
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="student@university.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn primary-btn" style="width: 100%; justify-content: center; margin-top: 1rem;">
+                        Sign Up <i class="ri-user-add-line"></i>
+                    </button>
+                </form>
+
+                <div class="social-login">
+                    <button class="btn btn-google">
+                        <i class="ri-google-fill"></i> Sign up with Google
+                    </button>
+                </div>
+
+                <div class="auth-footer">
+                    Already have an account? <a href="login.html">Login here</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

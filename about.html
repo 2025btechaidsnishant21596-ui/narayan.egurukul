@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn more about Narayan e-Gurukul and our mission to empower engineering students.">
+    <title>About Us - Narayan e-Gurukul</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .about-page-header {
+            padding-top: calc(var(--navbar-height) + 4rem);
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-light);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--bg-alt);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent);
+            border: 2px solid var(--border-light);
+        }
+
+        .team-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            color: var(--primary);
+        }
+
+        .team-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="logo">
+                <h1>Narayan <span>e-Gurukul</span></h1>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="btech-studymaterial.html" class="nav-cta">Study Material</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ABOUT HEADER -->
+        <section class="about-page-header container reveal active">
+            <span class="badge">Who We Are</span>
+            <h2 style="font-size: 3.5rem; margin-top: 1rem;">Transforming Engineering <br><span>Education</span></h2>
+            <p style="max-width: 700px; margin: 1.5rem auto 0; font-size: 1.15rem;">We are a passionate team dedicated
+                to making high-quality, organized, and reliable study materials accessible to every B.Tech student.</p>
+        </section>
+
+        <!-- OUR MISSION SECTION -->
+        <section class="section reveal" style="padding-top: 4rem;">
+            <div class="about-grid">
+                <div class="about-content" style="text-align: left;">
+                    <span class="badge">Our Mission</span>
+                    <h2>Empowering the Next Generation of Engineers</h2>
+                    <p>Narayan e-Gurukul is a dedicated digital repository crafted for B.Tech students. We democratize
+                        education by providing high-quality, organized, and easily accessible study materials.</p>
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <h3>10k+</h3>
+                            <p>Downloads</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>1k+</h3>
+                            <p>Notes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-cards">
+                    <div class="mini-card">
+                        <i class="ri-shield-star-line"></i>
+                        <div>
+                            <h4>Top Quality</h4>
+                            <p>Verified by university faculty.</p>
+                        </div>
+                    </div>
+                    <div class="mini-card">
+                        <i class="ri-cloud-line"></i>
+                        <div>
+                            <h4>Instant Access</h4>
+                            <p>Direct Google Drive integration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR VALUES SECTION -->
+        <section class="section reveal" style="background: var(--bg-alt);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge">Core Values</span>
+                    <h2>What Drives <span>Us</span></h2>
+                    <p>The principles that guide our platform and community.</p>
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon"><i class="ri-book-open-line"></i></div>
+                        <h3>Accessibility</h3>
+                        <p>Education should be available to everyone. We ensure our platform is easy to use and free of
+                            complex barriers.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="ri-check-double-line"></i></div>
+                        <h3>Quality First</h3>
+                        <p>We never compromise on the quality of our notes and PYQs. Every resource is verified for
+                            accuracy.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="ri-group-line"></i></div>
+                        <h3>Community Driven</h3>
+                        <p>Built by engineering students, for engineering students. We constantly listen to feedback to
+                            improve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <h2>Narayan <span>e-Gurukul</span></h2>
+                </a>
+                <p>Empowering the next generation of engineers with curated knowledge and resources.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="btech-studymaterial.html">Study Material</a></li>
+                    <li><a href="#">PYQs</a></li>
+                    <li><a href="#">Syllabus</a></li>
+                    <li><a href="#">Lab Manuals</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <div class="newsletter">
+                    <p>Join our newsletter for the latest updates.</p>
+                    <form class="n-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="ri-arrow-right-line"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Narayan e-Gurukul. Crafted with excellence for engineering students.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
