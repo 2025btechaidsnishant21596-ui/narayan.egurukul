@@ -797,6 +797,7 @@ footer {
     .hero-actions { flex-direction: column; gap: 1rem; }
     .section { padding: 4rem 0; }
     .section-header h2 { font-size: 2rem; }
+    .card { padding: 2rem; }
     .footer-main { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     
     .announcement-banner {
@@ -847,6 +848,9 @@ footer {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+    .card {
+        padding: 1.5rem;
     }
     .stats-row {
         flex-direction: column;
