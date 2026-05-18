@@ -425,19 +425,31 @@ a {
     text-align: center;
 }
 
-.announcement-img {
-    width: 100%;
-    max-width: 1200px;
+.announcement-img-wrapper {
+    position: relative;
+    overflow: hidden;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
+    max-width: 1200px;
+    margin: 0 auto;
     border: 1px solid var(--border-light);
     transition: var(--transition);
 }
 
-.announcement-img:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+.announcement-img-wrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(37, 99, 235, 0.2);
     border-color: var(--accent-light);
+}
+
+.announcement-img {
+    width: 100%;
+    display: block;
+    transition: var(--transition);
+}
+
+.announcement-img-wrapper:hover .announcement-img {
+    transform: scale(1.02);
 }
 
 /* Launch Section */
