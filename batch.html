@@ -14,7 +14,8 @@
         rel="stylesheet">
     <style>
         .batch-page-header {
-            padding-top: calc(var(--navbar-height) + 2rem);
+            padding-top: calc(var(--navbar-height) + 4rem);
+            padding-bottom: 6rem;
         }
 
         .batch-card {
@@ -26,6 +27,13 @@
         .batch-status {
             display: inline-block;
             margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .batch-page-header {
+                padding-top: calc(var(--navbar-height) + 2rem);
+                padding-bottom: 4rem;
+            }
         }
     </style>
 </head>
@@ -39,6 +47,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="batch.html" class="active">Our Batch</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
                 <li><a href="btech-studymaterial.html" class="nav-cta">Study Material</a></li>
             </ul>
@@ -69,7 +78,7 @@
                                 style="background: var(--accent); color: white;">Coming Mid August</span></div>
                         <h3>B.Tech Core</h3>
                         <p>Foundational resources for all engineering disciplines in the first year.</p>
-                        <ul class="feature-list">
+                        <ul class="card-list">
                             <li><i class="ri-book-3-line"></i> 1st Year Notes</li>
                             <li><i class="ri-history-line"></i> Solved PYQs</li>
                             <li><i class="ri-book-open-line"></i> Core E-Books</li>
@@ -87,7 +96,7 @@
                                 style="background: var(--accent); color: white;">Coming Mid August</span></div>
                         <h3>CSE (AIDS)</h3>
                         <p>Specialized materials for Artificial Intelligence & Data Science.</p>
-                        <ul class="feature-list">
+                        <ul class="card-list">
                             <li><i class="ri-code-s-line"></i> Specialization Notes</li>
                             <li><i class="ri-file-list-3-line"></i> Batch PYQs</li>
                             <li><i class="ri-folder-info-line"></i> AIDS Resources</li>
@@ -105,7 +114,7 @@
                                 style="background: var(--accent); color: white;">Coming Mid August</span></div>
                         <h3>CSE (AIML)</h3>
                         <p>Advanced learning materials for AI & Machine Learning paths.</p>
-                        <ul class="feature-list">
+                        <ul class="card-list">
                             <li><i class="ri-cpu-line"></i> Specialization Notes</li>
                             <li><i class="ri-file-chart-line"></i> Solved PYQs</li>
                             <li><i class="ri-brain-line"></i> AIML E-Books</li>
@@ -121,14 +130,16 @@
     <footer class="footer">
         <div class="footer-main">
             <div class="footer-brand">
-                <a href="index.html" class="footer-logo"><h2>Narayan <span>e-Gurukul</span></h2></a>
-                <p>Empowering the next generation of engineers with curated knowledge and resources.</p>
+                <a href="index.html" class="footer-logo">
+                    <h2>Narayan <span>e-Gurukul</span></h2>
+                </a>
+                <p>Empowering the next generation of engineers with curated study materials, solved PYQs, and branch-specific resources for success.</p>
             </div>
             <div class="footer-nav">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
@@ -136,9 +147,8 @@
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="btech-studymaterial.html">Study Material</a></li>
-                    <li><a href="#">PYQs</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="#">Lab Manuals</a></li>
+                    <li><a href="batch.html">Our Batches</a></li>
+                    <li><a href="#">Solved PYQs</a></li>
                 </ul>
             </div>
             <div class="footer-newsletter">
@@ -146,14 +156,14 @@
                 <div class="newsletter">
                     <p>Join our newsletter for the latest updates.</p>
                     <form class="n-form">
-                        <input type="email" placeholder="Your email">
+                        <input type="email" placeholder="Your email" required>
                         <button type="submit"><i class="ri-arrow-right-line"></i></button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Narayan e-Gurukul Educational Platform. All Rights Reserved.</p>
+            <p>&copy; 2026 Narayan e-Gurukul. Crafted with excellence for engineering students.</p>
         </div>
     </footer>
 
