@@ -849,6 +849,25 @@ footer {
         gap: 2rem;
         justify-content: center;
     }
+    
+    .app-download-card {
+        padding: 2.5rem 1.5rem !important;
+        text-align: center;
+        gap: 2.5rem !important;
+    }
+    .app-download-card > div:first-child {
+        text-align: center !important;
+    }
+    .app-download-heading {
+        font-size: 2.25rem !important;
+    }
+    .app-download-buttons {
+        justify-content: center !important;
+    }
+    .app-download-card p {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (max-width: 480px) {
