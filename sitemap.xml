@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage (Highest Priority) -->
+    <url>
+        <loc>https://narayenegurukul.com/</loc>
+        <loc>https://narayenegurukul.com/index.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- About Page (Important for Founder SEO) -->
+    <url>
+        <loc>https://narayenegurukul.com/about.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Study Materials Hub -->
+    <url>
+        <loc>https://narayenegurukul.com/btech-studymaterial.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Batches -->
+    <url>
+        <loc>https://narayenegurukul.com/batch.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- My School Page -->
+    <url>
+        <loc>https://narayenegurukul.com/myschool.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Auth Pages (Lower Priority but public) -->
+    <url>
+        <loc>https://narayenegurukul.com/login.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://narayenegurukul.com/signup.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://narayenegurukul.com/forgot-password.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+</urlset>

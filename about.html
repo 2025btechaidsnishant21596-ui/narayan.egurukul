@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO Meta Tags -->
-    <title>About Narayan e-Gurukul - Our Mission to Empower B.Tech Engineering Students</title>
-    <meta name="description" content="Learn about Narayan e-Gurukul's mission to democratize engineering education. We provide 10,000+ downloads of free B.Tech notes, PYQs, and lab manuals for Indian engineering students.">
-    <meta name="keywords" content="about Narayan e-Gurukul, B.Tech education India, engineering study platform, free notes for engineers, engineering students India, Poornima University resources">
-    <meta name="author" content="Narayan e-Gurukul Team">
+    <title>About Narayan e-Gurukul | Founder Nishant Saini</title>
+    <meta name="description" content="Discover how Nishant Saini built Narayan e-Gurukul into the ultimate free digital hub for B.Tech students. Unlock top engineering notes today!">
+    <meta name="keywords" content="Nishant Saini, founder Narayan e-Gurukul, Nishant Saini B.Tech, about Narayan e-Gurukul, engineering study platform India, free notes for engineers, Poornima University resources, Nishant Saini developer">
+    <meta name="author" content="Nishant Saini">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://narayenegurukul.com/about.html">
 
@@ -28,19 +28,56 @@
     <meta name="twitter:description" content="Our mission is to provide free, high-quality B.Tech study materials, PYQs and notes to every engineering student in India.">
     <meta name="twitter:image" content="https://narayenegurukul.com/03.png">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD Structured Data: WebPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "About Narayan e-Gurukul",
+      "@type": "AboutPage",
+      "name": "About Narayan e-Gurukul - Founder Nishant Saini",
       "url": "https://narayenegurukul.com/about.html",
-      "description": "Learn about Narayan e-Gurukul's mission to democratize engineering education with free notes, PYQs and study material for B.Tech students.",
+      "description": "Narayan e-Gurukul is founded by Nishant Saini. Learn about our mission to democratize engineering education with free notes, PYQs and study material for B.Tech students.",
       "publisher": {
         "@type": "EducationalOrganization",
         "name": "Narayan e-Gurukul",
-        "url": "https://narayenegurukul.com"
+        "url": "https://narayenegurukul.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Nishant Saini",
+          "jobTitle": "Founder & Developer",
+          "worksFor": {
+            "@type": "EducationalOrganization",
+            "name": "Narayan e-Gurukul"
+          },
+          "url": "https://narayenegurukul.com/about.html",
+          "description": "Nishant Saini is the founder and developer of Narayan e-Gurukul, an educational platform providing free B.Tech study materials, PYQs, and notes for engineering students in India.",
+          "knowsAbout": ["B.Tech Education", "Web Development", "Educational Technology", "Engineering Study Materials"]
+        }
       }
+    }
+    </script>
+
+    <!-- JSON-LD Structured Data: Person (Nishant Saini) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nishant Saini",
+      "givenName": "Nishant",
+      "familyName": "Saini",
+      "jobTitle": "Founder & Developer",
+      "description": "Nishant Saini is the founder and developer of Narayan e-Gurukul, an educational platform providing free B.Tech study materials, PYQs, and notes for engineering students in India.",
+      "url": "https://narayenegurukul.com/about.html",
+      "worksFor": {
+        "@type": "EducationalOrganization",
+        "name": "Narayan e-Gurukul",
+        "url": "https://narayenegurukul.com"
+      },
+      "founder": "Narayan e-Gurukul",
+      "knowsAbout": ["B.Tech Education", "Web Development", "Engineering Notes", "Educational Technology", "Study Materials"],
+      "nationality": "Indian",
+      "sameAs": [
+        "https://narayenegurukul.com"
+      ]
     }
     </script>
     <link rel="stylesheet" href="style.css">
@@ -72,18 +109,117 @@
             color: var(--text-muted);
         }
 
+        /* ── FOUNDER CARD ── */
+        .founder-card {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            background: var(--bg-alt, #f8f9ff);
+            border: 1.5px solid rgba(0,0,0,0.07);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-top: 3rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .founder-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 60px rgba(0,0,0,0.1);
+        }
+        .founder-avatar {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .founder-avatar-inner {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary, #1a1a2e) 0%, #4a90d9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(74,144,217,0.3);
+        }
+        .founder-badge-ring {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2.5px dashed var(--primary, #1a1a2e);
+            opacity: 0.25;
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .founder-info { flex: 1; }
+        .founder-name-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.35rem;
+        }
+        .founder-name-row h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary, #1a1a2e);
+            margin: 0;
+        }
+        .founder-tag {
+            background: var(--primary, #1a1a2e);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+        .founder-role {
+            font-size: 1rem;
+            color: var(--text-muted, #666);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .founder-bio {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text, #333);
+            margin-bottom: 1.25rem;
+        }
+        .founder-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .skill-tag {
+            background: rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 999px;
+            padding: 5px 14px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text, #333);
+            transition: background 0.2s;
+        }
+        .skill-tag:hover { background: rgba(0,0,0,0.1); }
+
         @media (max-width: 768px) {
             .about-page-header {
-                padding-top: calc(var(--navbar-height) + 2rem);
+                padding-top: calc(var(--navbar-height) + 2rem) !important;
+                padding-bottom: 2rem !important;
             }
-
-            .about-page-header h2 {
-                font-size: 2.2rem;
+            .about-page-header h2 { font-size: 2.2rem !important; }
+            .about-page-header p { font-size: 1rem !important; }
+            .about-section-padding { padding: 3.5rem 0 !important; }
+            .cta-heading { font-size: 2.2rem !important; }
+            .founder-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
             }
-
-            .about-page-header p {
-                font-size: 1rem;
-            }
+            .founder-name-row { justify-content: center; }
+            .founder-skills { justify-content: center; }
+            .founder-name-row h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -111,79 +247,146 @@
     </header>
 
     <main>
-        <!-- ABOUT HEADER -->
-        <section class="about-page-header container reveal active">
-            <span class="badge">Who We Are</span>
-            <h2>Transforming Engineering <br><span>Education</span></h2>
-            <p>We are a passionate team dedicated
-                to making high-quality, organized, and reliable study materials accessible to every B.Tech student.</p>
+        <!-- HERO SECTION -->
+        <section class="about-page-header container reveal active" style="padding-top: calc(var(--navbar-height) + 4rem); padding-bottom: 3rem;">
+            <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">About Us</span>
+            <h2>A Smart Learning Platform <br><span>for B.Tech Students</span></h2>
+            <p style="max-width: 800px; margin: 1.5rem auto 0; font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
+                Narayan e-Gurukul is one of India’s emerging smart learning platforms, designed to help B.Tech students learn better, practice more, and score higher. Our mission is simple — to provide quality technical education, practical learning resources, and career-focused guidance that is accessible, affordable, and effective for every engineering student.
+            </p>
         </section>
 
-        <!-- OUR MISSION SECTION -->
-        <section class="section reveal" style="padding-top: 4rem;">
-            <div class="about-grid">
-                <div class="about-content" style="text-align: left;">
-                    <span class="badge">Our Mission</span>
-                    <h2>Empowering the Next Generation of Engineers</h2>
-                    <p>Narayan e-Gurukul is a dedicated digital repository crafted for B.Tech students. We democratize
-                        education by providing high-quality, organized, and easily accessible study materials.</p>
-                    <div class="stats-row">
-                        <div class="stat-box">
-                            <h3>10k+</h3>
-                            <p>Downloads</p>
-                        </div>
-                        <div class="stat-box">
-                            <h3>1k+</h3>
-                            <p>Notes</p>
-                        </div>
+        <!-- WHO WE ARE & VISION (SPLIT GRID) -->
+        <section class="section reveal" style="background: var(--bg-alt); padding: 5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <!-- WHO WE ARE -->
+                <div style="background: var(--white); padding: 3rem; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border);">
+                    <div style="width: 50px; height: 50px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <i class="ri-team-line" style="font-size: 1.8rem; color: var(--primary);"></i>
                     </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-main);">Who We Are</h3>
+                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">
+                        Founded with the vision of empowering students through technology and innovation, Narayan e-Gurukul is becoming a growing platform for engineering learners seeking modern and practical education support.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.7;">
+                        We focus on helping students build strong academic foundations while also preparing them for future careers in technology, innovation, and industry.
+                    </p>
                 </div>
-                <div class="mini-cards">
-                    <div class="mini-card">
-                        <i class="ri-shield-star-line"></i>
-                        <div>
-                            <h4>Top Quality</h4>
-                            <p>Verified by university faculty.</p>
-                        </div>
+
+                <!-- OUR VISION -->
+                <div style="background: var(--white); padding: 3rem; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border);">
+                    <div style="width: 50px; height: 50px; background: rgba(16, 185, 129, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <i class="ri-eye-line" style="font-size: 1.8rem; color: #10b981;"></i>
                     </div>
-                    <div class="mini-card">
-                        <i class="ri-cloud-line"></i>
-                        <div>
-                            <h4>Instant Access</h4>
-                            <p>Direct Google Drive integration.</p>
-                        </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-main);">Our Vision</h3>
+                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">
+                        To create a modern and accessible learning ecosystem where every B.Tech student can learn, grow, and achieve success through quality education and smart technology.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.7;">
+                        At Narayan e-Gurukul, we believe education should be practical, engaging, and career-oriented.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT WE PROVIDE -->
+        <section class="section reveal about-section-padding" style="padding: 6rem 0;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">Features</span>
+                    <h2>What We <span>Provide</span></h2>
+                    <p>Narayan e-Gurukul offers specially curated resources for B.Tech students, including:</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+                    <div style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">High-Quality Study Material</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Notes & PYQs</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Practice Questions & Test Series</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Topic-Wise Learning Resources</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Doubt Support & Guidance</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">AI & Technology Learning Resources</span>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border); grid-column: 1 / -1;">
+                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
+                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Career & Skill Development Support</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- OUR VALUES SECTION -->
-        <section class="section reveal" style="background: var(--bg-alt);">
+        <!-- WHY CHOOSE US -->
+        <section class="section reveal about-section-padding" style="background: var(--bg-alt); padding: 6rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
             <div class="container">
                 <div class="section-header">
-                    <span class="badge">Core Values</span>
-                    <h2>What Drives <span>Us</span></h2>
-                    <p>The principles that guide our platform and community.</p>
+                    <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">Benefits</span>
+                    <h2>Why Choose <span>Narayan e-Gurukul?</span></h2>
                 </div>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon"><i class="ri-book-open-line"></i></div>
-                        <h3>Accessibility</h3>
-                        <p>Education should be available to everyone. We ensure our platform is easy to use and free of
-                            complex barriers.</p>
+                
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <!-- 1 -->
+                    <div class="card" style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
+                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Smart Learning Experience</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Learn with simplified concepts, structured content, and practical examples designed for engineering students.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="ri-check-double-line"></i></div>
-                        <h3>Quality First</h3>
-                        <p>We never compromise on the quality of our notes and PYQs. Every resource is verified for
-                            accuracy.</p>
+                    
+                    <!-- 2 -->
+                    <div class="card" style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Exam-Focused Preparation</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Practice with PYQs, quizzes, and test series based on university syllabus patterns.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="ri-group-line"></i></div>
-                        <h3>Community Driven</h3>
-                        <p>Built by engineering students, for engineering students. We constantly listen to feedback to
-                            improve.</p>
+                    
+                    <!-- 3 -->
+                    <div class="card" style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
+                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Learn Anytime, Anywhere</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Access study materials and learning resources online from any device.</p>
                     </div>
+                    
+                    <!-- 4 -->
+                    <div class="card" style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
+                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Student Support & Guidance</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Get guidance, motivation, and doubt support to improve your academic journey.</p>
+                    </div>
+                    
+                    <!-- 5 -->
+                    <div class="card" style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02); grid-column: span auto;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
+                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Future-Focused Education</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">We aim to help students not only score better in exams but also build real-world skills for future careers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOIN CTA -->
+        <section class="section reveal about-section-padding" style="padding: 6rem 0; text-align: center;">
+            <div class="container">
+                <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: var(--primary); margin-bottom: 1rem; display: inline-block;">Ready to scale?</span>
+                <h2 class="cta-heading" style="font-size: 3.5rem; margin-bottom: 1rem; color: var(--text-main);">Join Narayan e-Gurukul Today</h2>
+                <p style="color: var(--text-muted); font-size: 1.25rem; margin-bottom: 2.5rem; font-weight: 500;">Schooling | Coaching | Beyond <span style="color: var(--primary);">💙</span></p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://narayan-egurukul.vercel.app" target="_blank" class="btn primary-btn" style="padding: 1.2rem 2.5rem; font-size: 1.15rem; border-radius: 50px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);"><i class="ri-global-line" style="margin-right: 5px;"></i> Visit Website</a>
+                    <a href="btech-studymaterial.html" class="btn secondary-btn" style="padding: 1.2rem 2.5rem; font-size: 1.15rem; border-radius: 50px;">Explore Materials</a>
                 </div>
             </div>
         </section>

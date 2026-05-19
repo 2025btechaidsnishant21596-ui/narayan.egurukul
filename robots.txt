@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages from being indexed
+Disallow: /admin.html
+Disallow: /server.js
+
+# Point Google to your sitemap
+Sitemap: https://narayenegurukul.com/sitemap.xml
