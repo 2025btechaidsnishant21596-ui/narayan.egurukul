@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiries Dashboard - Narayan e-Gurukul</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .admin-page-header {
+            padding-top: calc(var(--navbar-height) + 4rem);
+            padding-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-lg);
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .stat-info h4 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-info h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .db-status-bar {
+            background: #f8fafc;
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-light);
+            font-size: 0.95rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-online { background: #10b981; box-shadow: 0 0 8px #10b981; }
+        .status-offline { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+
+        .dashboard-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-filter-box {
+            display: flex;
+            gap: 1rem;
+            flex-grow: 1;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .search-filter-box input,
+        .search-filter-box select {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            color: var(--primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .search-filter-box input {
+            flex-grow: 1;
+        }
+
+        .table-container {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .inquiries-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .inquiries-table th {
+            background: #f8fafc;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .inquiries-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--primary);
+            vertical-align: middle;
+        }
+
+        .inquiries-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .inquiries-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        .badge-type {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-admission {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent);
+        }
+
+        .badge-franchise {
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+        }
+
+        .badge-db {
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-md);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .db-sqlite {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .db-json {
+            background: rgba(99, 102, 241, 0.1);
+            color: #4f46e5;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .db-local {
+            background: rgba(100, 116, 139, 0.1);
+            color: #475569;
+            border: 1px solid rgba(100, 116, 139, 0.2);
+            font-style: italic;
+        }
+
+        .delete-btn {
+            background: rgba(239, 68, 68, 0.08);
+            color: #dc2626;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 0.5rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .delete-btn:hover {
+            background: #dc2626;
+            color: var(--white);
+            border-color: #dc2626;
+        }
+
+        .no-data {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .no-data i {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--border-light);
+        }
+
+        @media (max-width: 900px) {
+            .inquiries-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="logo">
+                <h1>Narayan <span>e-Gurukul</span></h1>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="batch.html">Our Batch</a></li>
+                <li><a href="myschool.html">My School Page</a></li>
+                <li><a href="admin.html" class="active">Admin Dashboard</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- HEADER -->
+        <section class="admin-page-header">
+            <div class="section-header" style="text-align: left; max-width: 100%;">
+                <span class="badge">Narayan e-Gurukul Database</span>
+                <h2 style="font-size: 3rem; margin-top: 1rem; margin-bottom: 0.5rem;">Admission & Franchise <span>Inquiries</span></h2>
+                <p>Monitor, search, and manage all school admission forms and franchise registrations submitted online.</p>
+            </div>
+        </section>
+
+        <!-- DATABASE SERVER STATUS -->
+        <div class="db-status-bar">
+            <div class="status-indicator">
+                <span class="status-dot status-offline" id="status-dot"></span>
+                <span id="status-text">Checking Backend Server Status...</span>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);" id="db-engine-info">
+                Database Engine: Local Client Cache Only
+            </div>
+        </div>
+
+        <!-- STATS DASHBOARD -->
+        <div class="stats-grid">
+            <!-- Stat 1 -->
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-survey-line"></i></div>
+                <div class="stat-info">
+                    <h4>Total Inquiries</h4>
+                    <h2 id="stat-total">0</h2>
+                </div>
+            </div>
+            <!-- Stat 2 -->
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(37, 99, 235, 0.08); color: var(--accent);"><i class="ri-user-follow-line"></i></div>
+                <div class="stat-info">
+                    <h4>Admissions</h4>
+                    <h2 id="stat-admissions">0</h2>
+                </div>
+            </div>
+            <!-- Stat 3 -->
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(245, 158, 11, 0.08); color: #d97706;"><i class="ri-briefcase-line"></i></div>
+                <div class="stat-info">
+                    <h4>Franchises</h4>
+                    <h2 id="stat-franchises">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="dashboard-controls">
+            <div class="search-filter-box">
+                <input type="text" id="search-input" placeholder="Search by name, phone, or details..." oninput="filterInquiries()">
+                <select id="filter-type" onchange="filterInquiries()">
+                    <option value="ALL">All Forms</option>
+                    <option value="Admission">Admission Only</option>
+                    <option value="Franchise">Franchise Only</option>
+                </select>
+                <select id="filter-source" onchange="filterInquiries()">
+                    <option value="ALL">All Databases</option>
+                    <option value="SERVER">Server Database Only</option>
+                    <option value="LOCAL">Local Web Storage Only</option>
+                </select>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button class="btn secondary-btn" style="padding: 0.75rem 1.25rem;" onclick="loadAllInquiries()"><i class="ri-refresh-line"></i> Refresh</button>
+            </div>
+        </div>
+
+        <!-- DATA TABLE -->
+        <div class="table-container">
+            <table class="inquiries-table" id="inquiries-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Inquiry Type</th>
+                        <th>Full Name</th>
+                        <th>Details (Class / Investment)</th>
+                        <th>Contact / Phone</th>
+                        <th>Database Storage</th>
+                        <th style="text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inquiries-tbody">
+                    <!-- Data loaded dynamically -->
+                </tbody>
+            </table>
+            <div id="no-data-msg" class="no-data" style="display: none;">
+                <i class="ri-inbox-archive-line"></i>
+                <h3>No inquiries found</h3>
+                <p>Try clearing your filters or submit a new inquiry form on the My School page.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <h2>Narayan <span>e-Gurukul</span></h2>
+                </a>
+                <p>Empowering the next generation of engineers with curated study materials, solved PYQs, and branch-specific resources for success.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="btech-studymaterial.html">Study Material</a></li>
+                    <li><a href="batch.html">Our Batches</a></li>
+                    <li><a href="#">Solved PYQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Narayan e-Gurukul. Crafted with excellence for engineering students.</p>
+        </div>
+    </footer>
+
+    <script>
+        let allInquiries = [];
+        let serverOnline = false;
+        let serverDbType = 'JSON';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAllInquiries();
+        });
+
+        // 1. Check Server Connection and Fetch Data
+        async function loadAllInquiries() {
+            allInquiries = [];
+            const tbody = document.getElementById('inquiries-tbody');
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding: 3rem;">Loading inquiries database...</td></tr>';
+            
+            // Step A: Load client side LocalStorage inquiries
+            const localList = JSON.parse(localStorage.getItem('egurukul_inquiries') || '[]');
+            localList.forEach(item => {
+                item.source = 'Local Storage';
+                allInquiries.push(item);
+            });
+
+            // Step B: Check backend server online status and fetch server inquiries
+            try {
+                const statusRes = await fetch('/api/status');
+                if (statusRes.ok) {
+                    const statusData = await statusRes.json();
+                    serverOnline = true;
+                    serverDbType = statusData.database;
+                    
+                    document.getElementById('status-dot').className = 'status-dot status-online';
+                    document.getElementById('status-text').innerText = 'Server Connected (Database Online)';
+                    document.getElementById('db-engine-info').innerText = `Database Engine: Server File-Based (${serverDbType})`;
+
+                    // Fetch inquiries from server
+                    const inquiriesRes = await fetch('/api/inquiries');
+                    if (inquiriesRes.ok) {
+                        const serverList = await inquiriesRes.json();
+                        serverList.forEach(item => {
+                            item.source = serverDbType === 'SQLite' ? 'SQLite Database' : 'Portable JSON Database';
+                            item.isServer = true;
+                            allInquiries.push(item);
+                        });
+                    }
+                } else {
+                    throw new Error('Server returned unhealthy status');
+                }
+            } catch (err) {
+                // Server is offline
+                serverOnline = false;
+                document.getElementById('status-dot').className = 'status-dot status-offline';
+                document.getElementById('status-text').innerText = 'Server Offline (Using Client Local Cache)';
+                document.getElementById('db-engine-info').innerText = 'Database Engine: Local Browser Cache (LocalStorage)';
+            }
+
+            // Sort all by timestamp descending
+            allInquiries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+            renderInquiries(allInquiries);
+            updateStatsDashboard();
+        }
+
+        // 2. Render inquiries to table DOM
+        function renderInquiries(list) {
+            const tbody = document.getElementById('inquiries-tbody');
+            const noDataMsg = document.getElementById('no-data-msg');
+            tbody.innerHTML = '';
+
+            if (list.length === 0) {
+                noDataMsg.style.display = 'block';
+                return;
+            } else {
+                noDataMsg.style.display = 'none';
+            }
+
+            list.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.id = `row-${item.id}`;
+
+                // Format timestamp
+                const date = new Date(item.createdAt);
+                const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                // Set type badge
+                const typeClass = item.type === 'Admission' ? 'badge-admission' : 'badge-franchise';
+                const typeBadge = `<span class="badge-type ${typeClass}">${item.type}</span>`;
+
+                // Set details string
+                let detailsText = '';
+                if (item.type === 'Admission') {
+                    detailsText = `<strong>Parent:</strong> ${item.parentName || 'N/A'}<br><strong>Class Stage:</strong> ${item.classStage || 'N/A'}`;
+                } else {
+                    detailsText = `<strong>Email:</strong> ${item.parentName || 'N/A'}<br><strong>Investment Range:</strong> ${item.investmentRange || 'N/A'}`;
+                }
+
+                // Set storage badge
+                let storageClass = 'db-local';
+                if (item.source.includes('SQLite')) storageClass = 'db-sqlite';
+                else if (item.source.includes('JSON')) storageClass = 'db-json';
+                const storageBadge = `<span class="badge-db ${storageClass}">${item.source}</span>`;
+
+                // Delete button
+                const deleteAction = `<button class="delete-btn" onclick="deleteInquiry('${item.id}', ${!!item.isServer})" title="Delete Record"><i class="ri-delete-bin-6-line"></i></button>`;
+
+                tr.innerHTML = `
+                    <td style="white-space: nowrap; color: var(--text-muted); font-size: 0.85rem;">${formattedDate}</td>
+                    <td>${typeBadge}</td>
+                    <td style="font-weight: 600;">${item.name}</td>
+                    <td style="font-size: 0.85rem; line-height: 1.4;">${detailsText}</td>
+                    <td><a href="tel:${item.phone}" style="color: var(--accent); font-weight: 600;">${item.phone}</a></td>
+                    <td>${storageBadge}</td>
+                    <td style="text-align: center;">${deleteAction}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // 3. Update dashboard KPI statistics cards
+        function updateStatsDashboard() {
+            const total = allInquiries.length;
+            const admissions = allInquiries.filter(item => item.type === 'Admission').length;
+            const franchises = allInquiries.filter(item => item.type === 'Franchise').length;
+
+            document.getElementById('stat-total').innerText = total;
+            document.getElementById('stat-admissions').innerText = admissions;
+            document.getElementById('stat-franchises').innerText = franchises;
+        }
+
+        // 4. Client side filters (Search, Type, Storage)
+        function filterInquiries() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const typeFilter = document.getElementById('filter-type').value;
+            const sourceFilter = document.getElementById('filter-source').value;
+
+            const filtered = allInquiries.filter(item => {
+                // Search query
+                const searchStr = `${item.name} ${item.phone} ${item.parentName || ''} ${item.classStage || ''} ${item.investmentRange || ''}`.toLowerCase();
+                const matchesSearch = searchStr.includes(query);
+
+                // Type filter
+                const matchesType = typeFilter === 'ALL' || item.type === typeFilter;
+
+                // Storage source filter
+                let matchesSource = true;
+                if (sourceFilter === 'SERVER') {
+                    matchesSource = !!item.isServer;
+                } else if (sourceFilter === 'LOCAL') {
+                    matchesSource = !item.isServer;
+                }
+
+                return matchesSearch && matchesType && matchesSource;
+            });
+
+            renderInquiries(filtered);
+        }
+
+        // 5. Delete Inquiry Action
+        async function deleteInquiry(id, isServer) {
+            if (!confirm(`Are you sure you want to permanently delete this inquiry record?`)) return;
+
+            if (isServer) {
+                // Delete from backend Node server SQLite/JSON DB
+                try {
+                    const res = await fetch(`/api/inquiries/${id}`, { method: 'DELETE' });
+                    if (res.ok) {
+                        alert(`Record successfully deleted from server database.`);
+                        loadAllInquiries();
+                    } else {
+                        alert(`Failed to delete record from server database.`);
+                    }
+                } catch (err) {
+                    alert(`Network error: Failed to reach backend server to delete record.`);
+                }
+            } else {
+                // Delete from local storage
+                let localList = JSON.parse(localStorage.getItem('egurukul_inquiries') || '[]');
+                localList = localList.filter(item => item.id !== id);
+                localStorage.setItem('egurukul_inquiries', JSON.stringify(localList));
+                alert(`Record successfully deleted from browser LocalStorage.`);
+                loadAllInquiries();
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

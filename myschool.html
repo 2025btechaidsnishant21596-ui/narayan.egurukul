@@ -786,10 +786,60 @@
             }
         }
 
-        function handleFormSubmit(event, type) {
+        async function handleFormSubmit(event, type) {
             event.preventDefault();
-            alert(`${type} Inquiry submitted successfully! Our representative will contact you shortly.`);
-            event.target.reset();
+            const form = event.target;
+            
+            // Gather form data based on type
+            let data = {
+                type: type,
+                createdAt: new Date().toISOString()
+            };
+            
+            if (type === 'Admission') {
+                data.name = document.getElementById('adm-name').value;
+                data.parentName = document.getElementById('adm-parent').value;
+                data.phone = document.getElementById('adm-phone').value;
+                data.classStage = document.getElementById('adm-class').value;
+            } else if (type === 'Franchise') {
+                data.name = document.getElementById('fra-name').value;
+                data.phone = document.getElementById('fra-phone').value;
+                data.investmentRange = document.getElementById('fra-investment').value;
+                // Add optional email if present
+                const emailField = document.getElementById('fra-email');
+                if (emailField) data.parentName = emailField.value; // Store email in parentName column for database uniformity
+            }
+            
+            try {
+                // Try sending to the backend server API
+                const response = await fetch('/api/inquiries', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(`✅ Server Database: ${type} Inquiry submitted successfully!\n(Saved in: ${result.message.includes('SQLite') ? 'SQLite Database' : 'Portable JSON Database'})`);
+                    form.reset();
+                } else {
+                    throw new Error('Server returned an error');
+                }
+            } catch (err) {
+                // Fallback to client-side localStorage database
+                console.log('Backend server offline or unreachable. Saving inquiry to browser localStorage.');
+                
+                const localInquiries = JSON.parse(localStorage.getItem('egurukul_inquiries') || '[]');
+                data.id = 'local_' + Date.now();
+                data.isLocal = true;
+                localInquiries.push(data);
+                localStorage.setItem('egurukul_inquiries', JSON.stringify(localInquiries));
+                
+                alert(`💾 Local Browser Database: Web server is offline, but your ${type} Inquiry has been saved successfully inside your browser's LocalStorage!\n\nYou can view and manage all inquiries inside the Admin Dashboard.`);
+                form.reset();
+            }
         }
     </script>
     <script src="script.js"></script>
