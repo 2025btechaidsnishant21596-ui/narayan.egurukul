@@ -55,60 +55,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
-        .coming-soon-section {
-            min-height: calc(100vh - var(--navbar-height));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: calc(var(--navbar-height) + 4rem) 6% 4rem;
+        .dashboard-hero {
+            padding: calc(var(--navbar-height) + 4rem) 6% 2rem;
             text-align: center;
+        }
+        
+        .dashboard-filters {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            position: relative;
+            z-index: 10;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .form-select {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.85rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--bg-alt);
+            font-family: inherit;
+            color: var(--text-main);
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 16L6 10H18L12 16Z' fill='rgba(100,116,139,1)'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent);
             background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
 
-        .poster-container {
-            max-width: 320px;
-            width: 100%;
-            margin-bottom: 2.5rem;
-        }
-
-        .poster-container img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 4px solid var(--white);
-        }
-
-        .coming-soon-text h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .coming-soon-text p {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin: 0 auto 2.5rem;
+        .subject-grid {
+            padding-top: 1rem;
+            padding-bottom: 6rem;
         }
 
         @media (max-width: 768px) {
-            .coming-soon-text h2 {
-                font-size: 2.5rem;
+            .dashboard-hero {
+                padding: calc(var(--navbar-height) + 2rem) 4% 1rem;
             }
-
-            .coming-soon-text p {
-                font-size: 1.1rem;
+            .dashboard-filters {
+                margin: 0 6% 2rem;
+                padding: 1rem;
+            }
+            .filter-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .form-select, .filter-group .btn {
+                width: 100%;
             }
         }
 
-        @media (max-width: 480px) {
-            .coming-soon-text h2 {
-                font-size: 2rem;
-            }
+        .batch-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-            .coming-soon-text p {
-                font-size: 1rem;
-            }
+        .batch-status {
+            display: inline-block;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -136,21 +162,119 @@
     </header>
 
     <main>
-        <section class="coming-soon-section reveal active">
-            <div class="poster-container">
-                <img src="05.jpeg" alt="Coming Soon Poster" />
+        <section class="dashboard-hero section">
+            <div class="section-header reveal active">
+                <span class="badge">100% Free Resources</span>
+                <h2>B.Tech <span>Study Material</span></h2>
+                <p>Access high-quality notes, previous year question papers, and lab manuals for your engineering journey.</p>
             </div>
-            <div class="coming-soon-text">
-                <h2>B.Tech Study Material <br><span>Coming Soon</span></h2>
-                <p>We are working hard to bring you the best B.Tech study resources, PYQs, and notes. Stay tuned
-                    for the launch!</p>
-                <a href="index.html" class="btn primary-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            
+            <div class="dashboard-filters reveal active">
+                <div class="filter-group">
+                    <select class="form-select" id="branch-select" aria-label="Select Branch">
+                        <option value="all">All Branches</option>
+                        <option value="cse_aids">B.Tech CSE_AIDS</option>
+                        <option value="core">B.Tech (Core)</option>
+                        <option value="cse_aiml">B.Tech CSE_AIML</option>
+                    </select>
+                    <select class="form-select" id="semester-select" aria-label="Select Semester">
+                        <option value="all">All Semesters</option>
+                        <option value="1">1st Semester</option>
+                        <option value="2">2nd Semester</option>
+                    </select>
+                    <button class="btn primary-btn" id="search-btn"><i class="ri-search-line"></i> Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="subject-grid">
+            <div class="container">
+                <div class="grid">
+                    <!-- Core Card -->
+                    <div class="card batch-card reveal active branch-card" data-branch="core">
+                        <div>
+                            <div class="card-icon"><i class="ri-instance-line"></i></div>
+                            <div class="batch-status"><span class="badge"
+                                    style="background: var(--accent); color: white; text-transform: uppercase;">Coming 25 June</span></div>
+                            <h3>B.Tech Core</h3>
+                            <p>Foundational resources for all engineering disciplines in the first year.</p>
+                            <ul class="card-list">
+                                <li><i class="ri-book-3-line"></i> 1st Year Notes</li>
+                                <li><i class="ri-history-line"></i> Solved PYQs</li>
+                                <li><i class="ri-book-open-line"></i> Core E-Books</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn primary-btn" style="width: 100%; justify-content: center;">Open Resources <i
+                                class="ri-external-link-line"></i></a>
+                    </div>
+                    
+                    <!-- CSE AIDS Card -->
+                    <div class="card batch-card reveal active branch-card" data-branch="cse_aids">
+                        <div>
+                            <div class="card-icon"><i class="ri-database-2-line"></i></div>
+                            <div class="batch-status"><span class="badge"
+                                    style="background: var(--accent); color: white; text-transform: uppercase;">Coming 25 June</span></div>
+                            <h3>CSE (AIDS)</h3>
+                            <p>Specialized materials for Artificial Intelligence & Data Science.</p>
+                            <ul class="card-list">
+                                <li><i class="ri-code-s-line"></i> Specialization Notes</li>
+                                <li><i class="ri-file-list-3-line"></i> Batch PYQs</li>
+                                <li><i class="ri-folder-info-line"></i> AIDS Resources</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn primary-btn" style="width: 100%; justify-content: center;">Open Resources <i
+                                class="ri-external-link-line"></i></a>
+                    </div>
+
+                    <!-- CSE AIML Card -->
+                    <div class="card batch-card reveal active branch-card" data-branch="cse_aiml">
+                        <div>
+                            <div class="card-icon"><i class="ri-robot-2-line"></i></div>
+                            <div class="batch-status"><span class="badge"
+                                    style="background: var(--accent); color: white; text-transform: uppercase;">Coming 25 June</span></div>
+                            <h3>CSE (AIML)</h3>
+                            <p>Advanced learning materials for AI & Machine Learning paths.</p>
+                            <ul class="card-list">
+                                <li><i class="ri-cpu-line"></i> Specialization Notes</li>
+                                <li><i class="ri-file-chart-line"></i> Solved PYQs</li>
+                                <li><i class="ri-brain-line"></i> AIML E-Books</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn primary-btn" style="width: 100%; justify-content: center;">Open Resources <i
+                                class="ri-external-link-line"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchBtn = document.getElementById('search-btn');
+            const branchSelect = document.getElementById('branch-select');
+            const cards = document.querySelectorAll('.branch-card');
+
+            searchBtn.addEventListener('click', () => {
+                const selectedBranch = branchSelect.value;
+                
+                cards.forEach(card => {
+                    const cardBranch = card.getAttribute('data-branch');
+                    
+                    if (selectedBranch === 'all' || cardBranch === selectedBranch) {
+                        card.style.display = 'block';
+                        // Add a small animation effect when showing
+                        card.style.animation = 'none';
+                        card.offsetHeight; // trigger reflow
+                        card.style.animation = null; 
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

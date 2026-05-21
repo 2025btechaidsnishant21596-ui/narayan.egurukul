@@ -125,12 +125,27 @@
         }
 
         @media (max-width: 480px) {
+            .login-section {
+                padding: calc(var(--navbar-height) + 2rem) 1rem 2rem;
+            }
+
             .login-card {
-                padding: 2.5rem 1.5rem;
+                padding: 2rem 1.5rem;
             }
 
             .login-card h2 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+
+            .login-card p {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+
+            .login-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
             }
         }
     </style>
@@ -162,14 +177,16 @@
                 <h2>Welcome Back</h2>
                 <p>Login to access premium resources</p>
 
-                <form class="login-form">
-                    <div class="form-group">
+                <form class="login-form" id="loginForm">
+                    <div class="form-group" id="emailGroup">
                         <label>Email Address</label>
-                        <input type="email" placeholder="student@university.edu" required>
+                        <input type="email" id="emailInput" placeholder="student@university.edu" required>
                     </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" placeholder="••••••••" required>
+                    
+                    <div class="form-group" id="otpGroup" style="display: none;">
+                        <label>Enter OTP</label>
+                        <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" pattern="\d{6}" maxlength="6">
+                        <small id="otpMessage" style="color: var(--accent); display: block; margin-top: 5px; font-weight: 500;">OTP sent to your email</small>
                     </div>
 
                     <div class="login-options">
@@ -177,12 +194,46 @@
                             style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-muted); font-weight: 500;">
                             <input type="checkbox" style="width: auto; padding: 0;"> Remember me
                         </label>
-                        <a href="forgot-password.html">Forgot Password?</a>
                     </div>
 
-                    <button type="submit" class="btn primary-btn" style="width: 100%; justify-content: center;">Login <i
-                            class="ri-login-circle-line"></i></button>
+                    <button type="button" id="sendOtpBtn" class="btn primary-btn" style="width: 100%; justify-content: center;">Send OTP <i class="ri-mail-send-line"></i></button>
+                    <button type="submit" id="verifyLoginBtn" class="btn primary-btn" style="width: 100%; justify-content: center; display: none;">Verify & Login <i class="ri-login-circle-line"></i></button>
                 </form>
+
+                <script>
+                    document.getElementById('sendOtpBtn').addEventListener('click', function() {
+                        const emailInput = document.getElementById('emailInput');
+                        if (emailInput.checkValidity() && emailInput.value) {
+                            // Simulate sending OTP
+                            document.getElementById('sendOtpBtn').innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Sending...';
+                            
+                            setTimeout(() => {
+                                // Transition to OTP UI
+                                document.getElementById('otpGroup').style.display = 'block';
+                                document.getElementById('sendOtpBtn').style.display = 'none';
+                                document.getElementById('verifyLoginBtn').style.display = 'flex';
+                                emailInput.readOnly = true;
+                                emailInput.style.opacity = '0.7';
+                            }, 1000);
+                        } else {
+                            emailInput.reportValidity();
+                        }
+                    });
+
+                    document.getElementById('loginForm').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const otpInput = document.getElementById('otpInput');
+                        if (otpInput.value.length === 6) {
+                            document.getElementById('verifyLoginBtn').innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Verifying...';
+                            setTimeout(() => {
+                                alert('Login Successful!');
+                                window.location.href = 'index.html';
+                            }, 1500);
+                        } else {
+                            alert('Please enter a valid 6-digit OTP.');
+                        }
+                    });
+                </script>
 
                 <div class="social-login">
                     <button class="btn btn-google">
