@@ -183,6 +183,87 @@ app.delete('/api/inquiries/:id', (req, res) => {
     }
 });
 
+// 5. Smart AI Guru Chatbot API
+app.post('/api/chat', (req, res) => {
+    const { message } = req.body;
+
+    if (!message) {
+        return res.status(400).json({ error: 'Message field is required.' });
+    }
+
+    const query = message.toLowerCase().trim();
+    let reply = "";
+    let suggestions = [];
+
+    // Helper keyword matching
+    if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('greetings')) {
+        reply = "Hello! I am **AI Guru**, your virtual academic mentor. 🎓 I am here to help you navigate study materials, batches, admissions, and more at Narayan e-Gurukul. What are you looking to excel in today?";
+        suggestions = ["Explore B.Tech Notes", "When is the launch?", "Sanfort Pre-School Inquiry", "Tell me about AIML"];
+    } 
+    else if (query.includes('launch') || query.includes('when') || query.includes('date') || query.includes('toolkit') || query.includes('august')) {
+        reply = "Our ultimate **B.Tech 1st Year Complete Toolkit** is launching in **Mid-August**! 🚀 This repository is meticulously built to help students secure a 9+ CGPA. It includes hand-written notes, 10+ years solved PYQs, viva-voce question banks, and detailed lab manuals. Over **1,200+ students** are already on the waitlist. Would you like to join the waitlist?";
+        suggestions = ["How to join waitlist?", "Explore Study Materials", "Tell me about CSE AIML"];
+    }
+    else if (query.includes('waitlist') || query.includes('join') || query.includes('sign up') || query.includes('notify')) {
+        reply = "Great choice! 🌟 To join the B.Tech 1st Year waitlist, simply scroll down to the **'Stay Updated'** section in our page footer or fill out the **Contact Form** on our home page with the message 'Join B.Tech Waitlist'. You'll receive instant launch updates and priority access!";
+        suggestions = ["Scroll to Footer", "Go to Contact Form", "What study notes do you have?"];
+    }
+    else if (query.includes('material') || query.includes('note') || query.includes('pyq') || query.includes('book') || query.includes('study') || query.includes('paper') || query.includes('viva')) {
+        reply = "Narayan e-Gurukul provides a **100% Free** academic repository! 📚 You'll get hand-written notes, solved PYQs (Previous Year Questions) covering the last 10 years, interactive concept maps, and step-by-step laboratory manuals. Everything is optimized to give you a stellar academic edge.";
+        suggestions = ["Explore Our Batches", "Download Mobile App", "B.Tech 1st Year Launch"];
+    }
+    else if (query.includes('batch') || query.includes('course') || query.includes('branch') || query.includes('specialization') || query.includes('cse') || query.includes('aiml') || query.includes('aids') || query.includes('core')) {
+        reply = "We offer specialized academic hubs tailored to your B.Tech engineering stream: \n\n" +
+                "1. **Core B.Tech:** Foundation subjects, mechanical, electrical, and civil resources.\n" +
+                "2. **CSE AIDS:** Artificial Intelligence & Data Science syllabus, solved papers, and notebooks.\n" +
+                "3. **CSE AIML:** Artificial Intelligence & Machine Learning advanced course materials.\n\n" +
+                "Which batch are you interested in?";
+        suggestions = ["Tell me about CSE AIML", "Tell me about CSE AIDS", "Tell me about Core B.Tech", "Explore Batches Page"];
+    }
+    else if (query.includes('school') || query.includes('preschool') || query.includes('sanfort') || query.includes('admission') || query.includes('franchise') || query.includes('child') || query.includes('inquiry')) {
+        reply = "We host a comprehensive admissions and inquiry manager for **Sanfort Pre-School, Hanumangarh**! 🏫 Whether you are looking for Nursery/KG admissions or Franchise opportunities, you can use our dual-tabbed interactive form on the **'My School'** page. All submissions sync directly to our primary SQLite server with zero data loss fallbacks!";
+        suggestions = ["Go to My School Page", "How does SQLite database work?", "View Inquiry Dashboard"];
+    }
+    else if (query.includes('database') || query.includes('sqlite') || query.includes('json') || query.includes('fail-safe') || query.includes('dashboard') || query.includes('admin')) {
+        reply = "Narayan e-Gurukul features a **Fail-Safe Triple-Database Engine**! 💾 \n\n" +
+                "- **Primary:** SQLite Database (`database.db`) for secure inquiry tracking.\n" +
+                "- **Secondary Fallback:** Zero-dependency `database.json` file if SQLite is busy.\n" +
+                "- **Tertiary Fallback:** Browser LocalStorage cache (stores inquiries locally if the server is offline, and auto-syncs when online!).\n\n" +
+                "Managers can inspect all live records on the secure **Admin Dashboard**!";
+        suggestions = ["View Admin Dashboard", "Submit a Test Inquiry", "How to contact support?"];
+    }
+    else if (query.includes('app') || query.includes('download') || query.includes('android') || query.includes('ios') || query.includes('mobile') || query.includes('play store')) {
+        reply = "Yes! The **Narayan e-Gurukul Mobile App** is coming soon to the Google Play Store and Apple App Store! 📱 With the app, you can download lectures, hand-written notes, and solved question banks for 100% offline study anytime, anywhere.";
+        suggestions = ["When is B.Tech 1st Year launching?", "How to get email notified?", "Go to home page"];
+    }
+    else if (query.includes('contact') || query.includes('support') || query.includes('email') || query.includes('address') || query.includes('location') || query.includes('help')) {
+        reply = "We are always here to support your learning journey! 🤝 \n\n" +
+                "📧 **Email:** nishant.sanfort@gmail.com\n" +
+                "📍 **Address:** Hanumangarh, Rajasthan, India - 335512\n\n" +
+                "You can also send an instant message using our **Contact Form** on the homepage!";
+        suggestions = ["Go to Contact Form", "Explore B.Tech Notes", "Who built e-Gurukul?"];
+    }
+    else if (query.includes('author') || query.includes('creator') || query.includes('developer') || query.includes('built') || query.includes('who is nishant') || query.includes('nishant')) {
+        reply = "Narayan e-Gurukul was conceived and crafted by **Nishant Saini** and his talented engineering team! 💻 It was developed using a premium tech stack (Outfit Typography, Remix Icons, Express Node Server, and a smart Fail-Safe DB) to empower the next generation of B.Tech students in India.";
+        suggestions = ["What is the tech stack?", "Send message to Nishant", "Tell me more about the mission"];
+    }
+    else if (query.includes('thank') || query.includes('thanks') || query.includes('awesome') || query.includes('great') || query.includes('cool')) {
+        reply = "You are very welcome! 🌟 Empowering B.Tech students is our ultimate goal. Let me know if you need help with study resources, batches, admissions, or anything else. Keep learning, keep growing!";
+        suggestions = ["Explore Study Materials", "Go to homepage", "Tell me about CSE AIML"];
+    }
+    else {
+        // General smart response
+        reply = "I appreciate your question! 💡 As **AI Guru**, I recommend exploring our B.Tech Specializations (CSE AIML, CSE AIDS) or checking out our upcoming B.Tech 1st Year Academic Toolkit launching in Mid-August. \n\nWhat other questions can I answer for you?";
+        suggestions = ["Explore B.Tech Notes", "When is the launch?", "Sanfort Pre-School Admission", "How to contact support?"];
+    }
+
+    res.json({
+        response: reply,
+        suggestions: suggestions,
+        timestamp: new Date().toISOString()
+    });
+});
+
 // Serve frontend home page
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
