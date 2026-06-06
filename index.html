@@ -1,456 +1,1146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary SEO Meta Tags -->
-    <title>Narayan e-Gurukul - Free B.Tech Study Material, PYQs & Notes | Engineering Portal</title>
-    <meta name="description"
-        content="Narayan e-Gurukul is India's premier free digital repository for B.Tech students. Download solved PYQs, hand-written notes, lab manuals, and branch-specific resources for CSE, AIDS, AIML & more.">
-    <meta name="keywords"
-        content="B.Tech study material, engineering notes, solved PYQs, Poornima University notes, CSE notes, AIDS notes, AIML notes, free engineering study material India, B.Tech 1st year notes, Narayan e-Gurukul, engineering PYQs download">
+    <title>Narayan e-Gurukul | Free B.Tech, JEE, NEET & School Competition Study Material</title>
+    <meta name="description" content="Narayan e-Gurukul — India's free smart learning platform. Download B.Tech notes, solved PYQs, JEE preparation, NEET preparation, and school Olympiad resources. 100% free for every student.">
+    <meta name="keywords" content="Narayan e-Gurukul, free B.Tech notes, JEE preparation, NEET preparation, school Olympiad, engineering PYQs, CSE AIDS AIML notes, NTSE KVPY, free study material India, Hanumangarh engineering notes">
     <meta name="author" content="Narayan e-Gurukul Team">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="geo.region" content="IN-RJ">
+    <meta name="geo.placename" content="Hanumangarh, Rajasthan">
     <link rel="canonical" href="https://narayenegurukul.com/">
-
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://narayenegurukul.com/">
-    <meta property="og:title" content="Narayan e-Gurukul - Free B.Tech Study Material & PYQs">
-    <meta property="og:description"
-        content="India's most comprehensive free digital repository of curated notes, solved PYQs, and branch-specific resources for B.Tech engineering students.">
-    <meta property="og:image" content="https://narayenegurukul.com/03.png">
     <meta property="og:site_name" content="Narayan e-Gurukul">
     <meta property="og:locale" content="en_IN">
-
+    <meta property="og:url" content="https://narayenegurukul.com/">
+    <meta property="og:title" content="Narayan e-Gurukul | Free B.Tech, JEE & NEET Study Material">
+    <meta property="og:description" content="India's free smart learning platform — B.Tech notes, JEE & NEET prep, and school competition resources for every student.">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Narayan e-Gurukul - Free B.Tech Study Material & PYQs">
-    <meta name="twitter:description"
-        content="India's most comprehensive free digital repository of curated notes, solved PYQs, and branch-specific resources for B.Tech engineering students.">
-    <meta name="twitter:image" content="https://narayenegurukul.com/03.png">
-
-    <!-- JSON-LD Structured Data -->
+    <meta name="twitter:site" content="@narayenegurukul">
+    <meta name="twitter:title" content="Narayan e-Gurukul | Free B.Tech, JEE & NEET Study Material">
+    <meta name="twitter:description" content="India's free smart learning platform — B.Tech notes, JEE & NEET prep, and school competition resources.">
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "Narayan e-Gurukul",
+      "alternateName": ["Narayan eGurukul", "narayenegurukul"],
       "url": "https://narayenegurukul.com",
-      "logo": "https://narayenegurukul.com/03.png",
-      "description": "India's premier free digital repository for B.Tech students providing curated notes, solved PYQs, lab manuals and branch-specific engineering resources.",
+      "description": "India's free smart learning platform for B.Tech, JEE, NEET and school competition students.",
+      "foundingDate": "2024",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Hanumangarh",
+        "streetAddress": "Ward No. 17",
+        "addressLocality": "Hanumangarh Junction",
         "addressRegion": "Rajasthan",
         "postalCode": "335512",
         "addressCountry": "IN"
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "nishant.sanfort@gmail.com",
-        "contactType": "customer support"
+        "telephone": "+91-9468974044",
+        "email": "egurukulnarayan@gmail.com",
+        "contactType": "customer support",
+        "areaServed": "IN",
+        "availableLanguage": ["Hindi", "English"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Free Study Resources",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "B.Tech Study Material", "url": "https://narayenegurukul.com/btech-studymaterial.html"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "JEE Preparation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "NEET Preparation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "School Competition Prep"}}
+        ]
       },
       "sameAs": []
     }
     </script>
-
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- WebSite schema for Sitelinks Searchbox -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Narayan e-Gurukul",
+      "url": "https://narayenegurukul.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://narayenegurukul.com/btech-studymaterial.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+/* ═══ RESET ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:#f8fafc;color:#334155;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-weight:700;line-height:1.25;color:#0f172a}
+p{color:#64748b}
+
+/* ═══════════════════════════════════════
+   HEADER — 3 ROWS
+   1. Pink info bar (top)
+   2. White logo bar (middle)
+   3. Dark navy nav (bottom)
+═══════════════════════════════════════ */
+
+/* ── Row 1: Pink Info Bar ── */
+.top-info-bar{
+    position:fixed;top:0;left:0;width:100%;
+    z-index:1002;
+    background:linear-gradient(90deg,#c2185b 0%,#e91e63 50%,#f06292 100%);
+    height:38px;
+    display:flex;align-items:center;
+    padding:0 5%;
+    justify-content:space-between;
+    gap:12px;
+}
+.tib-left{display:flex;align-items:center;gap:20px;overflow:hidden}
+.tib-item{display:flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.95);white-space:nowrap}
+.tib-item i{font-size:0.8rem;color:rgba(255,255,255,0.85);flex-shrink:0}
+.tib-item a{color:rgba(255,255,255,0.95);transition:color .2s}
+.tib-item a:hover{color:#fff;text-decoration:underline}
+.tib-sep{width:1px;height:14px;background:rgba(255,255,255,0.35);flex-shrink:0}
+.tib-right{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.tib-btn{
+    background:#fff;color:#c2185b;
+    border:none;border-radius:4px;
+    padding:4px 14px;font-size:0.72rem;font-weight:700;
+    cursor:pointer;font-family:'Outfit',sans-serif;
+    transition:all .2s;white-space:nowrap;
+    text-decoration:none;display:inline-block;
+}
+.tib-btn:hover{background:#fce4ec;transform:translateY(-1px)}
+.tib-btn-outline{
+    background:transparent;color:#fff;
+    border:1px solid rgba(255,255,255,0.6);border-radius:4px;
+}
+.tib-btn-outline:hover{background:rgba(255,255,255,0.15)}
+
+/* ── Row 2: White Logo Bar ── */
+.logo-bar{
+    position:fixed;top:38px;left:0;width:100%;
+    z-index:1001;
+    background:#fff;
+    height:72px;
+    display:flex;align-items:center;
+    padding:0 5%;
+    justify-content:space-between;
+    border-bottom:1px solid #e2e8f0;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+.logo-brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-icon{
+    width:52px;height:52px;
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;color:#fff;
+    flex-shrink:0;
+    box-shadow:0 4px 12px rgba(37,99,235,0.3);
+}
+.logo-text{}
+.logo-name{
+    font-size:1.35rem;font-weight:800;
+    color:#0f172a;line-height:1.1;
+    letter-spacing:-0.5px;
+}
+.logo-name span{color:#2563eb}
+.logo-tagline{
+    font-size:0.7rem;font-weight:600;
+    color:#64748b;
+    text-transform:uppercase;letter-spacing:1.5px;
+    margin-top:2px;
+    display:flex;align-items:center;gap:6px;
+}
+.logo-tagline::before,.logo-tagline::after{
+    content:'';display:inline-block;
+    width:20px;height:1.5px;
+    background:#2563eb;
+    border-radius:2px;
+}
+.logo-bar-right{display:flex;align-items:center;gap:10px}
+.logo-bar-badge{
+    background:#eff6ff;color:#2563eb;
+    border:1px solid #bfdbfe;border-radius:999px;
+    padding:4px 12px;font-size:0.75rem;font-weight:700;
+    display:flex;align-items:center;gap:5px;
+}
+
+/* ── Row 3: Dark Navy Navbar ── */
+.navbar{
+    position:fixed;top:110px;left:0;width:100%;
+    z-index:1000;
+    background:#2563eb;
+    border-bottom:3px solid #1d4ed8;
+    height:50px;
+    display:flex;align-items:center;
+    padding:0 5%;
+    justify-content:center;
+    transition:box-shadow .3s;
+}
+.navbar.scrolled{box-shadow:0 4px 20px rgba(37,99,235,0.4)}
+.nav-logo{display:none}
+.nav-links{display:flex;gap:0;list-style:none;align-items:center;height:100%}
+.nav-links a{
+    font-size:0.88rem;font-weight:600;
+    color:rgba(255,255,255,0.9);
+    transition:all .2s;
+    padding:0 20px;
+    height:50px;
+    display:flex;align-items:center;
+    border-bottom:3px solid transparent;
+    margin-bottom:-3px;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.12);border-bottom-color:#fff}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.menu-toggle span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+
+/* ── Wrapper keeps all 3 rows together ── */
+.site-header{
+    position:fixed;top:0;left:0;width:100%;
+    z-index:1000;
+}
+/* ── Total fixed header = 38 + 72 + 50 = 160px ── */
+.hero{padding:172px 5% 64px;background:#fff}
+
+/* ═══ BUTTONS ═══ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:0.95rem;cursor:pointer;border:none;transition:all .2s;font-family:'Outfit',sans-serif}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
+.btn-secondary{background:#fff;color:#0f172a;border:1.5px solid #e2e8f0}
+.btn-secondary:hover{border-color:#2563eb;color:#2563eb}
+.btn-green{background:#10b981;color:#fff}
+.btn-green:hover{background:#059669;transform:translateY(-1px)}
+.btn-amber{background:#f59e0b;color:#fff;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+.btn-amber:hover{background:#d97706;transform:translateY(-1px)}
+
+/* ═══ SECTION LABEL ═══ */
+.label{display:inline-block;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+.label-blue{color:#2563eb;background:#eff6ff}
+.label-green{color:#10b981;background:#ecfdf5}
+.label-amber{color:#f59e0b;background:#fffbeb}
+.label-white{color:#93c5fd;background:rgba(255,255,255,0.1)}
+
+/* ── Hero ── */
+.hero-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.stat-divider{width:1px;height:36px;background:#e2e8f0}
+
+/* ═══ HERO ANIMATION ═══ */
+.hero-anim{position:relative;width:100%;max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Dashboard cards */
+.dash-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.06);animation:dashFloat linear infinite alternate;position:relative;overflow:hidden}
+.dash-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
+.dash-card.dc-blue::before{background:#2563eb}
+.dash-card.dc-green::before{background:#10b981}
+.dash-card.dc-amber::before{background:#f59e0b}
+.dash-card.dc-purple::before{background:#9333ea}
+.dash-card:nth-child(1){animation-duration:3.2s;animation-delay:0s}
+.dash-card:nth-child(2){animation-duration:3.8s;animation-delay:.5s}
+.dash-card:nth-child(3){animation-duration:3.5s;animation-delay:.3s}
+.dash-card:nth-child(4){animation-duration:4s;animation-delay:.8s}
+@keyframes dashFloat{from{transform:translateY(0px)}to{transform:translateY(-8px)}}
+
+.dash-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:12px;flex-shrink:0}
+.dash-icon.di-blue{background:#eff6ff;color:#2563eb}
+.dash-icon.di-green{background:#ecfdf5;color:#10b981}
+.dash-icon.di-amber{background:#fffbeb;color:#f59e0b}
+.dash-icon.di-purple{background:#fdf4ff;color:#9333ea}
+.dash-num{font-size:1.6rem;font-weight:800;color:#0f172a;line-height:1;margin-bottom:4px}
+.dash-label{font-size:0.78rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.8px}
+.dash-sub{font-size:0.75rem;color:#94a3b8;margin-top:4px}
+
+/* Progress bar inside cards */
+.dash-bar{height:5px;background:#f1f5f9;border-radius:999px;margin-top:12px;overflow:hidden}
+.dash-bar-fill{height:100%;border-radius:999px;animation:barGrow 2s ease-out forwards}
+@keyframes barGrow{from{width:0}to{width:var(--w)}}
+
+/* Ticker */
+.anim-ticker{background:#f8fafc;border:1px solid #e2e8f0;border-radius:999px;padding:8px 18px;display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:#334155;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-top:14px;animation:dashFloat 4s ease-in-out infinite alternate}
+
+/* ═══ OFFER CARDS ═══ */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto}
+.offer-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:28px}
+.offer-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.5rem}
+
+/* ═══ BTECH TILES ═══ */
+.btech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.btech-tile{display:flex;align-items:center;gap:14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:18px 20px;transition:all .2s}
+.btech-tile:hover{border-color:#2563eb;background:#eff6ff}
+.tile-icon{width:42px;height:42px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e8f0;flex-shrink:0;font-size:1.3rem;color:#2563eb}
+
+/* ═══ JEE NEET ═══ */
+.jn-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.jn-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:32px}
+.jn-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.jn-feat{background:#f8fafc;border-radius:10px;padding:12px;display:flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:600;color:#334155}
+
+/* ═══ SCHOOL COMP ═══ */
+.sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.sc-feat{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.sc-feat-icon{width:36px;height:36px;background:#fffbeb;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;color:#f59e0b}
+.sc-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sc-card{border-radius:14px;padding:22px;text-align:center;font-size:1.8rem}
+.sc-card-title{font-size:0.88rem;font-weight:700;color:#0f172a;margin-top:6px}
+.sc-card-sub{font-size:0.75rem;color:#64748b;margin-top:2px}
+
+/* ═══ MY SCHOOL ═══ */
+.ms-wrap{background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 100%);border-radius:20px;padding:48px;position:relative;overflow:hidden;max-width:1140px;margin:0 auto}
+.ms-deco1{position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:rgba(255,255,255,0.05);border-radius:50%}
+.ms-deco2{position:absolute;bottom:-40px;left:40%;width:160px;height:160px;background:rgba(255,255,255,0.04);border-radius:50%}
+.ms-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:1}
+.ms-feat{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.9);font-size:0.9rem;font-weight:600;margin-bottom:12px}
+.ms-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ms-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:20px;text-align:center;color:#fff;font-size:1.8rem}
+.ms-card-title{font-size:0.85rem;font-weight:700;color:#fff;margin-top:6px}
+
+/* ═══ ABOUT ═══ */
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.about-stat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:24px;text-align:center}
+
+/* ═══ CONTACT ═══ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;max-width:900px;margin:0 auto}
+.contact-item{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.contact-icon{width:44px;height:44px;background:#eff6ff;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;color:#2563eb}
+.form-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:28px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:0.85rem;font-weight:700;color:#0f172a;margin-bottom:6px}
+.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:'Outfit',sans-serif;font-size:0.9rem;outline:none;transition:border-color .2s;background:#f8fafc}
+.form-group input:focus,.form-group textarea:focus{border-color:#2563eb;background:#fff}
+.form-group textarea{resize:vertical}
+.btn-submit{width:100%;background:#2563eb;color:#fff;border:none;padding:13px;border-radius:999px;font-weight:700;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s;font-family:'Outfit',sans-serif}
+.btn-submit:hover{background:#1d4ed8}
+
+/* ═══ FOOTER ═══ */
+.footer{background:#0f172a;color:#94a3b8;padding:48px 5% 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1140px;margin:0 auto 40px}
+.footer-link{font-size:0.88rem;color:#94a3b8;display:block;margin-bottom:10px;transition:color .2s}
+.footer-link:hover{color:#60a5fa}
+.footer-bottom{max-width:1140px;margin:0 auto;border-top:1px solid #1e293b;padding-top:20px;text-align:center;font-size:0.85rem}
+.n-form{display:flex;gap:8px;margin-top:12px}
+.n-form input{flex:1;padding:9px 12px;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#fff;font-family:'Outfit',sans-serif;font-size:0.85rem;outline:none}
+.n-form button{background:#2563eb;color:#fff;border:none;padding:9px 14px;border-radius:8px;cursor:pointer}
+
+/* ═══ REVEAL ANIMATION ═══ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══ SECTION SPACING ═══ */
+.section{padding:72px 5%}
+.section-center{text-align:center;margin-bottom:40px}
+
+/* ═══ RESPONSIVE ═══ */
+
+/* ── Tablet 860px ── */
+@media(max-width:860px){
+    /* Collapse to: pink bar + compact logo + hamburger nav */
+    .logo-bar-right{display:none}
+    .navbar{
+        justify-content:flex-end;
+        padding:0 5%;
+    }
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:50px;left:0;
+        width:100%;
+        background:#2563eb;
+        flex-direction:column;
+        padding:8px 0 16px;
+        border-top:1px solid rgba(255,255,255,0.15);
+        z-index:999;
+        box-shadow:0 8px 20px rgba(37,99,235,0.3);
+        height:auto;
+    }
+    .nav-links.open{display:flex}
+    .nav-links li{width:100%}
+    .nav-links a{
+        height:auto;
+        padding:13px 24px;
+        font-size:0.95rem;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+        border-left:none;
+        margin-bottom:0;
+    }
+    .nav-links li:last-child a{border-bottom:none}
+    .nav-links a:hover{background:rgba(255,255,255,0.12);color:#fff;border-bottom-color:transparent;padding-left:30px}
+    .menu-toggle{display:flex}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+}
+
+/* ── Mobile 768px ── */
+@media(max-width:768px){
+    /* Info bar wraps to 2 lines */
+    .top-info-bar{
+        position:relative;
+        height:auto;
+        padding:6px 4%;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:5px;
+    }
+    .tib-left{flex-wrap:wrap;justify-content:center;gap:6px;width:100%}
+    .tib-sep{display:none}
+    .tib-item{font-size:0.65rem}
+    .tib-btn{font-size:0.65rem;padding:3px 10px}
+    .tib-hide-sm{display:none}
+
+    /* Logo bar compact, relative flow */
+    .logo-bar{
+        position:relative;
+        top:auto;
+        height:60px;
+        padding:0 4%;
+    }
+    .logo-icon{width:42px;height:42px;font-size:1.3rem;border-radius:10px}
+    .logo-name{font-size:1.1rem}
+    .logo-tagline{display:none}
+    .logo-bar-right{display:none}
+
+    /* Navbar sticky at top of scroll */
+    .navbar{
+        position:sticky;
+        top:0;
+        height:48px;
+    }
+    .nav-links a{height:48px}
+
+    /* Site header: relative, not fixed */
+    .site-header{position:relative;top:auto}
+
+    /* Hero: no extra top padding needed */
+    .hero{padding:32px 4% 36px}
+
+    /* All sections */
+    .section{padding:40px 4%}
+    .section-center{margin-bottom:24px}
+
+    /* Hero inner */
+    .hero-inner{grid-template-columns:1fr;text-align:center;gap:24px}
+    .hero-btns{justify-content:center;gap:10px;flex-wrap:wrap}
+    .hero-stats{justify-content:center;gap:16px}
+    .stat-divider{display:none}
+    h1{font-size:1.8rem!important;line-height:1.25!important}
+    h2{font-size:1.5rem!important}
+
+    /* Animation */
+    .hero-anim{grid-template-columns:1fr 1fr;gap:10px;max-width:100%}
+    .dash-card{padding:14px}
+    .dash-num{font-size:1.25rem}
+    .dash-label{font-size:0.7rem}
+    .dash-sub{font-size:0.68rem}
+    .dash-icon{width:34px;height:34px;font-size:1rem;margin-bottom:8px}
+    .anim-ticker{font-size:0.7rem;padding:6px 12px;justify-content:center}
+
+    /* Offer */
+    .offer-grid{grid-template-columns:1fr}
+    .offer-card{padding:20px}
+
+    /* B.Tech */
+    .btech-grid{grid-template-columns:1fr 1fr}
+
+    /* JEE/NEET */
+    .jn-grid{grid-template-columns:1fr}
+    .jn-card{padding:20px}
+    .jn-features{grid-template-columns:1fr 1fr;gap:8px}
+
+    /* School Comp */
+    .sc-grid{grid-template-columns:1fr;gap:24px}
+    .sc-cards{grid-template-columns:1fr 1fr;gap:10px}
+
+    /* My School */
+    .ms-wrap{padding:24px 16px;border-radius:16px}
+    .ms-grid{grid-template-columns:1fr;gap:20px}
+    .ms-cards{grid-template-columns:1fr 1fr;gap:10px}
+
+    /* About */
+    .about-stats{grid-template-columns:repeat(3,1fr);gap:10px}
+    .about-stat{padding:14px 10px}
+
+    /* Contact */
+    .contact-grid{grid-template-columns:1fr;gap:20px;max-width:100%}
+    .form-card{padding:20px}
+
+    /* Footer */
+    .footer{padding:36px 4% 20px}
+}
+
+/* ── Small Mobile 480px ── */
+@media(max-width:480px){
+    .hero{padding:24px 4% 28px}
+    h1{font-size:1.6rem!important}
+    h2{font-size:1.35rem!important}
+    .logo-bar{height:54px}
+    .logo-icon{width:38px;height:38px;font-size:1.1rem}
+    .logo-name{font-size:1rem}
+    .hero-btns .btn{font-size:0.88rem;padding:10px 18px}
+    .dash-card{padding:12px}
+    .dash-num{font-size:1.1rem}
+    .btech-grid{grid-template-columns:1fr}
+    .jn-features{grid-template-columns:1fr}
+    .about-stats{grid-template-columns:1fr;gap:10px}
+    .footer-grid{grid-template-columns:1fr;gap:16px}
+    .section{padding:28px 4%}
+    .ms-wrap{padding:20px 14px}
+}
+
+/* ── Very small 400px ── */
+@media(max-width:400px){
+    .top-info-bar{display:none}
+    h1{font-size:1.45rem!important}
+    h2{font-size:1.2rem!important}
+    .section{padding:24px 3%}
+    .hero{padding:20px 3% 24px}
+}
+
+/* ── Mobile ── */
+@media(max-width:768px){
+    /* Hero — navbar at top:0 on mobile, so 80px padding */
+    .hero{padding:80px 4% 36px}
+    .hero-inner{grid-template-columns:1fr;text-align:center;gap:24px}
+    .hero-btns{justify-content:center;gap:10px;flex-wrap:wrap}
+    .hero-stats{justify-content:center;gap:16px}
+    .stat-divider{display:none}
+    h1{font-size:1.8rem!important;line-height:1.25!important}
+    h2{font-size:1.5rem!important}
+    .hero-inner > div:first-child > p{max-width:100%!important;font-size:0.95rem!important}
+
+    /* Animation */
+    .hero-anim{grid-template-columns:1fr 1fr;gap:10px;max-width:100%}
+    .dash-card{padding:14px}
+    .dash-num{font-size:1.25rem}
+    .dash-label{font-size:0.7rem}
+    .dash-sub{font-size:0.68rem}
+    .dash-icon{width:34px;height:34px;font-size:1rem;margin-bottom:8px}
+    .anim-ticker{font-size:0.7rem;padding:6px 12px;justify-content:center}
+
+    /* Sections */
+    .section{padding:40px 4%}
+    .section-center{margin-bottom:24px}
+
+    /* Offer */
+    .offer-grid{grid-template-columns:1fr}
+    .offer-card{padding:20px}
+
+    /* B.Tech */
+    .btech-grid{grid-template-columns:1fr 1fr}
+    .btech-tile{padding:14px 16px;gap:10px}
+    .tile-icon{width:36px;height:36px;font-size:1.1rem}
+
+    /* JEE/NEET */
+    .jn-grid{grid-template-columns:1fr}
+    .jn-card{padding:20px}
+    .jn-features{grid-template-columns:1fr 1fr;gap:8px}
+    .jn-feat{padding:10px;font-size:0.82rem}
+
+    /* School Comp */
+    .sc-grid{grid-template-columns:1fr;gap:24px}
+    .sc-cards{grid-template-columns:1fr 1fr;gap:10px}
+    .sc-card{padding:16px;font-size:1.5rem}
+
+    /* My School */
+    .ms-wrap{padding:24px 16px;border-radius:16px}
+    .ms-grid{grid-template-columns:1fr;gap:20px}
+    .ms-cards{grid-template-columns:1fr 1fr;gap:10px}
+    .ms-card{padding:16px;font-size:1.5rem}
+
+    /* About */
+    .about-stats{grid-template-columns:repeat(3,1fr);gap:10px}
+    .about-stat{padding:14px 10px}
+
+    /* Contact */
+    .contact-grid{grid-template-columns:1fr;gap:20px;max-width:100%}
+    .form-card{padding:20px}
+
+    /* Footer */
+    .footer{padding:36px 4% 20px}
+}
+
+/* ── Small Mobile ── */
+@media(max-width:480px){
+    .hero{padding:76px 4% 28px}
+    h1{font-size:1.6rem!important}
+    h2{font-size:1.35rem!important}
+    .hero-btns .btn{font-size:0.88rem;padding:10px 18px}
+    .hero-stats > div > div:first-child{font-size:1.3rem}
+    .dash-card{padding:12px}
+    .dash-num{font-size:1.1rem}
+    .dash-bar{margin-top:8px}
+    .btech-grid{grid-template-columns:1fr}
+    .jn-features{grid-template-columns:1fr}
+    .about-stats{grid-template-columns:1fr;gap:10px}
+    .footer-grid{grid-template-columns:1fr;gap:16px}
+    .section{padding:32px 4%}
+    .ms-wrap{padding:20px 14px}
+}
+
+/* ── Very Small (320px) ── */
+@media(max-width:360px){
+    h1{font-size:1.45rem!important}
+    h2{font-size:1.2rem!important}
+    .hero{padding:72px 3% 24px}
+    .section{padding:28px 3%}
+    .dash-card{padding:10px}
+    .dash-num{font-size:1rem}
+    .dash-icon{width:28px;height:28px;font-size:0.9rem}
+    .hero-anim{gap:8px}
+    .btech-grid{grid-template-columns:1fr}
+    .sc-cards{grid-template-columns:1fr 1fr}
+    .ms-cards{grid-template-columns:1fr 1fr}
+    .about-stats{grid-template-columns:1fr}
+    .ms-wrap{padding:18px 12px}
+    .jn-card{padding:16px}
+    .anim-ticker{font-size:0.65rem;padding:5px 10px}
+}
+
+/* ══════════════════════════════════
+   TOP INFO BAR
+══════════════════════════════════ */
+.top-info-bar{
+    width:100%;
+    background:linear-gradient(90deg,#e91e8c 0%,#f43f5e 100%);
+    padding:0 5%;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    position:relative;
+    z-index:1100;
+}
+.tib-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    overflow:hidden;
+}
+.tib-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:0.72rem;
+    font-weight:500;
+    color:rgba(255,255,255,0.95);
+    white-space:nowrap;
+}
+.tib-item i{font-size:0.82rem;color:rgba(255,255,255,0.85);flex-shrink:0}
+.tib-item a{color:rgba(255,255,255,0.95);transition:color .2s}
+.tib-item a:hover{color:#fff;text-decoration:underline}
+.tib-sep{width:1px;height:14px;background:rgba(255,255,255,0.3);flex-shrink:0}
+.tib-right{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.tib-btn{
+    background:#fff;
+    color:#e91e8c;
+    border:none;
+    border-radius:999px;
+    padding:4px 14px;
+    font-size:0.72rem;
+    font-weight:700;
+    cursor:pointer;
+    font-family:'Outfit',sans-serif;
+    transition:all .2s;
+    white-space:nowrap;
+    text-decoration:none;
+    display:inline-block;
+    line-height:1.6;
+}
+.tib-btn:hover{background:rgba(255,255,255,0.88);transform:translateY(-1px)}
+.tib-btn-outline{
+    background:rgba(255,255,255,0.15);
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.45);
+}
+.tib-btn-outline:hover{background:rgba(255,255,255,0.28);color:#fff}
+
+/* Shift navbar below top bar — already set in base .navbar rule */
+
+@media(max-width:768px){
+    .top-info-bar{
+        height:auto;
+        min-height:36px;
+        padding:5px 4%;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:4px;
+    }
+    .tib-left{flex-wrap:wrap;justify-content:center;gap:5px;width:100%}
+    .tib-sep{display:none}
+    .tib-item{font-size:0.62rem}
+    .tib-btn{font-size:0.62rem;padding:3px 9px}
+    .tib-hide-sm{display:none}
+    /* On mobile top bar wraps — navbar stays fixed at top:0 */
+    .navbar{top:0}
+}
+@media(max-width:400px){
+    /* Top bar too small — hide it */
+    .top-info-bar{display:none}
+    .navbar{top:0}
+}
+</style>
 </head>
-
 <body>
-    <script type="text/javascript">
-        window.omnisend = window.omnisend || [];
-        omnisend.push(["brandID", "6a1056d2a930f52b5cd10d45"]);
-        omnisend.push(["track", "$pageViewed"]);
-        !function(){var e=document.createElement("script");
-        e.type="text/javascript",e.async=!0,
-        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
-        var t=document.getElementsByTagName("script")[0];
-        t.parentNode.insertBefore(e,t)}();
-    </script>
-    <header>
-        <nav class="navbar" id="navbar">
-            <a href="index.html" class="logo">
-                <h1>Narayan <span>e-Gurukul</span></h1>
+
+<!-- ══════════════════════════════════
+     SITE HEADER (3 rows)
+══════════════════════════════════ -->
+<div class="site-header" id="site-header">
+
+    <!-- Row 1: Pink Info Bar -->
+    <div class="top-info-bar">
+        <div class="tib-left">
+            <span class="tib-item">
+                <i class="ri-map-pin-fill"></i>
+                <span>Ward No. 17, Hanumangarh Junction 335512, Rajasthan</span>
+            </span>
+            <div class="tib-sep"></div>
+            <span class="tib-item">
+                <i class="ri-mail-fill"></i>
+                <a href="mailto:egurukulnarayan@gmail.com">egurukulnarayan@gmail.com</a>
+            </span>
+            <div class="tib-sep"></div>
+            <span class="tib-item tib-hide-sm">
+                <i class="ri-phone-fill"></i>
+                <a href="tel:+919468974044">9468974044</a>
+                <span style="opacity:.5">/</span>
+                <a href="tel:+919001268291">9001268291</a>
+            </span>
+        </div>
+        <div class="tib-right">
+            <a href="login.html" class="tib-btn">Student Login</a>
+            <a href="admin.html" class="tib-btn tib-btn-outline">Staff Login</a>
+        </div>
+    </div>
+
+    <!-- Row 2: White Logo Bar -->
+    <div class="logo-bar">
+        <a href="index.html" class="logo-brand">
+            <div class="logo-icon"><i class="ri-graduation-cap-fill"></i></div>
+            <div class="logo-text">
+                <div class="logo-name">Narayan <span>e-Gurukul</span></div>
+                <div class="logo-tagline">A Smart Learning Platform</div>
+            </div>
+        </a>
+        <div class="logo-bar-right">
+            <span class="logo-bar-badge"><i class="ri-shield-check-fill"></i> 100% Free</span>
+            <span class="logo-bar-badge"><i class="ri-group-fill"></i> 150+ Students</span>
+            <span class="logo-bar-badge"><i class="ri-download-fill"></i> 15k+ Downloads</span>
+        </div>
+    </div>
+
+    <!-- Row 3: Dark Navbar -->
+    <nav class="navbar" id="navbar">
+        <span class="nav-logo">Narayan <span>e-Gurukul</span></span>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#btech">B.Tech</a></li>
+            <li><a href="#jee-neet">JEE / NEET</a></li>
+            <li><a href="#school-comp">School Comp</a></li>
+            <li><a href="#my-school">My School</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+</div>
+<!-- END SITE HEADER -->
+
+<main>
+
+<!-- ═══════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════ -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+
+        <!-- Left: Text -->
+        <div>
+            <span class="label label-blue">Welcome to Narayan e-Gurukul</span>
+            <h1 style="font-size:2.6rem;font-weight:800;color:#0f172a;line-height:1.2;margin-bottom:16px;">
+                A Smart Learning<br><span style="color:#2563eb;">Platform for Students</span>
+            </h1>
+            <p style="font-size:1.05rem;line-height:1.7;margin-bottom:32px;max-width:480px;">
+                Free study material, PYQs and notes for B.Tech, JEE, NEET, and school competitions — all in one place.
+            </p>
+            <div class="hero-btns">
+                <a href="#btech" class="btn btn-primary">Explore Resources <i class="ri-arrow-right-line"></i></a>
+                <a href="#about" class="btn btn-secondary">Our Mission</a>
+            </div>
+            <div class="hero-stats">
+                <div style="text-align:center">
+                    <div style="font-size:1.6rem;font-weight:800;color:#0f172a">15k+</div>
+                    <div style="font-size:0.8rem;color:#64748b;font-weight:600">Downloads</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div style="text-align:center">
+                    <div style="font-size:1.6rem;font-weight:800;color:#0f172a">150+</div>
+                    <div style="font-size:0.8rem;color:#64748b;font-weight:600">Students</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div style="text-align:center">
+                    <div style="font-size:1.6rem;font-weight:800;color:#0f172a">100%</div>
+                    <div style="font-size:0.8rem;color:#64748b;font-weight:600">Free Forever</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Animation -->
+        <div>
+            <div class="hero-anim">
+                <!-- Card 1: Downloads -->
+                <div class="dash-card dc-blue">
+                    <div class="dash-icon di-blue"><i class="ri-download-line"></i></div>
+                    <div class="dash-num">15k+</div>
+                    <div class="dash-label">Downloads</div>
+                    <div class="dash-sub">Study material accessed</div>
+                    <div class="dash-bar"><div class="dash-bar-fill" style="--w:85%;background:#2563eb"></div></div>
+                </div>
+                <!-- Card 2: Students -->
+                <div class="dash-card dc-green">
+                    <div class="dash-icon di-green"><i class="ri-group-line"></i></div>
+                    <div class="dash-num">150+</div>
+                    <div class="dash-label">Students</div>
+                    <div class="dash-sub">Active learners</div>
+                    <div class="dash-bar"><div class="dash-bar-fill" style="--w:60%;background:#10b981"></div></div>
+                </div>
+                <!-- Card 3: Subjects -->
+                <div class="dash-card dc-amber">
+                    <div class="dash-icon di-amber"><i class="ri-book-3-line"></i></div>
+                    <div class="dash-num">60+</div>
+                    <div class="dash-label">Test Series</div>
+                    <div class="dash-sub">Practice papers</div>
+                    <div class="dash-bar"><div class="dash-bar-fill" style="--w:70%;background:#f59e0b"></div></div>
+                </div>
+                <!-- Card 4: Free -->
+                <div class="dash-card dc-purple">
+                    <div class="dash-icon di-purple"><i class="ri-shield-check-line"></i></div>
+                    <div class="dash-num">100%</div>
+                    <div class="dash-label">Free Forever</div>
+                    <div class="dash-sub">No hidden charges</div>
+                    <div class="dash-bar"><div class="dash-bar-fill" style="--w:100%;background:#9333ea"></div></div>
+                </div>
+            </div>
+            <!-- Ticker -->
+            <div class="anim-ticker">
+                <i class="ri-sparkling-line" style="color:#2563eb"></i>
+                <span>B.Tech &nbsp;·&nbsp; JEE &nbsp;·&nbsp; NEET &nbsp;·&nbsp; School Competitions &nbsp;·&nbsp; 100% Free</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHAT WE OFFER
+═══════════════════════════════════════ -->
+<section class="section reveal" style="background:#f8fafc;border-top:1px solid #e2e8f0">
+    <div class="section-center">
+        <span class="label label-blue">What We Offer</span>
+        <h2 style="font-size:1.9rem;font-weight:800;color:#0f172a">Everything You Need to Succeed</h2>
+        <p style="margin-top:8px">B.Tech · JEE &amp; NEET · School Competitions</p>
+    </div>
+    <div class="offer-grid">
+        <div class="offer-card" style="border-top:3px solid #2563eb">
+            <div class="offer-icon" style="background:#eff6ff;color:#2563eb"><i class="ri-graduation-cap-line"></i></div>
+            <h3 style="font-size:1.15rem;color:#0f172a;margin-bottom:8px">B.Tech Resources</h3>
+            <p style="font-size:0.9rem;line-height:1.6;margin-bottom:16px">Notes, solved PYQs, lab manuals for CSE, AIDS, AIML &amp; core engineering branches.</p>
+            <a href="#btech" style="font-size:0.88rem;font-weight:700;color:#2563eb;display:inline-flex;align-items:center;gap:4px">View Resources <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="offer-card" style="border-top:3px solid #10b981">
+            <div class="offer-icon" style="background:#ecfdf5;color:#10b981"><i class="ri-flask-line"></i></div>
+            <h3 style="font-size:1.15rem;color:#0f172a;margin-bottom:8px">JEE &amp; NEET Prep</h3>
+            <p style="font-size:0.9rem;line-height:1.6;margin-bottom:16px">Physics, Chemistry, Maths &amp; Biology — concept notes, formula sheets &amp; PYQs.</p>
+            <a href="#jee-neet" style="font-size:0.88rem;font-weight:700;color:#10b981;display:inline-flex;align-items:center;gap:4px">Explore <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="offer-card" style="border-top:3px solid #f59e0b">
+            <div class="offer-icon" style="background:#fffbeb;color:#f59e0b"><i class="ri-trophy-line"></i></div>
+            <h3 style="font-size:1.15rem;color:#0f172a;margin-bottom:8px">School Competitions</h3>
+            <p style="font-size:0.9rem;line-height:1.6;margin-bottom:16px">Olympiad, Science Quiz, Maths competitions — prep guides &amp; practice sets for school students.</p>
+            <a href="#school-comp" style="font-size:0.88rem;font-weight:700;color:#f59e0b;display:inline-flex;align-items:center;gap:4px">Explore <i class="ri-arrow-right-line"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     B.TECH SECTION
+═══════════════════════════════════════ -->
+<section class="section reveal" id="btech" style="background:#fff">
+    <div style="max-width:1140px;margin:0 auto">
+        <div style="margin-bottom:32px">
+            <span class="label label-blue">Engineering</span>
+            <h2 style="font-size:1.9rem;font-weight:800;color:#0f172a;margin-bottom:8px">B.Tech Study Resources</h2>
+            <p>Curated notes, solved PYQs, and lab manuals for every branch and year.</p>
+        </div>
+        <div class="btech-grid">
+            <a href="btech-core.html" class="btech-tile">
+                <div class="tile-icon"><i class="ri-instance-line"></i></div>
+                <div><div style="font-size:0.95rem;font-weight:700;color:#0f172a">B.Tech Core</div><div style="font-size:0.8rem;color:#64748b">All branches 1st year</div></div>
             </a>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="batch.html">Our Batch</a></li>
+            <a href="cse-aids.html" class="btech-tile">
+                <div class="tile-icon"><i class="ri-database-2-line"></i></div>
+                <div><div style="font-size:0.95rem;font-weight:700;color:#0f172a">CSE (AIDS)</div><div style="font-size:0.8rem;color:#64748b">AI &amp; Data Science</div></div>
+            </a>
+            <a href="cse-aiml.html" class="btech-tile">
+                <div class="tile-icon"><i class="ri-robot-2-line"></i></div>
+                <div><div style="font-size:0.95rem;font-weight:700;color:#0f172a">CSE (AIML)</div><div style="font-size:0.8rem;color:#64748b">AI &amp; Machine Learning</div></div>
+            </a>
+            <a href="btech-studymaterial.html" class="btech-tile">
+                <div class="tile-icon"><i class="ri-book-3-line"></i></div>
+                <div><div style="font-size:0.95rem;font-weight:700;color:#0f172a">All Resources</div><div style="font-size:0.8rem;color:#64748b">Full resource library</div></div>
+            </a>
+        </div>
+    </div>
+</section>
 
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="btech-studymaterial.html" class="nav-cta">Study Material</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-
-        <!-- HERO SECTION -->
-        <section class="hero container" id="home">
-            <div class="hero-content">
-                <span class="badge">Welcome to Narayan e-Gurukul</span>
-                <h2>A Smart Learning <span> Platform for B.Tech Students</span></h2>
-                <p>Access the most comprehensive digital repository of curated notes, solved PYQs, and branch-specific
-                    resources for B.Tech students.</p>
-                <div class="hero-actions">
-                    <a href="btech-studymaterial.html" class="btn primary-btn">Explore Materials <i
-                            class="ri-arrow-right-line"></i></a>
-                    <a href="#about" class="btn secondary-btn">Our Mission</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-wrapper">
-                    <img src="03.png" alt="Engineering Study">
-
-
-
-
-                </div>
-            </div>
-        </section>
-
-        <!-- WHY NARAYAN E-GURUKUL SECTION -->
-        <section class="section why-section reveal">
-            <div class="why-header-bar">
-                <h2>Why Narayan e-Gurukul?</h2>
-            </div>
-            <div class="why-container">
-                <div class="why-item">
-                    <div class="why-icon-wrapper"><i class="ri-rocket-line"></i></div>
-                    <h3>Experiential Learning</h3>
-                    <p>Learn by doing real-world projects</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon-wrapper"><i class="ri-team-line"></i></div>
-                    <h3>Mentorship from Experts</h3>
-                    <p>Guidance from successful professionals</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon-wrapper"><i class="ri-lightbulb-line"></i></div>
-                    <h3>Build Real AI Solutions</h3>
-                    <p>Work on impactful ideas with modern tech</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon-wrapper"><i class="ri-bar-chart-box-line"></i></div>
-                    <h3>Leadership Skills</h3>
-                    <p>We build the future leaders of tech</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon-wrapper"><i class="ri-award-line"></i></div>
-                    <h3>Certification</h3>
-                    <p>Recognize your growth and stand out</p>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- LAUNCH SECTION -->
-        <section class="section reveal" id="launch">
-            <div class="launch-section">
-                <div class="launch-grid">
-                    <div class="launch-visual"
-                        style="background: linear-gradient(135deg, var(--primary), var(--accent)); padding: 3rem; border-radius: var(--radius-lg); display: flex; flex-direction: column; justify-content: center;">
-                        <i class="ri-rocket-2-line" style="font-size: 5rem; color: var(--white);"></i>
-                        <div style="margin-top: 2rem;">
-                            <span class="badge"
-                                style="background: var(--white); color: var(--primary); font-weight: 700; padding: 0.5rem 1rem;">Launching
-                                Mid August</span>
-                            <h3 style="margin-top: 1.5rem; color: var(--white); font-size: 1.8rem; font-weight: 600;">
-                                The Ultimate 1st-Year Toolkit</h3>
-                        </div>
-                    </div>
-                    <div class="launch-details" style="text-align: left;">
-                        <h2>B.Tech 1st Year <br><span>Complete Repository</span></h2>
-                        <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem;">We are building
-                            the most comprehensive collection specifically for first-year engineering students.
-                            Everything you need to secure a 9+ CGPA, beautifully organized.</p>
-
-                        <div class="feature-grid"
-                            style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
-                            <div class="feature-item"><i class="ri-checkbox-circle-fill"
-                                    style="color: var(--primary); font-size: 1.2rem;"></i> Hand-written Notes</div>
-                            <div class="feature-item"><i class="ri-checkbox-circle-fill"
-                                    style="color: var(--primary); font-size: 1.2rem;"></i> 10+ Years Solved PYQs</div>
-                            <div class="feature-item"><i class="ri-checkbox-circle-fill"
-                                    style="color: var(--primary); font-size: 1.2rem;"></i> Step-by-Step Lab Manuals
-                            </div>
-                            <div class="feature-item"><i class="ri-checkbox-circle-fill"
-                                    style="color: var(--primary); font-size: 1.2rem;"></i> Visual Concept Maps</div>
-                            <div class="feature-item"><i class="ri-checkbox-circle-fill"
-                                    style="color: var(--primary); font-size: 1.2rem;"></i> Viva-Voce Question Bank</div>
-                            <div class="feature-item"><i class="ri-checkbox-circle-fill"
-                                    style="color: var(--primary); font-size: 1.2rem;"></i> Priority Exam Topics List
-                            </div>
-                        </div>
-
-                        <div
-                            style="margin-top: 3rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
-                            <a href="#contact" class="btn primary-btn"
-                                style="padding: 1rem 2rem; font-size: 1.1rem;">Notify Me on Launch <i
-                                    class="ri-notification-3-line"></i></a>
-                            <span
-                                style="font-size: 1rem; color: var(--text-muted); font-weight: 600; background: var(--bg-alt); padding: 0.5rem 1rem; border-radius: var(--radius-sm);"><i
-                                    class="ri-group-line" style="color: var(--primary); margin-right: 5px;"></i> 1,200+
-                                Students Waiting</span>
-                        </div>
+<!-- ═══════════════════════════════════════
+     JEE / NEET SECTION
+═══════════════════════════════════════ -->
+<section class="section reveal" id="jee-neet" style="background:#f8fafc;border-top:1px solid #e2e8f0">
+    <div style="max-width:1140px;margin:0 auto">
+        <div class="section-center">
+            <span class="label label-green">Competitive Exams</span>
+            <h2 style="font-size:1.9rem;font-weight:800;color:#0f172a;margin-bottom:8px">JEE &amp; NEET Preparation</h2>
+            <p style="max-width:520px;margin:0 auto">Crack India's toughest entrance exams with structured notes, formula sheets, and solved PYQs.</p>
+        </div>
+        <div class="jn-grid">
+            <!-- JEE -->
+            <div class="jn-card" style="border-left:4px solid #2563eb">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+                    <div style="width:52px;height:52px;background:#eff6ff;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.6rem;color:#2563eb"><i class="ri-flask-line"></i></div>
+                    <div>
+                        <h3 style="font-size:1.2rem;color:#0f172a;margin-bottom:2px">JEE Preparation</h3>
+                        <span style="font-size:0.8rem;color:#64748b">Main &amp; Advanced</span>
                     </div>
                 </div>
+                <div class="jn-features">
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#2563eb;flex-shrink:0"></i> Physics Notes</div>
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#2563eb;flex-shrink:0"></i> Chemistry Notes</div>
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#2563eb;flex-shrink:0"></i> Maths Formulas</div>
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#2563eb;flex-shrink:0"></i> Solved PYQs</div>
+                </div>
+                <a href="#contact" class="btn btn-primary" style="font-size:0.9rem">Get JEE Resources <i class="ri-arrow-right-line"></i></a>
             </div>
-        </section>
-
-
-
-        <!-- OUR ACHIEVEMENTS SECTION -->
-        <section class="section reveal"
-            style="background: var(--white); padding: 5rem 0; border-top: 1px solid var(--border);">
-            <div class="about-grid container" style="align-items: center; gap: 4rem;">
-                <div class="achievements-image" style="position: relative;">
-                    <!-- Adjust src="03.png" to the exact image you prefer -->
-                    <img src="03.png" alt="Our Achievements Team"
-                        style="width: 100%; border-radius: 12px; object-fit: cover;">
-                </div>
-
-                <div class="achievements-content" style="text-align: left;">
-                    <h2 style="font-size: 2.5rem; color: var(--text-main); margin-bottom: 1rem;">Our Achievements</h2>
-                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2.5rem; font-size: 1.05rem;">
-                        We are proud of the success we've achieved through innovative courses and student
-                        accomplishments. Each milestone reflects our dedication to providing top-quality education
-                        and fostering growth.
-                    </p>
-
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-
-
-                        <!-- Box 3: Orange -->
-                        <div
-                            style="background: #fff7ed; border: 1px solid #ffedd5; border-radius: 8px; padding: 1.5rem; text-align: center; position: relative;">
-                            <i class="ri-team-line"
-                                style="position: absolute; top: 1rem; left: 1.2rem; color: #ea580c; font-size: 1.5rem;"></i>
-                            <h3 style="font-size: 2.2rem; color: #ea580c; margin-top: 1rem; margin-bottom: 0.5rem;">150+
-                            </h3>
-                            <p style="color: var(--text-main); font-weight: 700; font-size: 1.1rem; margin: 0;">Students
-                            </p>
-                        </div>
-
-                        <!-- Box 4: Blue 2 -->
-                        <div
-                            style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1.5rem; text-align: center; position: relative;">
-                            <i class="ri-file-list-3-line"
-                                style="position: absolute; top: 1rem; left: 1.2rem; color: #2563eb; font-size: 1.5rem;"></i>
-                            <h3 style="font-size: 2.2rem; color: #2563eb; margin-top: 1rem; margin-bottom: 0.5rem;">60+
-                            </h3>
-                            <p style="color: var(--text-main); font-weight: 700; font-size: 1.1rem; margin: 0;">Test
-                                Series</p>
-                        </div>
+            <!-- NEET -->
+            <div class="jn-card" style="border-left:4px solid #10b981">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+                    <div style="width:52px;height:52px;background:#ecfdf5;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.6rem;color:#10b981"><i class="ri-heart-pulse-line"></i></div>
+                    <div>
+                        <h3 style="font-size:1.2rem;color:#0f172a;margin-bottom:2px">NEET Preparation</h3>
+                        <span style="font-size:0.8rem;color:#64748b">NEET UG</span>
                     </div>
                 </div>
+                <div class="jn-features">
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#10b981;flex-shrink:0"></i> Biology Notes</div>
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#10b981;flex-shrink:0"></i> NCERT Highlights</div>
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#10b981;flex-shrink:0"></i> Physics &amp; Chem PYQs</div>
+                    <div class="jn-feat"><i class="ri-checkbox-circle-fill" style="color:#10b981;flex-shrink:0"></i> Mock Test Series</div>
+                </div>
+                <a href="#contact" class="btn btn-green" style="font-size:0.9rem">Get NEET Resources <i class="ri-arrow-right-line"></i></a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-
-        <!-- ABOUT SECTION -->
-        <section class="section reveal" id="about" style="background: var(--white); padding: 6rem 0;">
-            <div class="container" style="max-width: 900px; margin: 0 auto; text-align: left;">
-                <span class="badge" style="background: #edf2ff; color: #0f172a; font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; padding: 0.5rem 1rem;">OUR MISSION</span>
-                
-                <h2 class="about-heading" style="margin-top: 1.5rem; color: #0f172a; font-size: 3.5rem; font-weight: 800; line-height: 1.15; font-family: 'Outfit', sans-serif;">
-                    Empowering India's Next<br>Generation of Tech Leaders
-                </h2>
-                
-                <p style="font-size: 1.15rem; color: #475569; line-height: 1.8; margin: 1.5rem 0 3rem; font-weight: 400;">
-                    Narayan e-Gurukul is one of India's emerging smart learning platforms, designed to help B.Tech
-                    students learn better, practice more, and score higher. Our mission is simple — to provide
-                    quality technical education, practical learning resources, and career-focused guidance that is
-                    accessible, affordable, and effective for every engineering student.
-                </p>
-                
-                <div class="stats-row" style="display: flex; gap: 2rem; border-top: 1px solid #e2e8f0; padding-top: 3rem;">
-                    <div class="stat-box" style="flex: 1; background: #f8fafc; border: 1px solid #f1f5f9; border-left: 4px solid #2563eb; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                        <h3 style="font-size: 3.5rem; color: #0f172a; font-weight: 800; line-height: 1; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">15k+</h3>
-                        <p style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin: 0;">DOWNLOADS</p>
-                    </div>
-                    <div class="stat-box" style="flex: 1; background: #f8fafc; border: 1px solid #f1f5f9; border-left: 4px solid #2563eb; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                        <h3 style="font-size: 3.5rem; color: #0f172a; font-weight: 800; line-height: 1; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">100%</h3>
-                        <p style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin: 0;">FREE FOREVER</p>
-                    </div>
-                </div>
+<!-- ═══════════════════════════════════════
+     SCHOOL COMPETITION SECTION
+═══════════════════════════════════════ -->
+<section class="section reveal" id="school-comp" style="background:#fff;border-top:1px solid #e2e8f0">
+    <div style="max-width:1140px;margin:0 auto">
+        <div class="sc-grid">
+            <div>
+                <span class="label label-amber">School Students</span>
+                <h2 style="font-size:1.9rem;font-weight:800;color:#0f172a;margin-bottom:12px">School Competition<br><span style="color:#f59e0b">Preparation</span></h2>
+                <p style="line-height:1.7;margin-bottom:28px">Prepare for Olympiads, Science Fairs, Maths Competitions, and Scholarship exams with curated resources for Class 6 to 12.</p>
+                <div class="sc-feat"><div class="sc-feat-icon"><i class="ri-trophy-line"></i></div><div><div style="font-weight:700;font-size:0.95rem;color:#0f172a">Science &amp; Maths Olympiad</div><div style="font-size:0.82rem;color:#64748b">NSO, IMO, NTSE preparation guides</div></div></div>
+                <div class="sc-feat"><div class="sc-feat-icon"><i class="ri-lightbulb-line"></i></div><div><div style="font-weight:700;font-size:0.95rem;color:#0f172a">Science Quiz &amp; Fairs</div><div style="font-size:0.82rem;color:#64748b">Project ideas, quiz banks &amp; tips</div></div></div>
+                <div class="sc-feat"><div class="sc-feat-icon"><i class="ri-book-open-line"></i></div><div><div style="font-weight:700;font-size:0.95rem;color:#0f172a">Scholarship Exams</div><div style="font-size:0.82rem;color:#64748b">KVPY, INSPIRE &amp; state scholarships</div></div></div>
+                <div class="sc-feat"><div class="sc-feat-icon"><i class="ri-file-list-3-line"></i></div><div><div style="font-weight:700;font-size:0.95rem;color:#0f172a">Practice Paper Sets</div><div style="font-size:0.82rem;color:#64748b">Chapter-wise tests &amp; full mock papers</div></div></div>
+                <a href="#contact" class="btn-amber" style="margin-top:8px">Get Competition Resources <i class="ri-arrow-right-line"></i></a>
             </div>
-        </section>
-        <!-- APP DOWNLOAD SECTION -->
-        <section class="section reveal" style="padding: 2rem 6% 6rem;">
-            <div class="app-download-card"
-                style="background: linear-gradient(135deg, #e0f7fa, #f0fdf4); border-radius: 24px; padding: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 4rem; flex-wrap: wrap; box-shadow: 0 10px 40px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
-                <!-- Decorative background elements -->
-                <div
-                    style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(16, 185, 129, 0.1); border-radius: 50%; filter: blur(30px);">
-                </div>
-                <div
-                    style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: rgba(37, 99, 235, 0.1); border-radius: 50%; filter: blur(40px);">
-                </div>
-
-                <div style="flex: 1; min-width: 300px; text-align: left; z-index: 1;">
-                    <h2 class="app-download-heading"
-                        style="font-size: 3rem; color: #065f46; margin-bottom: 1rem; line-height: 1.2;">Download App
-                    </h2>
-                    <p
-                        style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 2.5rem; line-height: 1.6; max-width: 500px;">
-                        Get the Narayan e-Gurukul app to access downloaded lectures, study materials, and notes anytime,
-                        anywhere and learn at your convenience.
-                    </p>
-
-                    <div class="app-download-buttons" style="display: flex; gap: 1.2rem; flex-wrap: wrap;">
-                        <!-- Google Play Button -->
-                        <a href="#"
-                            style="background: #000; color: #fff; padding: 0.6rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 0.8rem; text-decoration: none; transition: transform 0.3s ease;"
-                            onmouseover="this.style.transform='translateY(-3px)'"
-                            onmouseout="this.style.transform='translateY(0)'">
-                            <i class="ri-google-play-fill" style="font-size: 2.2rem; color: #34d399;"></i>
-                            <div style="text-align: left; line-height: 1.1;">
-                                <span
-                                    style="font-size: 0.65rem; display: block; margin-bottom: 2px; color: #d1d5db; text-transform: uppercase; letter-spacing: 0.5px;">Get
-                                    it on</span>
-                                <span
-                                    style="font-size: 1.2rem; font-weight: 500; font-family: 'Outfit', sans-serif;">Google
-                                    Play</span>
-                            </div>
-                        </a>
-
-                        <!-- App Store Button -->
-                        <a href="#"
-                            style="background: #000; color: #fff; padding: 0.6rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 0.8rem; text-decoration: none; transition: transform 0.3s ease;"
-                            onmouseover="this.style.transform='translateY(-3px)'"
-                            onmouseout="this.style.transform='translateY(0)'">
-                            <i class="ri-apple-fill" style="font-size: 2.4rem; color: #fff; margin-top: -2px;"></i>
-                            <div style="text-align: left; line-height: 1.1;">
-                                <span
-                                    style="font-size: 0.65rem; display: block; margin-bottom: 2px; color: #d1d5db; text-transform: uppercase; letter-spacing: 0.5px;">Download
-                                    on the</span>
-                                <span
-                                    style="font-size: 1.2rem; font-weight: 500; font-family: 'Outfit', sans-serif;">App
-                                    Store</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    style="flex: 1; min-width: 300px; text-align: center; position: relative; z-index: 1; display: flex; justify-content: center; align-items: center;">
-                    <!-- Placeholder for App Mockup - You can replace 'app-mockup.png' with your actual image -->
-                    <div
-                        style="background: rgba(255,255,255,0.4); padding: 2rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(10px);">
-                        <i class="ri-smartphone-line"
-                            style="font-size: 10rem; color: var(--primary); opacity: 0.8;"></i>
-                        <p style="color: var(--text-muted); font-weight: 600; margin-top: 1rem;">[ Add Your App Mockup
-                            Here ]</p>
-                    </div>
-                </div>
+            <div class="sc-cards">
+                <div class="sc-card" style="background:#fffbeb;border:1px solid #fde68a"><i class="ri-calculator-line" style="color:#f59e0b"></i><div class="sc-card-title">Maths Olympiad</div><div class="sc-card-sub">IMO · RMO · AMO</div></div>
+                <div class="sc-card" style="background:#eff6ff;border:1px solid #bfdbfe"><i class="ri-microscope-line" style="color:#2563eb"></i><div class="sc-card-title">Science Olympiad</div><div class="sc-card-sub">NSO · IJSO · SOF</div></div>
+                <div class="sc-card" style="background:#ecfdf5;border:1px solid #a7f3d0"><i class="ri-award-line" style="color:#10b981"></i><div class="sc-card-title">NTSE / KVPY</div><div class="sc-card-sub">Scholarship exams</div></div>
+                <div class="sc-card" style="background:#fdf4ff;border:1px solid #e9d5ff"><i class="ri-computer-line" style="color:#9333ea"></i><div class="sc-card-title">Coding Contests</div><div class="sc-card-sub">Beginner to advanced</div></div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-
-        <!-- CONTACT SECTION -->
-        <section class="section reveal" id="contact">
-            <div class="contact-grid">
-                <div class="contact-info" style="text-align: left;">
-                    <span class="badge">Get In Touch</span>
-                    <h2>Let's <span>Connect</span></h2>
-                    <p>Have questions about the material or want to contribute? Our team is here to help.</p>
-                    <div class="contact-info-list">
-                        <div class="contact-link">
-                            <div class="icon"><i class="ri-mail-line"></i></div>
-                            <div>
-                                <h4>Email Support</h4>
-                                <p>nishant.sanfort@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-link">
-                            <div class="icon"><i class="ri-map-pin-line"></i></div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Hanumangarh, Rajasthan - 335512</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-card">
-                    <form class="card">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" placeholder="john@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea placeholder="How can we help you?" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn primary-btn" style="width: 100%;">Send Message <i
-                                class="ri-send-plane-line"></i></button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <a href="index.html" class="footer-logo">
-                    <h2>Narayan <span>e-Gurukul</span></h2>
+<!-- ═══════════════════════════════════════
+     MY SCHOOL SECTION
+═══════════════════════════════════════ -->
+<section class="section reveal" id="my-school" style="background:#f8fafc;border-top:1px solid #e2e8f0">
+    <div class="ms-wrap">
+        <div class="ms-deco1"></div>
+        <div class="ms-deco2"></div>
+        <div class="ms-grid">
+            <div>
+                <span class="label label-white">My School</span>
+                <h2 style="font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:12px">Connected to Your<br>School Portal</h2>
+                <p style="color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:28px;font-size:0.95rem">Access school notices, timetables, academic calendars, and important announcements — all connected from Narayan e-Gurukul.</p>
+                <div class="ms-feat"><i class="ri-notification-3-line" style="color:#93c5fd;font-size:1rem"></i> School Notices &amp; Announcements</div>
+                <div class="ms-feat"><i class="ri-calendar-event-line" style="color:#93c5fd;font-size:1rem"></i> Academic Calendar &amp; Exam Dates</div>
+                <div class="ms-feat"><i class="ri-time-line" style="color:#93c5fd;font-size:1rem"></i> Class Timetables</div>
+                <div class="ms-feat"><i class="ri-links-line" style="color:#93c5fd;font-size:1rem"></i> Direct Link to School Website</div>
+                <!-- Replace # with your actual school URL -->
+                <a href="#" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#1e3a8a;padding:12px 24px;border-radius:999px;font-weight:700;font-size:0.9rem;margin-top:8px;transition:background .2s" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#fff'">
+                    Visit School Website <i class="ri-external-link-line"></i>
                 </a>
-                <p>Empowering the next generation of engineers with curated study materials, solved PYQs, and
-                    branch-specific resources for success.</p>
             </div>
-            <div class="footer-nav">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
+            <div class="ms-cards">
+                <div class="ms-card"><i class="ri-group-line"></i><div class="ms-card-title">Students</div></div>
+                <div class="ms-card"><i class="ri-book-open-line"></i><div class="ms-card-title">Resources</div></div>
+                <div class="ms-card"><i class="ri-medal-line"></i><div class="ms-card-title">Achievements</div></div>
+                <div class="ms-card"><i class="ri-global-line"></i><div class="ms-card-title">Online Portal</div></div>
             </div>
-            <div class="footer-nav">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="btech-studymaterial.html">Study Material</a></li>
-                    <li><a href="batch.html">Our Batches</a></li>
-                    <li><a href="#">Solved PYQs</a></li>
-                </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ABOUT / MISSION
+═══════════════════════════════════════ -->
+<section class="section reveal" id="about" style="background:#fff;border-top:1px solid #e2e8f0">
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+        <span class="label label-blue">Our Mission</span>
+        <h2 style="font-size:2rem;font-weight:800;color:#0f172a;margin-bottom:14px">Empowering India's Next<br>Generation of Leaders</h2>
+        <p style="font-size:1rem;line-height:1.8">Narayan e-Gurukul is an emerging smart learning platform designed to help students — from school to engineering — learn better, practice more, and score higher. Quality education, accessible to all.</p>
+        <div class="about-stats">
+            <div class="about-stat" style="border-top:3px solid #2563eb">
+                <div style="font-size:2rem;font-weight:800;color:#0f172a;margin-bottom:4px">15k+</div>
+                <div style="font-size:0.82rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">Downloads</div>
             </div>
-            <div class="footer-newsletter">
-                <h4>Stay Updated</h4>
-                <div class="newsletter">
-                    <p>Join our newsletter for the latest updates.</p>
-                    <form class="n-form">
-                        <input type="email" placeholder="Your email" required>
-                        <button type="submit"><i class="ri-arrow-right-line"></i></button>
-                    </form>
+            <div class="about-stat" style="border-top:3px solid #10b981">
+                <div style="font-size:2rem;font-weight:800;color:#0f172a;margin-bottom:4px">150+</div>
+                <div style="font-size:0.82rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">Students</div>
+            </div>
+            <div class="about-stat" style="border-top:3px solid #f59e0b">
+                <div style="font-size:2rem;font-weight:800;color:#0f172a;margin-bottom:4px">100%</div>
+                <div style="font-size:0.82rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">Free Forever</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CONTACT SECTION
+═══════════════════════════════════════ -->
+<section class="section reveal" id="contact" style="background:#f8fafc;border-top:1px solid #e2e8f0">
+    <div class="contact-grid">
+        <div>
+            <span class="label label-blue">Get In Touch</span>
+            <h2 style="font-size:1.9rem;font-weight:800;color:#0f172a;margin-bottom:10px">Let's <span style="color:#2563eb">Connect</span></h2>
+            <p style="line-height:1.7;margin-bottom:28px">Have questions about study material or want to contribute? We're here to help.</p>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="ri-mail-line"></i></div>
+                <div>
+                    <div style="font-size:0.82rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px">Email</div>
+                    <div style="font-size:0.95rem;font-weight:600;color:#0f172a">nishant.sanfort@gmail.com</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
+                <div>
+                    <div style="font-size:0.82rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px">Location</div>
+                    <div style="font-size:0.95rem;font-weight:600;color:#0f172a">Hanumangarh, Rajasthan — 335512</div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Narayan e-Gurukul. Crafted with excellence for engineering students.</p>
+        <div class="form-card">
+            <form>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="How can we help?" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message <i class="ri-send-plane-line"></i></button>
+            </form>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="script.js"></script>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <a href="index.html" style="font-size:1.2rem;font-weight:800;color:#fff;display:inline-block;margin-bottom:12px">
+                Narayan <span style="color:#60a5fa">e-Gurukul</span>
+            </a>
+            <p style="font-size:0.88rem;line-height:1.7;max-width:280px;color:#94a3b8">Empowering students across India with free study material, PYQs, and notes for B.Tech, JEE, NEET, and school exams.</p>
+        </div>
+        <div>
+            <h4 style="color:#fff;font-size:0.9rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px">Quick Links</h4>
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="#my-school" class="footer-link">My School</a>
+            <a href="#contact" class="footer-link">Contact</a>
+        </div>
+        <div>
+            <h4 style="color:#fff;font-size:0.9rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px">Resources</h4>
+            <a href="#btech" class="footer-link">B.Tech Resources</a>
+            <a href="#jee-neet" class="footer-link">JEE / NEET</a>
+            <a href="#school-comp" class="footer-link">School Competitions</a>
+            <a href="btech-studymaterial.html" class="footer-link">Study Material</a>
+        </div>
+        <div>
+            <h4 style="color:#fff;font-size:0.9rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px">Stay Updated</h4>
+            <p style="font-size:0.88rem;color:#94a3b8">Join our newsletter for latest updates.</p>
+            <form class="n-form" onsubmit="return false">
+                <input type="email" placeholder="Your email" required>
+                <button type="submit"><i class="ri-arrow-right-line"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Narayan e-Gurukul. Crafted for students across India.</p>
+    </div>
+</footer>
+
+<script>
+    // Navbar toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks   = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Navbar scroll shadow
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
 </body>
-
 </html>

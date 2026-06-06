@@ -1,9 +1,19 @@
+# ═══════════════════════════════════════
+# Narayan e-Gurukul — robots.txt
+# https://narayenegurukul.com
+# ═══════════════════════════════════════
+
 User-agent: *
 Allow: /
 
-# Disallow admin pages from being indexed
+# Block private / admin files
 Disallow: /admin.html
 Disallow: /server.js
+Disallow: /database.db
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /node_modules/
+Disallow: /SetupNode.bat
 
-# Point Google to your sitemap
+# Sitemap location
 Sitemap: https://narayenegurukul.com/sitemap.xml

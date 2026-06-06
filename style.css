@@ -1328,3 +1328,22 @@ footer {
         transform: none !important;
     }
 }
+
+/* ==========================================================================
+   MY SCHOOL SECTION - Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+    #my-school .container > div {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #my-school {
+        padding: 4rem 0 !important;
+    }
+    #my-school h2 {
+        font-size: 2rem !important;
+    }
+}
