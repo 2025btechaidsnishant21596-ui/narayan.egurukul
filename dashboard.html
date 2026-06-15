@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Narayan e-Gurukul</title>
+    <meta name="description" content="Student dashboard – track progress, access batches, view history.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+/* ━━━━━━━━━━━━━━━━  BASE  ━━━━━━━━━━━━━━━━ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Outfit',sans-serif;background:#f0f4f8;color:#1e293b;overflow-x:hidden;min-height:100vh}
+a{text-decoration:none;color:inherit}
+button{font-family:'Outfit',sans-serif;cursor:pointer}
+img{max-width:100%;display:block}
+
+/* ━━━━━━━━━━━━━━━━  TOKENS  ━━━━━━━━━━━━━━━━ */
+:root{
+  --primary:   #0f172a;
+  --accent:    #2563eb;
+  --accent-d:  #1d4ed8;
+  --accent-l:  #dbeafe;
+  --accent-xl: #eff6ff;
+  --green:     #10b981;
+  --green-l:   #d1fae5;
+  --amber:     #f59e0b;
+  --amber-l:   #fef3c7;
+  --red:       #ef4444;
+  --red-l:     #fee2e2;
+  --purple:    #8b5cf6;
+  --purple-l:  #ede9fe;
+  --pink:      #ec4899;
+  --pink-l:    #fce7f3;
+  --white:     #ffffff;
+  --bg:        #f0f4f8;
+  --card:      #ffffff;
+  --border:    #e2e8f0;
+  --border-l:  #f1f5f9;
+  --muted:     #64748b;
+  --faint:     #94a3b8;
+  --sidebar-w: 268px;
+  --topbar-h:  64px;
+  --r:         12px;
+  --r-lg:      18px;
+  --r-xl:      24px;
+  --sh:        0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+  --sh-md:     0 4px 20px rgba(0,0,0,.10);
+  --sh-lg:     0 8px 32px rgba(0,0,0,.12);
+  --tr:        all .2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ━━━━━━━━━━━━━━━━  SCROLLBAR  ━━━━━━━━━━━━━━━━ */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:999px}
+::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+
+/* ━━━━━━━━━━━━━━━━  SHELL  ━━━━━━━━━━━━━━━━ */
+.shell{display:flex;min-height:100vh}
+
+/* ━━━━━━━━━━━━━━━━  SIDEBAR  ━━━━━━━━━━━━━━━━ */
+.sidebar{
+  width:var(--sidebar-w);position:fixed;top:0;left:0;bottom:0;
+  background:var(--primary);
+  display:flex;flex-direction:column;
+  z-index:300;overflow-y:auto;scrollbar-width:none;
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+.sidebar::-webkit-scrollbar{display:none}
+
+/* Brand */
+.sb-brand{
+  padding:20px 18px 16px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  display:flex;align-items:center;gap:10px;
+}
+.sb-brand-icon{
+  width:40px;height:40px;border-radius:11px;
+  background:linear-gradient(135deg,var(--accent),#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;color:#fff;flex-shrink:0;
+  box-shadow:0 4px 12px rgba(37,99,235,.4);
+}
+.sb-brand-name{font-size:.95rem;font-weight:800;color:#fff;line-height:1.2}
+.sb-brand-name small{display:block;font-size:.6rem;font-weight:500;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1.1px;margin-top:2px}
+
+/* User card */
+.sb-user{
+  padding:14px 18px;margin:12px 12px 4px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r);
+  display:flex;align-items:center;gap:11px;
+}
+.sb-avatar{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;font-weight:900;color:#fff;position:relative;
+}
+.sb-avatar .dot{
+  position:absolute;bottom:1px;right:1px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--green);border:2px solid var(--primary);
+}
+.sb-user-info{flex:1;min-width:0}
+.sb-user-name{font-size:.84rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-user-role{font-size:.66rem;color:rgba(255,255,255,.45);font-weight:500;margin-top:1px}
+.sb-xp{
+  background:rgba(37,99,235,.3);color:#93c5fd;
+  font-size:.63rem;font-weight:800;
+  padding:3px 9px;border-radius:999px;
+  border:1px solid rgba(37,99,235,.35);white-space:nowrap;flex-shrink:0;
+}
+
+/* Nav */
+.sb-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:rgba(255,255,255,.28);padding:14px 18px 5px}
+.sb-nav{list-style:none;padding:0 10px}
+.sb-nav li{margin-bottom:1px}
+.sb-nav a{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 12px;border-radius:9px;
+  font-size:.84rem;font-weight:600;color:rgba(255,255,255,.55);
+  transition:var(--tr);position:relative;
+}
+.sb-nav a i{font-size:1.05rem;flex-shrink:0;width:20px;text-align:center}
+.sb-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.sb-nav a.active{background:rgba(37,99,235,.22);color:#93c5fd;}
+.sb-nav a.active i{color:var(--accent)}
+.sb-nav a.active::before{content:'';position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:3px;height:18px;background:var(--accent);border-radius:0 3px 3px 0}
+.nb{margin-left:auto;font-size:.58rem;font-weight:800;padding:2px 7px;border-radius:999px;color:#fff}
+.nb-blue{background:var(--accent)}
+.nb-green{background:var(--green)}
+
+/* Footer */
+.sb-foot{margin-top:auto;padding:14px 10px;border-top:1px solid rgba(255,255,255,.07)}
+.sb-foot a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;font-size:.84rem;font-weight:600;color:rgba(255,255,255,.45);transition:var(--tr)}
+.sb-foot a:hover{background:rgba(255,255,255,.08);color:#fff}
+.sb-foot a i{font-size:1.05rem;width:20px;text-align:center}
+.sb-foot a.logout:hover{background:rgba(239,68,68,.15);color:#fca5a5}
+
+/* ━━━━━━━━━━━━━━━━  OVERLAY  ━━━━━━━━━━━━━━━━ */
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.5);z-index:299;
+  backdrop-filter:blur(2px);
+}
+.overlay.show{display:block}
+
+/* ━━━━━━━━━━━━━━━━  MAIN  ━━━━━━━━━━━━━━━━ */
+.main{
+  flex:1;margin-left:var(--sidebar-w);
+  display:flex;flex-direction:column;min-height:100vh;
+}
+
+/* ━━━━━━━━━━━━━━━━  TOPBAR  ━━━━━━━━━━━━━━━━ */
+.topbar{
+  height:var(--topbar-h);background:var(--white);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;
+  padding:0 24px;position:sticky;top:0;z-index:200;
+}
+.topbar-toggle{
+  display:none;background:none;border:none;
+  color:var(--muted);font-size:1.35rem;flex-shrink:0;
+  padding:4px;border-radius:8px;transition:var(--tr);
+}
+.topbar-toggle:hover{background:var(--border-l);color:var(--primary)}
+.topbar-title{flex:1;min-width:0}
+.topbar-title h2{font-size:1rem;font-weight:800;color:var(--primary);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar-title p{font-size:.7rem;color:var(--faint);font-weight:500}
+
+.search-bar{
+  display:flex;align-items:center;gap:8px;
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:10px;padding:7px 13px;width:210px;
+  transition:var(--tr);flex-shrink:0;
+}
+.search-bar:focus-within{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.08)}
+.search-bar i{color:var(--faint);font-size:.9rem}
+.search-bar input{border:none;outline:none;font-family:'Outfit',sans-serif;font-size:.8rem;color:var(--primary);background:transparent;width:100%}
+.search-bar input::placeholder{color:var(--faint)}
+
+.tb-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.tb-btn{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--bg);border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:1.1rem;
+  transition:var(--tr);position:relative;cursor:pointer;
+}
+.tb-btn:hover{background:var(--accent-l);color:var(--accent);border-color:var(--accent)}
+.tb-notif-dot{position:absolute;top:5px;right:5px;width:8px;height:8px;background:var(--red);border-radius:50%;border:2px solid #fff}
+.tb-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:900;color:#fff;
+  cursor:pointer;border:2.5px solid var(--border);transition:var(--tr);
+}
+.tb-avatar:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+
+/* ━━━━━━━━━━━━━━━━  PAGE  ━━━━━━━━━━━━━━━━ */
+.page{padding:24px 24px 80px;flex:1}
+
+/* ━━━━━━━━━━━━━━━━  WELCOME BANNER  ━━━━━━━━━━━━━━━━ */
+.hero-banner{
+  background:linear-gradient(135deg,#0f172a 0%,#1e40af 45%,#4f46e5 80%,#7c3aed 100%);
+  border-radius:var(--r-xl);padding:28px 28px;
+  display:flex;align-items:center;gap:18px;
+  margin-bottom:20px;position:relative;overflow:hidden;
+}
+.hero-banner::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.04);top:-140px;right:-80px;pointer-events:none}
+.hero-banner::after{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.04);bottom:-80px;left:220px;pointer-events:none}
+.hero-text{flex:1;position:relative;z-index:1;min-width:0}
+.hero-text h1{font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:6px;line-height:1.25}
+.hero-text p{font-size:.83rem;color:rgba(255,255,255,.72);font-weight:500;line-height:1.55}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.hero-badge{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;padding:4px 12px;
+  font-size:.7rem;font-weight:700;color:rgba(255,255,255,.85);
+  display:flex;align-items:center;gap:5px;
+}
+.hero-badge i{font-size:.75rem}
+.hero-right{display:flex;gap:12px;flex-shrink:0;position:relative;z-index:1}
+.hero-widget{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--r);padding:16px 18px;text-align:center;
+  backdrop-filter:blur(6px);
+}
+.hero-widget .hw-num{font-size:1.8rem;font-weight:900;color:#fff;line-height:1}
+.hero-widget .hw-lbl{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.8px;margin-top:4px}
+.hero-quote{max-width:200px}
+.hero-quote .hq-text{font-size:.74rem;font-style:italic;color:rgba(255,255,255,.8);line-height:1.5}
+.hero-quote .hq-src{font-size:.64rem;color:rgba(255,255,255,.45);margin-top:7px;font-weight:600}
+
+/* ━━━━━━━━━━━━━━━━  STATS  ━━━━━━━━━━━━━━━━ */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.stat-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:18px 18px;
+  display:flex;align-items:flex-start;gap:14px;
+  box-shadow:var(--sh);transition:var(--tr);
+  position:relative;overflow:hidden;
+}
+.stat-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r-lg) var(--r-lg) 0 0}
+.stat-card.s-blue::after{background:linear-gradient(90deg,#2563eb,#60a5fa)}
+.stat-card.s-green::after{background:linear-gradient(90deg,#059669,#34d399)}
+.stat-card.s-amber::after{background:linear-gradient(90deg,#d97706,#fbbf24)}
+.stat-card.s-purple::after{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
+.stat-card:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.stat-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.si-blue{background:var(--accent-l);color:var(--accent)}
+.si-green{background:var(--green-l);color:#059669}
+.si-amber{background:var(--amber-l);color:#d97706}
+.si-purple{background:var(--purple-l);color:var(--purple)}
+.stat-body{flex:1;min-width:0}
+.stat-val{font-size:1.6rem;font-weight:900;color:var(--primary);line-height:1}
+.stat-lbl{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+.stat-chg{font-size:.67rem;font-weight:700;margin-top:6px;display:flex;align-items:center;gap:3px}
+.chg-up{color:var(--green)}.chg-dn{color:var(--red)}
+
+/* ━━━━━━━━━━━━━━━━  QUICK ACTIONS  ━━━━━━━━━━━━━━━━ */
+.qa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.qa-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:18px 14px 14px;
+  text-align:center;cursor:pointer;
+  box-shadow:var(--sh);transition:var(--tr);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.qa-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:transparent}
+.qa-card:hover .qa-icon{transform:scale(1.08)}
+.qa-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:var(--tr)}
+.qa-label{font-size:.78rem;font-weight:700;color:var(--primary)}
+.qa-sub{font-size:.65rem;color:var(--faint);font-weight:500}
+
+/* ━━━━━━━━━━━━━━━━  2-COL GRID  ━━━━━━━━━━━━━━━━ */
+.two-col{display:grid;grid-template-columns:1fr 330px;gap:16px;align-items:start}
+.col-left{display:flex;flex-direction:column;gap:16px}
+.col-right{display:flex;flex-direction:column;gap:16px}
+
+/* ━━━━━━━━━━━━━━━━  PANELS  ━━━━━━━━━━━━━━━━ */
+.panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);overflow:hidden}
+.panel-hd{
+  padding:16px 20px 13px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border-l);
+}
+.panel-hd h3{font-size:.88rem;font-weight:800;color:var(--primary);display:flex;align-items:center;gap:8px}
+.panel-hd h3 i{font-size:1rem;color:var(--accent)}
+.panel-hd a{font-size:.73rem;font-weight:700;color:var(--accent);transition:var(--tr)}
+.panel-hd a:hover{color:var(--accent-d)}
+.panel-bd{padding:16px 20px}
+
+/* ━━━━━━━━━━━━━━━━  BATCH ROWS  ━━━━━━━━━━━━━━━━ */
+.batch-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border-l);cursor:pointer;transition:var(--tr)}
+.batch-row:first-child{padding-top:0}
+.batch-row:last-child{border-bottom:none;padding-bottom:0}
+.batch-row:hover{opacity:.78}
+.batch-thumb{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0}
+.batch-info{flex:1;min-width:0}
+.batch-title{font-size:.84rem;font-weight:700;color:var(--primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.batch-meta{font-size:.68rem;color:var(--faint);font-weight:500;margin-top:2px}
+.batch-prog{width:76px;flex-shrink:0}
+.batch-pct{font-size:.7rem;font-weight:800;color:var(--accent);text-align:right;margin-bottom:4px}
+.pbar{height:5px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.pfill{height:100%;border-radius:999px;transition:width 1.1s ease}
+
+/* ━━━━━━━━━━━━━━━━  ACTIVITY  ━━━━━━━━━━━━━━━━ */
+.act-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border-l)}
+.act-row:first-child{padding-top:0}
+.act-row:last-child{border-bottom:none;padding-bottom:0}
+.act-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.ai-blue{background:var(--accent-l);color:var(--accent)}
+.ai-green{background:var(--green-l);color:#059669}
+.ai-amber{background:var(--amber-l);color:#d97706}
+.ai-purple{background:var(--purple-l);color:var(--purple)}
+.ai-pink{background:var(--pink-l);color:var(--pink)}
+.act-info{flex:1;min-width:0}
+.act-title{font-size:.82rem;font-weight:700;color:var(--primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.act-sub{font-size:.68rem;color:var(--muted);font-weight:500;margin-top:2px}
+.act-time{font-size:.64rem;color:var(--faint);font-weight:600;flex-shrink:0}
+
+/* ━━━━━━━━━━━━━━━━  SUBJECT BARS  ━━━━━━━━━━━━━━━━ */
+.sub-row{display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid var(--border-l)}
+.sub-row:first-child{padding-top:0}
+.sub-row:last-child{border-bottom:none;padding-bottom:0}
+.sub-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sub-name{flex:1;font-size:.82rem;font-weight:700;color:var(--primary)}
+.sub-bw{width:110px;flex-shrink:0}
+.sub-pct{font-size:.72rem;font-weight:800;text-align:right;margin-bottom:4px}
+.sbar{height:6px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.sfill{height:100%;border-radius:999px;transition:width 1.2s ease}
+
+/* ━━━━━━━━━━━━━━━━  LEADERBOARD  ━━━━━━━━━━━━━━━━ */
+.lb-row{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid var(--border-l)}
+.lb-row:first-child{padding-top:0}
+.lb-row:last-child{border-bottom:none;padding-bottom:0}
+.lb-rank{width:26px;text-align:center;font-size:.78rem;font-weight:800;color:var(--faint);flex-shrink:0}
+.lb-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#fff;flex-shrink:0}
+.lb-name{flex:1;font-size:.82rem;font-weight:700;color:var(--primary)}
+.you-tag{font-size:.58rem;font-weight:800;background:var(--accent-l);color:var(--accent);padding:1px 7px;border-radius:999px;margin-left:5px;vertical-align:middle}
+.lb-xp{font-size:.75rem;font-weight:800;color:var(--accent);flex-shrink:0}
+.lb-you-row{background:#eff6ff;border-radius:9px;padding:8px 8px!important;border:1.5px solid var(--accent-l)!important;border-bottom:1.5px solid var(--accent-l)!important}
+
+/* ━━━━━━━━━━━━━━━━  EVENTS  ━━━━━━━━━━━━━━━━ */
+.ev-row{display:flex;align-items:flex-start;gap:11px;padding:12px 0;border-bottom:1px solid var(--border-l)}
+.ev-row:first-child{padding-top:0}
+.ev-row:last-child{border-bottom:none;padding-bottom:0}
+.ev-cal{width:44px;height:44px;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;background:linear-gradient(135deg,var(--accent),#7c3aed)}
+.ev-day{font-size:1rem;font-weight:900;color:#fff;line-height:1}
+.ev-mon{font-size:.55rem;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.5px}
+.ev-info{flex:1;min-width:0}
+.ev-title{font-size:.83rem;font-weight:700;color:var(--primary)}
+.ev-meta{font-size:.68rem;color:var(--muted);font-weight:500;margin-top:3px;display:flex;align-items:center;gap:6px}
+.ev-meta i{color:var(--accent)}
+.ev-tag{font-size:.61rem;font-weight:800;padding:2px 9px;border-radius:999px;flex-shrink:0}
+.et-live{background:var(--green-l);color:#065f46}
+.et-soon{background:var(--amber-l);color:#92400e}
+.et-new{background:var(--accent-l);color:#1e40af}
+
+/* ━━━━━━━━━━━━━━━━  NOTIFS  ━━━━━━━━━━━━━━━━ */
+.notif-row{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border-l);cursor:pointer;transition:var(--tr)}
+.notif-row:first-child{padding-top:0}
+.notif-row:last-child{border-bottom:none;padding-bottom:0}
+.notif-row:hover{opacity:.72}
+.ndot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.nd-on{background:var(--accent)}
+.nd-off{background:#cbd5e1}
+.nt-text{font-size:.8rem;font-weight:600;color:var(--primary);line-height:1.45}
+.nt-time{font-size:.64rem;color:var(--faint);margin-top:3px;font-weight:500}
+
+/* ━━━━━━━━━━━━━━━━  MOBILE BOTTOM NAV  ━━━━━━━━━━━━━━━━ */
+.bottom-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;
+  background:var(--white);border-top:1px solid var(--border);
+  z-index:400;padding:8px 0 env(safe-area-inset-bottom,8px);
+}
+.bn-inner{display:flex;align-items:center;justify-content:space-around}
+.bn-item{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:6px 16px;border-radius:12px;
+  font-size:.6rem;font-weight:700;color:var(--muted);
+  cursor:pointer;transition:var(--tr);background:none;border:none;
+  flex:1;
+}
+.bn-item i{font-size:1.3rem}
+.bn-item.active{color:var(--accent)}
+.bn-item.active i{color:var(--accent)}
+.bn-item:hover{color:var(--accent)}
+
+/* ━━━━━━━━━━━━━━━━  FADE IN ANIM  ━━━━━━━━━━━━━━━━ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fu{opacity:0;animation:fadeUp .38s ease forwards}
+.fu:nth-child(1){animation-delay:.03s}.fu:nth-child(2){animation-delay:.07s}
+.fu:nth-child(3){animation-delay:.11s}.fu:nth-child(4){animation-delay:.15s}
+.fu:nth-child(5){animation-delay:.19s}.fu:nth-child(6){animation-delay:.23s}
+.fu:nth-child(7){animation-delay:.27s}
+
+/* ━━━━━━━━━━━━━━━━  RESPONSIVE  ━━━━━━━━━━━━━━━━ */
+
+/* 1280 – compress sidebar */
+@media(max-width:1280px){
+  :root{--sidebar-w:250px}
+}
+
+/* 1100 – stack right col below */
+@media(max-width:1100px){
+  .two-col{grid-template-columns:1fr}
+  .col-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+}
+
+/* 960 – sidebar becomes drawer */
+@media(max-width:960px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .topbar-toggle{display:flex}
+  .search-bar{width:170px}
+}
+
+/* 768 – tablet tweaks */
+@media(max-width:768px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .qa-grid{grid-template-columns:repeat(4,1fr)}
+  .col-right{grid-template-columns:1fr}
+  .page{padding:16px 16px 80px}
+  .topbar{padding:0 16px;gap:10px}
+  .hero-banner{padding:22px 20px}
+  .hero-text h1{font-size:1.15rem}
+  .hero-quote{display:none}
+}
+
+/* 560 – phone */
+@media(max-width:560px){
+  .search-bar{display:none}
+  .hero-right{display:none}
+  .qa-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .bottom-nav{display:block}
+  .page{padding:14px 12px 90px}
+  .topbar{padding:0 12px;gap:8px}
+  .topbar-title h2{font-size:.9rem}
+  .hero-text h1{font-size:1rem}
+  .hero-badges{gap:5px}
+  .hero-badge{font-size:.62rem;padding:3px 9px}
+}
+
+/* 400 – small phones */
+@media(max-width:400px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .qa-grid{grid-template-columns:1fr 1fr}
+  .stat-val{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ━━━━━━━━━  SIDEBAR  ━━━━━━━━━ -->
+<aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+
+  <div class="sb-brand">
+    <div class="sb-brand-icon"><i class="ri-graduation-cap-fill"></i></div>
+    <div class="sb-brand-name">Narayan e-Gurukul<small>Student Portal</small></div>
+  </div>
+
+  <div style="padding:10px 10px 4px">
+    <div class="sb-user">
+      <div class="sb-avatar">BS<span class="dot"></span></div>
+      <div class="sb-user-info">
+        <div class="sb-user-name">Bhartendu Saini</div>
+        <div class="sb-user-role">B.Tech CSE · Sem 3</div>
+      </div>
+      <span class="sb-xp">0 XP</span>
+    </div>
+  </div>
+
+  <div class="sb-label">Overview</div>
+  <ul class="sb-nav">
+    <li><a href="dashboard.html" class="active"><i class="ri-dashboard-3-line"></i> Dashboard</a></li>
+    <li><a href="index.html"><i class="ri-home-4-line"></i> Home</a></li>
+  </ul>
+
+  <div class="sb-label">Study</div>
+  <ul class="sb-nav">
+    <li><a href="#"><i class="ri-stack-line"></i> My Batches <span class="nb nb-blue">1</span></a></li>
+    <li><a href="#"><i class="ri-video-line"></i> Lectures</a></li>
+    <li><a href="#"><i class="ri-file-pdf-line"></i> PDF Bank</a></li>
+    <li><a href="#"><i class="ri-archive-2-line"></i> Library</a></li>
+    <li><a href="#"><i class="ri-bookmark-3-line"></i> Bookmarks</a></li>
+  </ul>
+
+  <div class="sb-label">Test & Rank</div>
+  <ul class="sb-nav">
+    <li><a href="#"><i class="ri-file-list-3-line"></i> Test Series</a></li>
+    <li><a href="#"><i class="ri-sword-line"></i> Battlegrounds <span class="nb nb-green">Live</span></a></li>
+    <li><a href="#"><i class="ri-bar-chart-box-line"></i> My Results</a></li>
+  </ul>
+
+  <div class="sb-label">Profile</div>
+  <ul class="sb-nav">
+    <li><a href="#"><i class="ri-user-3-line"></i> My Profile</a></li>
+    <li><a href="#"><i class="ri-trophy-line"></i> Achievements</a></li>
+    <li><a href="#"><i class="ri-compass-discover-line"></i> Rank Predictor</a></li>
+  </ul>
+
+  <div class="sb-foot">
+    <a href="index.html"><i class="ri-arrow-left-line"></i> Back to Site</a>
+    <a href="login.html" class="logout" id="logoutBtn"><i class="ri-logout-box-r-line"></i> Logout</a>
+  </div>
+</aside>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ━━━━━━━━━  MAIN  ━━━━━━━━━ -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <button class="topbar-toggle" id="menuBtn" aria-label="Open sidebar"><i class="ri-menu-2-line"></i></button>
+
+    <div class="topbar-title">
+      <h2 id="greetMsg">Good Morning, Bhartendu! 👋</h2>
+      <p id="greetDate">Monday, 15 June 2026</p>
+    </div>
+
+    <div class="search-bar" role="search">
+      <i class="ri-search-line"></i>
+      <input type="text" placeholder="Search courses, notes…" aria-label="Search">
+    </div>
+
+    <div class="tb-actions">
+      <button class="tb-btn" id="notifBtn" title="Notifications" aria-label="Notifications">
+        <i class="ri-notification-3-line"></i>
+        <span class="tb-notif-dot" id="notifDot"></span>
+      </button>
+      <button class="tb-btn" title="Settings" aria-label="Settings">
+        <i class="ri-settings-3-line"></i>
+      </button>
+      <div class="tb-avatar" title="My Profile" role="button" tabindex="0">BS</div>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="page" id="mainPage">
+
+    <!-- HERO BANNER -->
+    <div class="hero-banner fu">
+      <div class="hero-text">
+        <h1>Padhlo chahe kahi se, Manzil milegi yahi se! 🚀</h1>
+        <p>Welcome back to your learning hub. You have 3 pending topics &amp; 1 upcoming test this week.</p>
+        <div class="hero-badges">
+          <span class="hero-badge"><i class="ri-fire-line"></i> 5-Day Streak</span>
+          <span class="hero-badge"><i class="ri-book-open-line"></i> 3 Batches Active</span>
+          <span class="hero-badge"><i class="ri-medal-line"></i> Rank #42</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-widget">
+          <div class="hw-num">🔥 5</div>
+          <div class="hw-lbl">Day Streak</div>
+        </div>
+        <div class="hero-widget hero-quote">
+          <div class="hq-text">"Success is the sum of small efforts repeated day in and day out."</div>
+          <div class="hq-src">— Robert Collier</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card s-blue fu">
+        <div class="stat-icon si-blue"><i class="ri-file-list-3-line"></i></div>
+        <div class="stat-body">
+          <div class="stat-val">12</div>
+          <div class="stat-lbl">Tests Done</div>
+          <div class="stat-chg chg-up"><i class="ri-arrow-up-s-line"></i> +2 this week</div>
+        </div>
+      </div>
+      <div class="stat-card s-green fu">
+        <div class="stat-icon si-green"><i class="ri-percent-line"></i></div>
+        <div class="stat-body">
+          <div class="stat-val">74%</div>
+          <div class="stat-lbl">Avg. Score</div>
+          <div class="stat-chg chg-up"><i class="ri-arrow-up-s-line"></i> +4% this month</div>
+        </div>
+      </div>
+      <div class="stat-card s-amber fu">
+        <div class="stat-icon si-amber"><i class="ri-trophy-line"></i></div>
+        <div class="stat-body">
+          <div class="stat-val">#42</div>
+          <div class="stat-lbl">Current Rank</div>
+          <div class="stat-chg chg-up"><i class="ri-arrow-up-s-line"></i> Up 8 spots</div>
+        </div>
+      </div>
+      <div class="stat-card s-purple fu">
+        <div class="stat-icon si-purple"><i class="ri-time-line"></i></div>
+        <div class="stat-body">
+          <div class="stat-val">18h</div>
+          <div class="stat-lbl">Study Time</div>
+          <div class="stat-chg chg-up"><i class="ri-arrow-up-s-line"></i> +3h this week</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="qa-grid">
+      <div class="qa-card fu" onclick="window.location.href='#'" role="button" tabindex="0">
+        <div class="qa-icon" style="background:var(--accent-l)"><i class="ri-play-circle-line" style="color:var(--accent)"></i></div>
+        <div class="qa-label">Continue</div>
+        <div class="qa-sub">Pick up where you left</div>
+      </div>
+      <div class="qa-card fu" onclick="window.location.href='#'" role="button" tabindex="0">
+        <div class="qa-icon" style="background:var(--green-l)"><i class="ri-file-list-3-line" style="color:#059669"></i></div>
+        <div class="qa-label">Start Test</div>
+        <div class="qa-sub">Practice &amp; improve rank</div>
+      </div>
+      <div class="qa-card fu" onclick="window.location.href='#'" role="button" tabindex="0">
+        <div class="qa-icon" style="background:var(--amber-l)"><i class="ri-download-2-line" style="color:#d97706"></i></div>
+        <div class="qa-label">PDF Bank</div>
+        <div class="qa-sub">Download study notes</div>
+      </div>
+      <div class="qa-card fu" onclick="window.location.href='#'" role="button" tabindex="0">
+        <div class="qa-icon" style="background:var(--purple-l)"><i class="ri-robot-2-line" style="color:var(--purple)"></i></div>
+        <div class="qa-label">AI Guru</div>
+        <div class="qa-sub">Ask your doubt now</div>
+      </div>
+    </div>
+
+    <!-- TWO-COL LAYOUT -->
+    <div class="two-col">
+
+      <!-- LEFT -->
+      <div class="col-left">
+
+        <!-- My Batches -->
+        <div class="panel fu">
+          <div class="panel-hd">
+            <h3><i class="ri-stack-line"></i> My Batches</h3>
+            <a href="#">View All</a>
+          </div>
+          <div class="panel-bd">
+            <div class="batch-row">
+              <div class="batch-thumb" style="background:#dbeafe">💻</div>
+              <div class="batch-info">
+                <div class="batch-title">B.Tech Computer Science</div>
+                <div class="batch-meta">Sem 1–8 · Self-paced · 24 chapters</div>
+              </div>
+              <div class="batch-prog">
+                <div class="batch-pct">38%</div>
+                <div class="pbar"><div class="pfill" data-w="38" style="background:linear-gradient(90deg,#2563eb,#7c3aed)"></div></div>
+              </div>
+            </div>
+            <div class="batch-row">
+              <div class="batch-thumb" style="background:#d1fae5">🤖</div>
+              <div class="batch-info">
+                <div class="batch-title">B.Tech CSE – AI/ML & Data Science</div>
+                <div class="batch-meta">Free · Sem 6–8 · 12 chapters</div>
+              </div>
+              <div class="batch-prog">
+                <div class="batch-pct" style="color:#059669">15%</div>
+                <div class="pbar"><div class="pfill" data-w="15" style="background:linear-gradient(90deg,#10b981,#059669)"></div></div>
+              </div>
+            </div>
+            <div class="batch-row">
+              <div class="batch-thumb" style="background:#fef3c7">⚡</div>
+              <div class="batch-info">
+                <div class="batch-title">B.Tech Electrical Engineering</div>
+                <div class="batch-meta">Free · Sem 1–8 · 18 chapters</div>
+              </div>
+              <div class="batch-prog">
+                <div class="batch-pct" style="color:#d97706">5%</div>
+                <div class="pbar"><div class="pfill" data-w="5" style="background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="panel fu">
+          <div class="panel-hd">
+            <h3><i class="ri-history-line"></i> Recent Activity</h3>
+            <a href="#">View All</a>
+          </div>
+          <div class="panel-bd">
+            <div class="act-row">
+              <div class="act-icon ai-blue"><i class="ri-video-line"></i></div>
+              <div class="act-info">
+                <div class="act-title">Organic Chemistry – Chapter 5</div>
+                <div class="act-sub">Mission 30 NEET 2026 · 72% watched</div>
+              </div>
+              <div class="act-time">10:30 AM</div>
+            </div>
+            <div class="act-row">
+              <div class="act-icon ai-green"><i class="ri-check-double-line"></i></div>
+              <div class="act-info">
+                <div class="act-title">Modern Physics – Photoelectric Effect</div>
+                <div class="act-sub">NEET 2026 · Completed ✓</div>
+              </div>
+              <div class="act-time">Yesterday</div>
+            </div>
+            <div class="act-row">
+              <div class="act-icon ai-amber"><i class="ri-file-text-line"></i></div>
+              <div class="act-info">
+                <div class="act-title">Botany – Plant Kingdom Part 2</div>
+                <div class="act-sub">Complete Botany · 35% watched</div>
+              </div>
+              <div class="act-time">7 Jun</div>
+            </div>
+            <div class="act-row">
+              <div class="act-icon ai-purple"><i class="ri-file-list-3-line"></i></div>
+              <div class="act-info">
+                <div class="act-title">DSA Mock Test 01 — Score 85/100</div>
+                <div class="act-sub">B.Tech CSE Test Series</div>
+              </div>
+              <div class="act-time">6 Jun</div>
+            </div>
+            <div class="act-row">
+              <div class="act-icon ai-pink"><i class="ri-download-line"></i></div>
+              <div class="act-info">
+                <div class="act-title">CN Short Notes PDF Downloaded</div>
+                <div class="act-sub">42 Pages · B.Tech CSE</div>
+              </div>
+              <div class="act-time">7 Jun</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subject Progress -->
+        <div class="panel fu">
+          <div class="panel-hd">
+            <h3><i class="ri-bar-chart-grouped-line"></i> Subject Progress</h3>
+            <a href="#">Details</a>
+          </div>
+          <div class="panel-bd">
+            <div class="sub-row">
+              <div class="sub-dot" style="background:#2563eb"></div>
+              <div class="sub-name">Data Structures &amp; Algorithms</div>
+              <div class="sub-bw">
+                <div class="sub-pct" style="color:#2563eb">78%</div>
+                <div class="sbar"><div class="sfill" data-w="78" style="background:#2563eb"></div></div>
+              </div>
+            </div>
+            <div class="sub-row">
+              <div class="sub-dot" style="background:#059669"></div>
+              <div class="sub-name">Database Management System</div>
+              <div class="sub-bw">
+                <div class="sub-pct" style="color:#059669">65%</div>
+                <div class="sbar"><div class="sfill" data-w="65" style="background:#059669"></div></div>
+              </div>
+            </div>
+            <div class="sub-row">
+              <div class="sub-dot" style="background:#d97706"></div>
+              <div class="sub-name">Computer Networks</div>
+              <div class="sub-bw">
+                <div class="sub-pct" style="color:#d97706">52%</div>
+                <div class="sbar"><div class="sfill" data-w="52" style="background:#d97706"></div></div>
+              </div>
+            </div>
+            <div class="sub-row">
+              <div class="sub-dot" style="background:#10b981"></div>
+              <div class="sub-name">Operating Systems</div>
+              <div class="sub-bw">
+                <div class="sub-pct" style="color:#10b981">88%</div>
+                <div class="sbar"><div class="sfill" data-w="88" style="background:#10b981"></div></div>
+              </div>
+            </div>
+            <div class="sub-row">
+              <div class="sub-dot" style="background:#8b5cf6"></div>
+              <div class="sub-name">Theory of Computation</div>
+              <div class="sub-bw">
+                <div class="sub-pct" style="color:#8b5cf6">40%</div>
+                <div class="sbar"><div class="sfill" data-w="40" style="background:#8b5cf6"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /col-left -->
+
+      <!-- RIGHT -->
+      <div class="col-right">
+
+        <!-- Leaderboard -->
+        <div class="panel fu">
+          <div class="panel-hd">
+            <h3><i class="ri-trophy-line"></i> Leaderboard</h3>
+            <a href="#">Full Board</a>
+          </div>
+          <div class="panel-bd">
+            <div class="lb-row">
+              <div class="lb-rank">🥇</div>
+              <div class="lb-av" style="background:linear-gradient(135deg,#f59e0b,#d97706)">RK</div>
+              <div class="lb-name">Rohit Kumar</div>
+              <div class="lb-xp">2,480 XP</div>
+            </div>
+            <div class="lb-row">
+              <div class="lb-rank">🥈</div>
+              <div class="lb-av" style="background:linear-gradient(135deg,#64748b,#475569)">PM</div>
+              <div class="lb-name">Priya Meena</div>
+              <div class="lb-xp">2,210 XP</div>
+            </div>
+            <div class="lb-row">
+              <div class="lb-rank">🥉</div>
+              <div class="lb-av" style="background:linear-gradient(135deg,#b45309,#92400e)">AS</div>
+              <div class="lb-name">Arjun Sharma</div>
+              <div class="lb-xp">1,980 XP</div>
+            </div>
+            <div class="lb-row lb-you-row">
+              <div class="lb-rank" style="color:var(--accent);font-size:.72rem">#42</div>
+              <div class="lb-av" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">BS</div>
+              <div class="lb-name">Bhartendu<span class="you-tag">You</span></div>
+              <div class="lb-xp">0 XP</div>
+            </div>
+            <div class="lb-row">
+              <div class="lb-rank" style="font-size:.72rem;color:var(--faint)">#43</div>
+              <div class="lb-av" style="background:linear-gradient(135deg,#ec4899,#db2777)">MV</div>
+              <div class="lb-name">Mansi Verma</div>
+              <div class="lb-xp">0 XP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="panel fu">
+          <div class="panel-hd">
+            <h3><i class="ri-calendar-event-line"></i> Upcoming Events</h3>
+          </div>
+          <div class="panel-bd">
+            <div class="ev-row">
+              <div class="ev-cal">
+                <div class="ev-day">18</div>
+                <div class="ev-mon">Jun</div>
+              </div>
+              <div class="ev-info">
+                <div class="ev-title">DSA Full Mock Test</div>
+                <div class="ev-meta"><i class="ri-time-line"></i> 10:00 AM · 3 hrs · 100 Qs</div>
+              </div>
+              <span class="ev-tag et-soon">Soon</span>
+            </div>
+            <div class="ev-row">
+              <div class="ev-cal" style="background:linear-gradient(135deg,#10b981,#059669)">
+                <div class="ev-day">20</div>
+                <div class="ev-mon">Jun</div>
+              </div>
+              <div class="ev-info">
+                <div class="ev-title">DBMS Live Battleground</div>
+                <div class="ev-meta"><i class="ri-time-line"></i> 6:00 PM · 60 min</div>
+              </div>
+              <span class="ev-tag et-live">Live</span>
+            </div>
+            <div class="ev-row">
+              <div class="ev-cal" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">
+                <div class="ev-day">25</div>
+                <div class="ev-mon">Jun</div>
+              </div>
+              <div class="ev-info">
+                <div class="ev-title">GATE CSE 2024 PYQ Test</div>
+                <div class="ev-meta"><i class="ri-time-line"></i> 9:00 AM · 3 hrs</div>
+              </div>
+              <span class="ev-tag et-new">New</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="panel fu">
+          <div class="panel-hd">
+            <h3><i class="ri-notification-3-line"></i> Notifications</h3>
+            <a href="#" id="markRead">Mark all read</a>
+          </div>
+          <div class="panel-bd">
+            <div class="notif-row">
+              <div class="ndot nd-on"></div>
+              <div>
+                <div class="nt-text">Leaderboard Updated! 🚀 Check your new rank and see if you've levelled up.</div>
+                <div class="nt-time">Today, 9:00 AM</div>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="ndot nd-on"></div>
+              <div>
+                <div class="nt-text">New PDF added: Compiler Design – Parsing &amp; Lexical Analysis.</div>
+                <div class="nt-time">Yesterday, 5:00 PM</div>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="ndot nd-off"></div>
+              <div>
+                <div class="nt-text">Your DSA Mock Test result is ready. Score: 85/100.</div>
+                <div class="nt-time">6 Jun, 11:30 AM</div>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="ndot nd-off"></div>
+              <div>
+                <div class="nt-text">Earned +50 XP from completing OS Chapter Test.</div>
+                <div class="nt-time">6 Jun, 10:00 AM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /col-right -->
+    </div><!-- /two-col -->
+
+  </main>
+</div><!-- /main -->
+
+<!-- ━━━━━━━━━  MOBILE BOTTOM NAV  ━━━━━━━━━ -->
+<nav class="bottom-nav" aria-label="Mobile navigation">
+  <div class="bn-inner">
+    <button class="bn-item active" onclick="window.location.href='dashboard.html'">
+      <i class="ri-dashboard-3-line"></i>Home
+    </button>
+    <button class="bn-item" onclick="window.location.href='#'">
+      <i class="ri-book-open-line"></i>Batches
+    </button>
+    <button class="bn-item" onclick="window.location.href='#'">
+      <i class="ri-file-list-3-line"></i>Tests
+    </button>
+    <button class="bn-item" onclick="window.location.href='#'">
+      <i class="ri-archive-2-line"></i>Library
+    </button>
+    <button class="bn-item" onclick="window.location.href='#'">
+      <i class="ri-user-3-line"></i>Profile
+    </button>
+  </div>
+</nav>
+
+</div><!-- /shell -->
+
+<script>
+/* ── Sidebar toggle ── */
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+const menuBtn = document.getElementById('menuBtn');
+
+function openSidebar(){
+  sidebar.classList.add('open');
+  overlay.classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeSidebar(){
+  sidebar.classList.remove('open');
+  overlay.classList.remove('show');
+  document.body.style.overflow='';
+}
+menuBtn.addEventListener('click', ()=> sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+
+/* Swipe to close sidebar on mobile */
+let tsX=0;
+sidebar.addEventListener('touchstart', e=>{ tsX=e.touches[0].clientX; },{passive:true});
+sidebar.addEventListener('touchend',   e=>{ if(tsX - e.changedTouches[0].clientX > 60) closeSidebar(); },{passive:true});
+
+/* ── Greeting & Date ── */
+(function(){
+  const h=new Date().getHours();
+  const g = h<12?'Good Morning':h<17?'Good Afternoon':'Good Evening';
+  document.getElementById('greetMsg').textContent=`${g}, Bhartendu! 👋`;
+  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const n=new Date();
+  document.getElementById('greetDate').textContent=`${days[n.getDay()]}, ${n.getDate()} ${months[n.getMonth()]} ${n.getFullYear()}`;
+})();
+
+/* ── Animated progress bars ── */
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.pfill[data-w], .sfill[data-w]').forEach(el=>{
+    const target=el.dataset.w+'%';
+    el.style.width='0%';
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{ el.style.width=target; }));
+  });
+});
+
+/* ── Mark all read ── */
+document.getElementById('markRead').addEventListener('click',function(e){
+  e.preventDefault();
+  document.querySelectorAll('.nd-on').forEach(d=>{ d.classList.remove('nd-on'); d.classList.add('nd-off'); });
+  const dot=document.getElementById('notifDot');
+  if(dot) dot.remove();
+  this.textContent='All read ✓';
+  this.style.color='var(--green)';
+});
+
+/* ── Logout ── */
+document.getElementById('logoutBtn').addEventListener('click',function(e){
+  e.preventDefault();
+  if(confirm('Are you sure you want to logout?')) window.location.href='login.html';
+});
+</script>
+</body>
+</html>

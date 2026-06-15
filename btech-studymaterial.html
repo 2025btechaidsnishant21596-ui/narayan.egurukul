@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.Tech Study Material — Free Notes, PYQs & Resources | Narayan e-Gurukul</title>
-    <meta name="description" content="Free B.Tech study material from Narayan e-Gurukul — hand-written notes, 10+ years solved PYQs, lab manuals for CSE Core, AIDS (AI & Data Science), AIML branches. 100% free download.">
-    <meta name="keywords" content="B.Tech study material free, CSE engineering notes, solved PYQs download, AIDS AIML notes, lab manual B.Tech, Narayan e-Gurukul, free engineering PDF India, Hanumangarh study material">
+    <title>Free B.Tech Study Material — Notes, PYQs & Lab Manuals | Narayan e-Gurukul</title>
+    <meta name="description" content="Download free B.Tech study material from Narayan e-Gurukul — hand-written notes, 10-year solved PYQs, viva questions & lab manuals for CSE Core, AIDS (AI & Data Science), AIML, ECE, ME, CE, EE & IT branches. 100% free PDF download.">
+    <meta name="keywords" content="free B.Tech notes download, CSE engineering notes PDF, solved PYQs B.Tech, AIDS AI Data Science notes, AIML machine learning notes, lab manual B.Tech free, Narayan e-Gurukul study material, free engineering PDF India, B.Tech sem 1 2 3 4 5 6 7 8 notes">
     <meta name="author" content="Narayan e-Gurukul Team">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#2563eb">
-    <link rel="canonical" href="https://narayenegurukul.com/btech-studymaterial.html">
+    <link rel="canonical" href="https://narayane-gurukul.in/pages/btech-studymaterial.html">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Narayan e-Gurukul">
     <meta property="og:locale" content="en_IN">
-    <meta property="og:url" content="https://narayenegurukul.com/btech-studymaterial.html">
+    <meta property="og:url" content="https://narayane-gurukul.in/pages/btech-studymaterial.html">
     <meta property="og:title" content="Free B.Tech Study Material — Notes, PYQs & Lab Manuals | Narayan e-Gurukul">
-    <meta property="og:description" content="Download free B.Tech notes, solved PYQs and lab manuals for CSE Core, AIDS and AIML branches from Narayan e-Gurukul.">
+    <meta property="og:description" content="Download free hand-written B.Tech notes, 10-year solved PYQs and lab manuals for CSE Core, AIDS and AIML branches from Narayan e-Gurukul. 100% free.">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Free B.Tech Study Material | Narayan e-Gurukul">
@@ -176,7 +176,7 @@ p{color:#64748b}
 .subject-row:hover{background:#f8fafc}
 .sr-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
 .sr-num{width:28px;height:28px;background:#eff6ff;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#2563eb;flex-shrink:0}
-.sr-info{}
+.sr-info{min-width:0}
 .sr-name{font-size:0.9rem;font-weight:700;color:#0f172a}
 .sr-sub{font-size:0.76rem;color:#64748b;margin-top:2px}
 .sr-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
@@ -284,7 +284,7 @@ p{color:#64748b}
 <main class="main">
 
     <!-- What we provide -->
-    <div class="info-row stagger-reveal" style="margin-bottom:32px">
+    <div class="info-row" style="margin-bottom:32px">
         <div class="info-card">
             <i class="ri-book-3-line" style="color:#2563eb"></i>
             <h4>Hand-written Notes</h4>
@@ -314,7 +314,7 @@ p{color:#64748b}
     </div>
 
     <!-- Branch Cards -->
-    <div class="cards-grid stagger-reveal" id="cardsGrid">
+    <div class="cards-grid" id="cardsGrid">
 
         <!-- B.Tech Core -->
         <div class="branch-card bc-blue" data-branch="core">
@@ -370,7 +370,7 @@ p{color:#64748b}
     </div>
 
     <!-- Subject List — B.Tech Core Semester 1 -->
-    <div class="subject-section reveal" id="subjectTable" data-branch="core" data-sem="1">
+    <div class="subject-section" id="subjectTable" data-branch="core" data-sem="1">
         <div class="subject-head">
             <h3><i class="ri-instance-line" style="color:#2563eb;margin-right:8px"></i>B.Tech Core — Semester 1 Subjects</h3>
             <span>6 subjects</span>
@@ -416,6 +416,31 @@ p{color:#64748b}
     <div class="footer-copy">&copy; 2026 Narayan e-Gurukul. All resources are 100% free for students.</div>
 </footer>
 
-    <script src="script.js"></script>
+<script>
+    // Navbar toggle
+    const menuBtn = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').style.boxShadow = window.scrollY > 10 ? '0 4px 20px rgba(37,99,235,0.4)' : '0 2px 8px rgba(37,99,235,0.3)';
+    });
+
+    // Filter
+    document.getElementById('filterBtn').addEventListener('click', () => {
+        const branch = document.getElementById('branchFilter').value;
+        const cards  = document.querySelectorAll('.branch-card');
+        let visible  = 0;
+        cards.forEach(c => {
+            const show = branch === 'all' || c.dataset.branch === branch;
+            c.style.display = show ? '' : 'none';
+            if(show) visible++;
+        });
+        document.getElementById('filterCount').textContent = `Showing ${visible} branch${visible!==1?'es':''}`;
+        document.getElementById('branchCount').textContent = `${visible} branch${visible!==1?'es':''} available`;
+    });
+</script>
 </body>
 </html>

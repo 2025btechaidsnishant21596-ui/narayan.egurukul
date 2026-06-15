@@ -167,7 +167,7 @@
                 </form>
 
                 <div class="social-login">
-                    <button class="btn btn-google">
+                    <button class="btn btn-google" id="googleSignupBtn">
                         <i class="ri-google-fill"></i> Sign up with Google
                     </button>
                 </div>
@@ -179,54 +179,82 @@
         </section>
     </main>
 
+    <script src="script.js"></script>
+
+    <!-- Firebase Auth for Signup -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+    import { initializeApp }          from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile,
+             GoogleAuthProvider, signInWithPopup, onAuthStateChanged }
+             from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+    // ── Firebase config — project-547160493459 ──
+    const firebaseConfig = {
+        apiKey:            "PASTE_YOUR_API_KEY_HERE",
+        authDomain:        "project-547160493459.firebaseapp.com",
+        projectId:         "project-547160493459",
+        storageBucket:     "project-547160493459.appspot.com",
+        messagingSenderId: "PASTE_YOUR_SENDER_ID_HERE",
+        appId:             "PASTE_YOUR_APP_ID_HERE"
+    };
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
+    const app      = initializeApp(firebaseConfig);
+    const auth     = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
-        const signupForm = document.querySelector('.auth-form');
+    // Redirect if already signed in
+    onAuthStateChanged(auth, user => {
+        if(user) window.location.href = 'dashboard.html';
+    });
 
-        signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = signupForm.querySelectorAll('input')[0].value;
-            const email = signupForm.querySelectorAll('input')[1].value;
-            const password = signupForm.querySelectorAll('input')[2].value;
-            const btn = signupForm.querySelector('button');
+    // ── Email/Password Sign Up ──
+    document.querySelector('.auth-form').addEventListener('submit', async function(e){
+        e.preventDefault();
+        const name  = this.querySelector('input[type=text]').value.trim();
+        const email = this.querySelector('input[type=email]').value.trim();
+        const pass  = this.querySelector('input[type=password]').value;
+        const btn   = this.querySelector('button[type=submit]');
 
-            btn.disabled = true;
-            btn.innerHTML = '<i class="ri-loader-4-line ai-spin"></i> Creating Account...';
+        if(!name || !email || !pass){ alert('Please fill in all fields.'); return; }
+        if(pass.length < 6){ alert('Password must be at least 6 characters.'); return; }
 
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                await updateProfile(userCredential.user, { displayName: name });
-                window.location.href = 'student-dashboard.html';
-            } catch (error) {
-                alert("Signup failed: " + error.message);
-                btn.disabled = false;
-                btn.innerHTML = 'Sign Up <i class="ri-user-add-line"></i>';
+        btn.disabled = true;
+        btn.innerHTML = '<i class="ri-loader-4-line"></i> Creating account…';
+
+        try {
+            const cred = await createUserWithEmailAndPassword(auth, email, pass);
+            await updateProfile(cred.user, { displayName: name });
+            btn.innerHTML = '<i class="ri-checkbox-circle-fill"></i> Account created!';
+            setTimeout(() => window.location.href = 'dashboard.html', 1200);
+        } catch(err) {
+            btn.disabled = false;
+            btn.innerHTML = 'Sign Up <i class="ri-user-add-line"></i>';
+            const msgs = {
+                'auth/email-already-in-use': 'This email is already registered. Please login.',
+                'auth/invalid-email':        'Please enter a valid email address.',
+                'auth/weak-password':        'Password is too weak. Use at least 6 characters.'
+            };
+            alert(msgs[err.code] || 'Signup failed: ' + err.message);
+        }
+    });
+
+    // ── Google Sign Up ──
+    document.getElementById('googleSignupBtn').addEventListener('click', async function(){
+        this.disabled = true;
+        this.innerHTML = '<i class="ri-loader-4-line"></i> Signing in…';
+        try {
+            const result = await signInWithPopup(auth, provider);
+            const name   = result.user.displayName?.split(' ')[0] || 'Student';
+            this.innerHTML = `<i class="ri-checkbox-circle-fill" style="color:#10b981"></i> Welcome, ${name}!`;
+            setTimeout(() => window.location.href = 'dashboard.html', 1200);
+        } catch(err) {
+            this.disabled = false;
+            this.innerHTML = '<i class="ri-google-fill"></i> Sign up with Google';
+            if(err.code !== 'auth/popup-closed-by-user'){
+                alert('Google sign-in failed: ' + err.message);
             }
-        });
-
-        document.querySelector('.btn-google').addEventListener('click', async () => {
-            try {
-                await signInWithPopup(auth, provider);
-                window.location.href = 'student-dashboard.html';
-            } catch (error) {
-                alert("Google Signup failed: " + error.message);
-            }
-        });
+        }
+    });
     </script>
 </body>
 </html>
