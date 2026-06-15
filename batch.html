@@ -111,53 +111,11 @@
                     success.</p>
             </div>
 
-            <div class="grid">
-                <!-- B.Tech Core -->
-                <div class="card batch-card">
-                    <div>
-                        <div class="card-icon"><i class="ri-instance-line"></i></div>
-                        <h3>B.Tech Core</h3>
-                        <p>Foundational resources for all engineering disciplines in the first year.</p>
-                        <ul class="card-list">
-                            <li><i class="ri-book-3-line"></i> 1st Year Notes</li>
-                            <li><i class="ri-history-line"></i> Solved PYQs</li>
-                            <li><i class="ri-book-open-line"></i> Core E-Books</li>
-                        </ul>
-                    </div>
-                    <a href="btech-studymaterial.html" class="btn primary-btn">Open Resources <i
-                            class="ri-external-link-line"></i></a>
-                </div>
-
-                <!-- B.Tech CSE (AIDS) -->
-                <div class="card batch-card">
-                    <div>
-                        <div class="card-icon"><i class="ri-database-2-line"></i></div>
-                        <h3>CSE (AIDS)</h3>
-                        <p>Specialized materials for Artificial Intelligence & Data Science.</p>
-                        <ul class="card-list">
-                            <li><i class="ri-code-s-line"></i> Specialization Notes</li>
-                            <li><i class="ri-file-list-3-line"></i> Batch PYQs</li>
-                            <li><i class="ri-folder-info-line"></i> AIDS Resources</li>
-                        </ul>
-                    </div>
-                    <a href="btech-studymaterial.html" class="btn primary-btn">Open Resources <i
-                            class="ri-external-link-line"></i></a>
-                </div>
-
-                <!-- B.Tech CSE (AIML) -->
-                <div class="card batch-card">
-                    <div>
-                        <div class="card-icon"><i class="ri-robot-2-line"></i></div>
-                        <h3>CSE (AIML)</h3>
-                        <p>Advanced learning materials for AI & Machine Learning paths.</p>
-                        <ul class="card-list">
-                            <li><i class="ri-cpu-line"></i> Specialization Notes</li>
-                            <li><i class="ri-file-chart-line"></i> Solved PYQs</li>
-                            <li><i class="ri-brain-line"></i> AIML E-Books</li>
-                        </ul>
-                    </div>
-                    <a href="btech-studymaterial.html" class="btn primary-btn">Open Resources <i
-                            class="ri-external-link-line"></i></a>
+            <div class="grid" id="batchesGrid">
+                <!-- Batches will be loaded here -->
+                <div style="text-align: center; grid-column: 1/-1; padding: 3rem;">
+                    <i class="ri-loader-4-line ai-spin" style="font-size: 2rem; color: var(--accent);"></i>
+                    <p>Loading active batches...</p>
                 </div>
             </div>
         </section>
@@ -205,6 +163,40 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        async function loadBatches() {
+            const grid = document.getElementById('batchesGrid');
+            try {
+                const res = await fetch('/api/batches');
+                const batches = await res.json();
+
+                if (batches.length === 0) {
+                    grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No active batches found at the moment.</p>';
+                    return;
+                }
+
+                grid.innerHTML = '';
+                batches.forEach(batch => {
+                    const card = document.createElement('div');
+                    card.className = 'card batch-card';
+                    card.innerHTML = `
+                        <div>
+                            <div class="card-icon"><i class="${batch.icon || 'ri-instance-line'}"></i></div>
+                            <h3>${batch.name}</h3>
+                            <p>${batch.description || 'Access specialized study resources.'}</p>
+                        </div>
+                        <a href="${batch.link}" class="btn primary-btn">Open Resources <i class="ri-external-link-line"></i></a>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (err) {
+                console.error('Failed to load batches:', err);
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">Failed to load batches. Please try again later.</p>';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadBatches);
+    </script>
 </body>
 
 </html>

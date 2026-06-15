@@ -1,711 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary SEO Meta Tags -->
-    <title>About Narayan e-Gurukul | Founder Nishant Saini</title>
-    <meta name="description"
-        content="Discover how Nishant Saini built Narayan e-Gurukul into the ultimate free digital hub for B.Tech students. Unlock top engineering notes today!">
-    <meta name="keywords"
-        content="Nishant Saini, founder Narayan e-Gurukul, Nishant Saini B.Tech, about Narayan e-Gurukul, engineering study platform India, free notes for engineers, Poornima University resources, Nishant Saini developer">
-    <meta name="author" content="Nishant Saini">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://narayenegurukul.com/about.html">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://narayenegurukul.com/about.html">
-    <meta property="og:title" content="About Narayan e-Gurukul - Empowering B.Tech Students">
-    <meta property="og:description"
-        content="Learn about our mission to democratize engineering education with free B.Tech notes, PYQs, and study resources for all engineering branches.">
-    
-    <meta property="og:site_name" content="Narayan e-Gurukul">
-    <meta property="og:locale" content="en_IN">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Narayan e-Gurukul - Empowering B.Tech Students">
-    <meta name="twitter:description"
-        content="Our mission is to provide free, high-quality B.Tech study materials, PYQs and notes to every engineering student in India.">
-    
-
-    <!-- JSON-LD Structured Data: WebPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "name": "About Narayan e-Gurukul - Founder Nishant Saini",
-      "url": "https://narayenegurukul.com/about.html",
-      "description": "Narayan e-Gurukul is founded by Nishant Saini. Learn about our mission to democratize engineering education with free notes, PYQs and study material for B.Tech students.",
-      "publisher": {
-        "@type": "EducationalOrganization",
-        "name": "Narayan e-Gurukul",
-        "url": "https://narayenegurukul.com",
-        "founder": {
-          "@type": "Person",
-          "name": "Nishant Saini",
-          "jobTitle": "Founder & Developer",
-          "worksFor": {
-            "@type": "EducationalOrganization",
-            "name": "Narayan e-Gurukul"
-          },
-          "url": "https://narayenegurukul.com/about.html",
-          "description": "Nishant Saini is the founder and developer of Narayan e-Gurukul, an educational platform providing free B.Tech study materials, PYQs, and notes for engineering students in India.",
-          "knowsAbout": ["B.Tech Education", "Web Development", "Educational Technology", "Engineering Study Materials"]
-        }
-      }
-    }
-    </script>
-
-    <!-- JSON-LD Structured Data: Person (Nishant Saini) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Nishant Saini",
-      "givenName": "Nishant",
-      "familyName": "Saini",
-      "jobTitle": "Founder & Developer",
-      "description": "Nishant Saini is the founder and developer of Narayan e-Gurukul, an educational platform providing free B.Tech study materials, PYQs, and notes for engineering students in India.",
-      "url": "https://narayenegurukul.com/about.html",
-      "worksFor": {
-        "@type": "EducationalOrganization",
-        "name": "Narayan e-Gurukul",
-        "url": "https://narayenegurukul.com"
-      },
-      "founder": "Narayan e-Gurukul",
-      "knowsAbout": ["B.Tech Education", "Web Development", "Engineering Notes", "Educational Technology", "Study Materials"],
-      "nationality": "Indian",
-      "sameAs": [
-        "https://narayenegurukul.com"
-      ]
-    }
-    </script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>About Us | Narayan e-Gurukul</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
     <style>
-        .about-page-header {
-            padding-top: calc(var(--navbar-height) + 4rem);
-            text-align: center;
-            padding-bottom: 2rem;
-            padding-left: 6%;
-            padding-right: 6%;
+        :root {
+            --primary: #1e3a8a; /* Deep Blue */
+            --accent: #2563eb; /* Primary Blue */
+            --accent-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            --accent-light: #eff6ff;
+            --bg-main: #ffffff; /* Set to White */
+            --white: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius-xl: 2rem;
+            --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --navbar-height: 80px;
         }
 
-        .about-page-header h2 {
-            font-size: 3.5rem;
-            margin-top: 1rem;
-            line-height: 1.2;
-            color: var(--primary);
-        }
-
-        .about-page-header p {
-            max-width: 700px;
-            margin: 1.5rem auto 0;
-            font-size: 1.15rem;
-            color: var(--text-muted);
-        }
-
-        /* ── FOUNDER CARD OVERHAUL ── */
-        .founder-card {
-            display: flex;
-            gap: 3.5rem;
-            align-items: center;
-            background: linear-gradient(145deg, #ffffff 0%, #fbfdff 100%);
-            border: 1px solid rgba(37, 99, 235, 0.1);
-            border-radius: 32px;
-            padding: 3.5rem;
-            margin-top: 3.5rem;
-            box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.08);
-            position: relative;
-            overflow: visible;
-            /* To allow floating avatars */
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .founder-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 32px;
-            padding: 1.5px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent, #10b981) 100%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            opacity: 0.15;
-            transition: opacity 0.4s ease;
-        }
-
-        .founder-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px -15px rgba(37, 99, 235, 0.15);
-        }
-
-        .founder-card:hover::before {
-            opacity: 0.4;
-        }
-
-        .founder-avatar {
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .founder-avatar-inner {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary, #1e3a8a) 0%, #3b82f6 50%, var(--accent, #10b981) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.25);
-            transition: transform 0.4s ease;
-        }
-
-        .founder-card:hover .founder-avatar-inner {
-            transform: scale(1.05) rotate(5deg);
-        }
-
-        .founder-badge-ring {
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            border: 2px dashed var(--primary);
-            opacity: 0.3;
-            animation: spin 30s linear infinite;
-        }
-
-        /* Status pulse indicator */
-        .founder-status-pulse {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            width: 18px;
-            height: 18px;
-            background: #10b981;
-            border: 3.5px solid #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            }
-
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
-            }
-
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-            }
-        }
-
-        .founder-info {
-            flex: 1;
-        }
-
-        .founder-name-row {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.5rem;
-        }
-
-        .founder-name-row h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #0f172a;
-            margin: 0;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
             font-family: 'Outfit', sans-serif;
+            background: var(--white);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        .founder-tag {
-            background: rgba(37, 99, 235, 0.08);
-            border: 1px solid rgba(37, 99, 235, 0.15);
-            color: var(--primary);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 5px 14px;
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
+
+        /* Navbar */
+        .navbar {
+            height: var(--navbar-height);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 10%; position: fixed; top: 0; left: 0; width: 100%;
+            z-index: 1000; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+        .logo-icon {
+            width: 42px; height: 42px; background: var(--accent-gradient);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.4rem; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        .logo h1 { font-size: 1.6rem; font-weight: 800; color: #1e3a8a; display: flex; gap: 6px; margin: 0; }
+        .logo span { color: #2563eb; }
+        .nav-links { display: flex; gap: 3.5rem; list-style: none; }
+        .nav-links a { font-weight: 700; text-decoration: none; color: #1e293b; font-size: 1rem; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #2563eb; }
+
+        /* Secondary Blue Navbar */
+        .sub-navbar {
+            position: fixed; top: var(--navbar-height); left: 0; width: 100%;
+            height: 50px; background: #2563eb; z-index: 999;
+            display: flex; align-items: center; justify-content: center;
+            border-bottom: 3px solid #1d4ed8;
+        }
+        .sub-nav-links { display: flex; gap: 3rem; list-style: none; }
+        .sub-nav-links a { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: 0.2s; }
+        .sub-nav-links a:hover { opacity: 0.8; }
+
+        /* Unique Hero - Solid Deep Blue to Blue Gradient */
+        .hero-section {
+            padding-top: calc(var(--navbar-height) + 50px + 6rem);
+            padding-bottom: 7rem;
+            background: var(--accent-gradient);
+            text-align: center;
+            position: relative;
+            color: white;
+            clip-path: ellipse(150% 100% at 50% 0%); /* Unique curve at bottom */
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 8px 20px;
             border-radius: 99px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
         }
-
-        .founder-role {
-            font-size: 1.05rem;
-            color: #4b5563;
-            margin-bottom: 1.25rem;
+        .hero-section h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+        .hero-section h2 span {
+            color: #93c5fd;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+        .hero-section p {
+            color: rgba(255, 255, 255, 0.8) !important;
             font-weight: 500;
         }
 
-        .founder-bio {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            color: #475569;
-            margin-bottom: 1.5rem;
+        /* Section Styling */
+        .section { padding: 8rem 0; position: relative; background: var(--white); }
+        .section-header { margin-bottom: 4rem; max-width: 700px; }
+        .section-header h2 { font-size: 2.8rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem; }
+        .section-header h2 span { color: var(--accent); }
+
+        /* Mission - Light Blue Style */
+        .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .mission-card {
+            background: #fff; padding: 3rem 2.5rem; border-radius: var(--radius-xl);
+            border: 1px solid var(--border); position: relative; overflow: hidden;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow-premium);
+        }
+        .mission-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.1); }
+        .mission-card i {
+            font-size: 3rem; color: var(--accent);
+            margin-bottom: 2rem; display: block;
+        }
+        .mission-card h3 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--primary); }
+        .mission-card .card-number {
+            position: absolute; top: -10px; right: -10px; font-size: 8rem;
+            font-weight: 900; color: var(--accent); opacity: 0.05;
         }
 
-        .founder-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
+        /* Vision Section - Soft Blue Background */
+        .vision-section { background: var(--accent-light); }
+        .vision-box {
+            background: var(--white); color: var(--text-main); border-radius: 3rem;
+            padding: 5rem; display: flex; align-items: center; gap: 5rem;
+            position: relative; overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
+        .vision-content { flex: 1; z-index: 1; }
+        .vision-content h2 { color: var(--primary); font-size: 3.5rem; margin-bottom: 2rem; }
+        .vision-content p { color: var(--text-muted); font-size: 1.2rem; }
 
-        .skill-tag {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 99px;
-            padding: 6px 16px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #475569;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(37, 99, 235, 0.05);
-            border-color: rgba(37, 99, 235, 0.2);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Socials */
-        .founder-socials {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-btn {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            color: #475569;
-            display: flex;
+        /* Founder - Modern Card */
+        .founder-card {
+            background: var(--white); border-radius: var(--radius-xl); padding: 4rem;
+            display: grid; grid-template-columns: 300px 1fr; gap: 4rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow-premium);
             align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            border: 1px solid #e2e8f0;
+        }
+        .founder-img {
+            width: 300px; height: 350px; background: var(--accent-light); border-radius: 2rem;
+            display: flex; align-items: center; justify-content: center; font-size: 5rem;
+            font-weight: 900; color: var(--accent); border: 1px solid var(--border);
+        }
+        .founder-info h3 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); }
+        .social-links { display: flex; gap: 1.5rem; margin-top: 2.5rem; }
+        .social-links a {
+            width: 50px; height: 50px; border-radius: 50%; background: var(--accent-light);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            color: var(--accent); transition: 0.3s;
+        }
+        .social-links a:hover { background: var(--accent); color: white; transform: rotate(15deg); }
+
+        /* Footer - Unique Modern Grid */
+        .footer {
+            padding: 5rem 0 3rem;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        .footer-brand h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--primary); }
+        .footer-brand p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-links h4 {
+            font-size: 1.1rem; color: var(--primary); margin-bottom: 2rem;
+            position: relative; padding-bottom: 10px;
+        }
+        .footer-links h4::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--accent);
+        }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 1rem; }
+        .footer-links a {
+            color: var(--text-muted); font-weight: 500; font-size: 0.95rem;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px;
+        }
+        .footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+        .footer-bottom {
+            padding-top: 3rem; border-top: 1px solid var(--border);
+            text-align: center; color: var(--text-muted); font-size: 0.9rem;
         }
 
-        .social-btn:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: translateY(-3px);
-            border-color: var(--primary);
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.2);
+        /* Footer Mobile */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-links h4::after { left: 50%; transform: translateX(-50%); }
+            .footer-links a { justify-content: center; }
         }
 
-        /* ── MOBILE OVERRIDES FOR UNIQUE PROFILE LOOK ── */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .mission-grid { grid-template-columns: 1fr; }
+            .hero-section h2 { font-size: 3rem; }
+            .vision-box { flex-direction: column; text-align: center; padding: 3rem; }
+            .founder-card { grid-template-columns: 1fr; text-align: center; }
+            .founder-img { margin: 0 auto; width: 250px; height: 250px; }
+            .social-links { justify-content: center; }
+        }
+
         @media (max-width: 768px) {
-            .about-page-header {
-                padding-top: calc(var(--navbar-height) + 2rem) !important;
-                padding-bottom: 2rem !important;
-            }
-
-            .about-page-header h2 {
-                font-size: 2.2rem !important;
-            }
-
-            .about-page-header p {
-                font-size: 1rem !important;
-            }
-
-            .about-section-padding {
-                padding: 3.5rem 0 !important;
-            }
-
-            .cta-heading {
-                font-size: 2.2rem !important;
-            }
-
-            .founder-card {
+            .nav-links {
+                display: none;
                 flex-direction: column;
-                text-align: center;
-                padding: 5.5rem 2rem 3rem 2rem;
-                /* Top padding balances avatar overlapping card top border */
-                margin-top: 6rem;
-                /* Gives space for floating avatar */
-                gap: 2rem;
-                border-radius: 24px;
-            }
-
-            .founder-avatar {
                 position: absolute;
-                top: 0;
-                transform: translateY(-50%);
-                /* Overflowing perfectly over card top edge */
-                z-index: 10;
+                top: var(--navbar-height);
+                left: 0;
+                width: 100%;
+                background: #fff;
+                padding: 2rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                transform: translateY(-20px);
+                opacity: 0;
+                transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                pointer-events: none;
+                z-index: 1001;
             }
-
-            .founder-card:hover .founder-avatar-inner {
-                transform: scale(1.05);
-                /* Avoid rotation on mobile for cleaner feel */
+            .sub-navbar { top: var(--navbar-height); display: none; } /* Hide subnav on mobile or adjust */
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
             }
+            .image-box { width: 150px; height: 150px; }
 
-            .founder-name-row {
+            .menu-toggle {
+                display: flex;
                 flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
+                gap: 5px;
+                cursor: pointer;
             }
-
-            .founder-name-row h2 {
-                font-size: 2rem !important;
+            .menu-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--primary);
+                border-radius: 3px;
+                transition: 0.3s;
             }
-
-            .founder-role {
-                font-size: 0.95rem;
-                margin-bottom: 1rem;
-            }
-
-            .founder-bio {
-                font-size: 0.95rem;
-                line-height: 1.7;
-            }
-
-            .founder-skills {
-                justify-content: center;
-            }
-
-            .founder-socials {
-                justify-content: center;
-            }
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
         }
+
+        /* Entry Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered items */
+        .stagger-reveal > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .stagger-reveal.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-reveal.active > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-reveal.active > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-reveal.active > *:nth-child(3) { transition-delay: 0.3s; }
+
     </style>
 </head>
-
 <body>
-    <header>
-        <nav class="navbar" id="navbar">
-            <a href="index.html" class="logo">
-                <h1>Narayan <span>e-Gurukul</span></h1>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="batch.html">Our Batch</a></li>
 
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="btech-studymaterial.html" class="nav-cta">Study Material</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="ri-graduation-cap-fill"></i></div>
+            <h1>Narayan <span>e-Gurukul</span></h1>
+        </a>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <nav class="sub-navbar">
+        <ul class="sub-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#btech">B.Tech</a></li>
+            <li><a href="index.html#jee-neet">JEE / NEET</a></li>
+            <li><a href="index.html#school-comp">School Comp</a></li>
+            <li><a href="index.html#my-school">My School</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
-        <!-- HERO SECTION -->
-        <section class="about-page-header container reveal active"
-            style="padding-top: calc(var(--navbar-height) + 4rem); padding-bottom: 3rem;">
-            <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">About Us</span>
-            <h2>A Smart Learning Platform <br><span>for B.Tech Students</span></h2>
-            <p
-                style="max-width: 800px; margin: 1.5rem auto 0; font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
-                Narayan e-Gurukul is one of India’s emerging smart learning platforms, designed to help B.Tech students
-                learn better, practice more, and score higher. Our mission is simple — to provide quality technical
-                education, practical learning resources, and career-focused guidance that is accessible, affordable, and
-                effective for every engineering student.
-            </p>
-        </section>
-
-        <!-- WHO WE ARE & VISION (SPLIT GRID) -->
-        <section class="section reveal"
-            style="background: var(--bg-alt); padding: 5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-            <div class="container"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-                <!-- WHO WE ARE -->
-                <div
-                    style="background: var(--white); padding: 3rem; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border);">
-                    <div
-                        style="width: 50px; height: 50px; background: rgba(37, 99, 235, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <i class="ri-team-line" style="font-size: 1.8rem; color: var(--primary);"></i>
-                    </div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-main);">Who We Are</h3>
-                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">
-                        Founded with the vision of empowering students through technology and innovation, Narayan
-                        e-Gurukul is becoming a growing platform for engineering learners seeking modern and practical
-                        education support.
-                    </p>
-                    <p style="color: var(--text-muted); line-height: 1.7;">
-                        We focus on helping students build strong academic foundations while also preparing them for
-                        future careers in technology, innovation, and industry.
-                    </p>
-                </div>
-
-                <!-- OUR VISION -->
-                <div
-                    style="background: var(--white); padding: 3rem; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border);">
-                    <div
-                        style="width: 50px; height: 50px; background: rgba(16, 185, 129, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <i class="ri-eye-line" style="font-size: 1.8rem; color: #10b981;"></i>
-                    </div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-main);">Our Vision</h3>
-                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">
-                        To create a modern and accessible learning ecosystem where every B.Tech student can learn, grow,
-                        and achieve success through quality education and smart technology.
-                    </p>
-                    <p style="color: var(--text-muted); line-height: 1.7;">
-                        At Narayan e-Gurukul, we believe education should be practical, engaging, and career-oriented.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- MEET OUR FOUNDER -->
-        <section class="section reveal about-section-padding" style="padding: 5rem 0; background: var(--white);">
+        <!-- Modern Hero -->
+        <header class="hero-section reveal">
             <div class="container">
-                <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                    <span class="badge"
-                        style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">Leadership</span>
-                    <h2>Meet Our <span>Founder</span></h2>
-                    <p>The vision and driving force behind Narayan e-Gurukul.</p>
-                </div>
+                <span class="hero-badge">Unique Smart Platform</span>
+                <h2>Redefining <span>Engineering</span><br>Education for India</h2>
+                <p style="max-width: 700px; margin: 2rem auto; color: var(--text-muted); font-size: 1.2rem;">Narayan e-Gurukul is not just a portal, it's a digital ecosystem empowering students with precision notes and exam-winning strategies.</p>
+            </div>
+        </header>
 
-                <div class="founder-card">
-                    <div class="founder-avatar">
-                        <div class="founder-badge-ring"></div>
-                        <div class="founder-avatar-inner">
-                            <span
-                                style="font-size: 2.5rem; font-weight: 800; color: #fff; font-family: 'Outfit', sans-serif;">NS</span>
-                        </div>
-                        <div class="founder-status-pulse"></div>
+        <!-- Mission - Unique Numbered Grid -->
+        <section class="section" style="background: var(--white);">
+            <div class="container">
+                <div class="section-header reveal" style="text-align: center; margin: 0 auto 5rem;">
+                    <h2>Our <span>Mission</span></h2>
+                </div>
+                <div class="mission-grid stagger-reveal">
+                    <div class="mission-card">
+                        <span class="card-number">01</span>
+                        <i class="ri-rocket-line"></i>
+                        <h3>Integrated Learning</h3>
+                        <p>Bridging the gap between Schooling, JEE/NEET preparation, and B.Tech studies through a single, structured digital ecosystem.</p>
                     </div>
-                    <div class="founder-info">
-                        <div class="founder-name-row">
-                            <h2>Nishant Saini</h2>
-                            <span class="founder-tag">Founder & Developer</span>
-                        </div>
-                        <div class="founder-role">Lead Developer & Visionary, Narayan e-Gurukul</div>
-                        <p class="founder-bio">
-                            Nishant Saini is an engineering student and developer passionate about tech-driven
-                            education. He founded Narayan e-Gurukul with a simple mission: to make high-quality,
-                            organized, and reliable academic resources freely accessible to every B.Tech student,
-                            eliminating the barriers of commercialized education.
-                        </p>
-                        <div class="founder-skills">
-                            <span class="skill-tag">Full Stack Development</span>
-                            <span class="skill-tag">Educational Strategy</span>
-                            <span class="skill-tag">Student Guidance</span>
-                            <span class="skill-tag">Content Curation</span>
-                        </div>
-                        <div class="founder-socials">
-                            <a href="https://github.com/NishantSaini-Github" target="_blank" class="social-btn"
-                                title="GitHub"><i class="ri-github-fill"></i></a>
-                            <a href="https://linkedin.com" target="_blank" class="social-btn" title="LinkedIn"><i
-                                    class="ri-linkedin-fill"></i></a>
-                            <a href="mailto:nishant.sanfort@gmail.com" class="social-btn" title="Email"><i
-                                    class="ri-mail-fill"></i></a>
-                        </div>
+                    <div class="mission-card">
+                        <span class="card-number">02</span>
+                        <i class="ri-heart-line"></i>
+                        <h3>Free Education</h3>
+                        <p>Committed to providing 100% free, high-quality resources to students in rural and urban India, from Class 6 to Graduation.</p>
+                    </div>
+                    <div class="mission-card">
+                        <span class="card-number">03</span>
+                        <i class="ri-medal-line"></i>
+                        <h3>Exam Mastery</h3>
+                        <p>Empowering students to crack JEE/NEET and achieve 9+ CGPA in B.Tech with curated PYQs, mock tests, and exam-winning strategies.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- WHAT WE PROVIDE -->
-        <section class="section reveal about-section-padding" style="padding: 6rem 0;">
+        <!-- Vision - Impactful Section with Soft Blue Bg -->
+        <section class="section vision-section reveal">
             <div class="container">
-                <div class="section-header">
-                    <span class="badge"
-                        style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">Features</span>
-                    <h2>What We <span>Provide</span></h2>
-                    <p>Narayan e-Gurukul offers specially curated resources for B.Tech students, including:</p>
-                </div>
-
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
-                    <div
-                        style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">High-Quality Study
-                            Material</span>
+                <div class="vision-box">
+                    <div class="vision-content">
+                        <h2>Our <span>Vision</span></h2>
+                        <p>To become India's most trusted smart learning hub, where every student—from primary schooling to professional engineering—has the tools to innovate, excel, and conquer competitive exams like JEE/NEET without financial barriers.</p>
                     </div>
-                    <div
-                        style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Notes & PYQs</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Practice Questions
-                            & Test Series</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Topic-Wise Learning
-                            Resources</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Doubt Support &
-                            Guidance</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
-                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">AI & Technology
-                            Learning Resources</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; justify-content: center; gap: 1rem; background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border); grid-column: 1 / -1;">
-                        <i class="ri-checkbox-circle-fill" style="color: #10b981; font-size: 1.5rem;"></i>
-                        <span style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Career & Skill
-                            Development Support</span>
+                    <div style="flex-shrink:0;">
+                        <i class="ri-eye-line" style="font-size: 10rem; color: var(--accent); opacity: 0.1;"></i>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- WHY CHOOSE US -->
-        <section class="section reveal about-section-padding"
-            style="background: var(--bg-alt); padding: 6rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-            <div class="container">
-                <div class="section-header">
-                    <span class="badge"
-                        style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">Benefits</span>
-                    <h2>Why Choose <span>Narayan e-Gurukul?</span></h2>
-                </div>
-
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                    <!-- 1 -->
-                    <div class="card"
-                        style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Smart Learning
-                            Experience</h3>
-                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Learn with simplified
-                            concepts, structured content, and practical examples designed for engineering students.</p>
+        <!-- Founder - Premium Card -->
+        <section class="section container reveal">
+            <div class="founder-card">
+                <div class="founder-img">NS</div>
+                <div class="founder-info">
+                    <p class="role" style="color: var(--accent); font-weight: 800; letter-spacing: 2px;">FOUNDER & DEVELOPER</p>
+                    <h3>Nishant Saini</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-muted);">Nishant is an engineering student and tech-enthusiast who built Narayan e-Gurukul as a bridge between complex curriculums and student success. His goal is to democratize engineering education across India.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#"><i class="ri-github-fill"></i></a>
+                        <a href="#"><i class="ri-mail-line"></i></a>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
                     </div>
-
-                    <!-- 2 -->
-                    <div class="card"
-                        style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Exam-Focused
-                            Preparation</h3>
-                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Practice with PYQs,
-                            quizzes, and test series based on university syllabus patterns.</p>
-                    </div>
-
-                    <!-- 3 -->
-                    <div class="card"
-                        style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Learn Anytime,
-                            Anywhere</h3>
-                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Access study
-                            materials and learning resources online from any device.</p>
-                    </div>
-
-                    <!-- 4 -->
-                    <div class="card"
-                        style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Student Support &
-                            Guidance</h3>
-                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">Get guidance,
-                            motivation, and doubt support to improve your academic journey.</p>
-                    </div>
-
-                    <!-- 5 -->
-                    <div class="card"
-                        style="background: var(--white); border: 1px solid var(--border); text-align: left; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02); grid-column: span auto;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.4rem;">Future-Focused
-                            Education</h3>
-                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 1.05rem;">We aim to help
-                            students not only score better in exams but also build real-world skills for future careers.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- JOIN CTA -->
-        <section class="section reveal about-section-padding" style="padding: 6rem 0; text-align: center;">
-            <div class="container">
-                <span class="badge"
-                    style="background: rgba(37, 99, 235, 0.1); color: var(--primary); margin-bottom: 1rem; display: inline-block;">Ready
-                    to scale?</span>
-                <h2 class="cta-heading" style="font-size: 3.5rem; margin-bottom: 1rem; color: var(--text-main);">Join
-                    Narayan e-Gurukul Today</h2>
-                <p style="color: var(--text-muted); font-size: 1.25rem; margin-bottom: 2.5rem; font-weight: 500;">
-                    Schooling | Coaching | Beyond <span style="color: var(--primary);">💙</span></p>
-                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://narayan-egurukul.vercel.app" target="_blank" class="btn primary-btn"
-                        style="padding: 1.2rem 2.5rem; font-size: 1.15rem; border-radius: 50px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);"><i
-                            class="ri-global-line" style="margin-right: 5px;"></i> Visit Website</a>
-                    <a href="btech-studymaterial.html" class="btn secondary-btn"
-                        style="padding: 1.2rem 2.5rem; font-size: 1.15rem; border-radius: 50px;">Explore Materials</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <a href="index.html" class="footer-logo">
+    <footer class="footer reveal">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <h2>Narayan <span>e-Gurukul</span></h2>
-                </a>
-                <p>Empowering the next generation of engineers with curated study materials, solved PYQs, and
-                    branch-specific resources for success.</p>
-            </div>
-            <div class="footer-nav">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-nav">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="btech-studymaterial.html">Study Material</a></li>
-                    <li><a href="batch.html">Our Batches</a></li>
-                    <li><a href="#">Solved PYQs</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h4>Stay Updated</h4>
-                <div class="newsletter">
-                    <p>Join our newsletter for the latest updates.</p>
-                    <form class="n-form">
-                        <input type="email" placeholder="Your email" required>
-                        <button type="submit"><i class="ri-arrow-right-line"></i></button>
-                    </form>
+                    <p>Narayan e-Gurukul is India's premier digital platform for free engineering study material, providing students with the tools they need to excel in their academic journey.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="login.html">Student Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="btech-studymaterial.html">B.Tech Notes</a></li>
+                        <li><a href="#">Solved PYQs</a></li>
+                        <li><a href="#">Lab Manuals</a></li>
+                        <li><a href="#">Career Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:egurukulnarayan@gmail.com"><i class="ri-mail-line"></i> Email Support</a></li>
+                        <li><a href="tel:+919468974044"><i class="ri-phone-line"></i> +91 9468974044</a></li>
+                        <li><a href="#"><i class="ri-map-pin-line"></i> Rajasthan, India</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Narayan e-Gurukul. Crafted with excellence for engineering students.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Narayan e-Gurukul. Crafted for Students Across India.</p>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

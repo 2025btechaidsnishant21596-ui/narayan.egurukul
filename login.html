@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — Narayan e-Gurukul</title>
+    <title>Student Portal — Narayan e-Gurukul</title>
     <meta name="description" content="Login to Narayan e-Gurukul — free B.Tech, JEE, NEET & school competition study material.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,34 +17,8 @@ html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:#f8fafc;color:#334155;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 a{text-decoration:none;color:inherit}
 
-/* ══ TOP INFO BAR ══ */
-.top-bar{
-    width:100%;flex-shrink:0;
-    background:linear-gradient(90deg,#c2185b,#e91e63,#f06292);
-    height:38px;display:flex;align-items:center;
-    padding:0 5%;justify-content:space-between;gap:12px;
-    z-index:100;
-}
-.top-bar-left{display:flex;align-items:center;gap:18px;overflow:hidden;flex:1;min-width:0}
-.top-bar-item{display:flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.95);white-space:nowrap}
-.top-bar-item i{font-size:0.8rem;color:rgba(255,255,255,0.85);flex-shrink:0}
-.top-bar-item a{color:rgba(255,255,255,0.95)}
-.top-bar-item a:hover{color:#fff;text-decoration:underline}
-.top-bar-sep{width:1px;height:14px;background:rgba(255,255,255,0.3);flex-shrink:0}
-.top-bar-right{display:flex;align-items:center;gap:7px;flex-shrink:0}
-.top-bar-btn{
-    background:#fff;color:#c2185b;border:none;border-radius:4px;
-    padding:4px 14px;font-size:0.72rem;font-weight:700;
-    cursor:pointer;font-family:'Outfit',sans-serif;
-    white-space:nowrap;text-decoration:none;display:inline-block;
-    transition:background .2s;
-}
-.top-bar-btn:hover{background:#fce4ec}
-.top-bar-btn.outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.5)}
-.top-bar-btn.outline:hover{background:rgba(255,255,255,0.15)}
-
 /* ══ SPLIT PAGE ══ */
-.page{display:flex;flex:1;min-height:calc(100vh - 38px)}
+.page{display:flex;flex:1;min-height:100vh}
 
 /* ══ LEFT PANEL ══ */
 .left-panel{
@@ -64,31 +38,8 @@ a{text-decoration:none;color:inherit}
 .brand-name{font-size:1.4rem;font-weight:800;color:#fff;line-height:1.1;text-align:left}
 .brand-name span{display:block;font-size:0.68rem;font-weight:500;color:rgba(255,255,255,0.75);letter-spacing:1.2px;text-transform:uppercase;margin-top:3px}
 
-/* Illustration */
-.illustration{width:300px;height:200px;background:rgba(255,255,255,0.12);border-radius:18px;border:1px solid rgba(255,255,255,0.2);padding:18px;backdrop-filter:blur(8px);position:relative;margin:0 auto 28px}
-.illu-badge{position:absolute;top:-12px;right:-10px;background:#10b981;color:#fff;font-size:0.7rem;font-weight:700;padding:5px 12px;border-radius:999px;display:flex;align-items:center;gap:4px;box-shadow:0 4px 12px rgba(16,185,129,0.4);animation:badgeFloat 3s ease-in-out infinite alternate}
-@keyframes badgeFloat{from{transform:translateY(0)}to{transform:translateY(-5px)}}
-.illu-topbar{height:8px;background:rgba(255,255,255,0.3);border-radius:999px;margin-bottom:14px;width:55%}
-.illu-row{display:flex;gap:8px;margin-bottom:10px}
-.illu-card{flex:1;background:rgba(255,255,255,0.15);border-radius:8px;padding:10px 8px;display:flex;flex-direction:column;gap:5px}
-.illu-card-dot{width:16px;height:16px;border-radius:50%}
-.illu-card-line{height:3px;background:rgba(255,255,255,0.3);border-radius:999px}
-.illu-card-line.short{width:60%}
-.illu-bars{display:flex;align-items:flex-end;gap:5px;height:44px;margin-top:4px}
-.illu-bar{flex:1;background:rgba(255,255,255,0.25);border-radius:3px 3px 0 0;animation:barPulse 2s ease-in-out infinite alternate}
-.illu-bar:nth-child(1){height:60%;animation-delay:0s}
-.illu-bar:nth-child(2){height:100%;animation-delay:.2s}
-.illu-bar:nth-child(3){height:75%;animation-delay:.4s}
-.illu-bar:nth-child(4){height:45%;animation-delay:.6s}
-.illu-bar:nth-child(5){height:85%;animation-delay:.8s}
-@keyframes barPulse{from{opacity:.5}to{opacity:1}}
-
 .left-tagline{color:rgba(255,255,255,0.9);font-size:0.95rem;font-weight:500;line-height:1.6;max-width:260px;margin:0 auto}
 .left-tagline strong{color:#fff;font-weight:800}
-
-.left-stats{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
-.left-stat{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:5px 14px;font-size:0.74rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:5px}
-.left-stat i{font-size:0.85rem;color:rgba(255,255,255,0.8)}
 
 /* ══ RIGHT PANEL ══ */
 .right-panel{
@@ -102,268 +53,200 @@ a{text-decoration:none;color:inherit}
 .login-box{width:100%;max-width:360px}
 
 /* Back link */
-.back-link{display:flex;align-items:center;gap:6px;font-size:0.82rem;color:#64748b;font-weight:600;margin-bottom:28px;transition:color .2s}
+.back-link{display:flex;align-items:center;justify-content:center;gap:6px;font-size:0.82rem;color:#64748b;font-weight:600;margin-bottom:28px;transition:color .2s}
 .back-link:hover{color:#2563eb}
-.back-link i{font-size:1rem}
+
+/* Alert bar */
+.alert-bar{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:0.82rem;font-weight:600;color:#64748b;
+    margin-bottom:20px;
+}
+.alert-bell{
+    position:relative;display:inline-flex;align-items:center;justify-content:center;
+    width:32px;height:32px;background:#eff6ff;border-radius:50%;
+    font-size:1.1rem;color:#2563eb;
+}
+.alert-dot{
+    position:absolute;top:2px;right:2px;
+    width:14px;height:14px;background:#ef4444;
+    border-radius:50%;border:2px solid #fff;
+    font-size:0.55rem;font-weight:800;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+}
 
 /* Title */
-.login-title{font-size:1.65rem;font-weight:800;color:#0f172a;margin-bottom:4px;text-align:center}
-.login-sub{font-size:0.88rem;color:#64748b;text-align:center;margin-bottom:28px;line-height:1.5}
+.login-title{font-size:1.65rem;font-weight:800;color:#0f172a;margin-bottom:24px;text-align:center}
 
-/* Form */
-.field{margin-bottom:16px}
-.field label{display:block;font-size:0.75rem;font-weight:700;color:#0f172a;margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
-.field label span{color:#ef4444;font-size:0.75rem}
-.field-wrap{display:flex;align-items:center;border:1.5px solid #e2e8f0;border-radius:10px;background:#f8fafc;overflow:hidden;transition:border-color .2s,box-shadow .2s}
-.field-wrap:focus-within{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,0.08)}
-.field-icon{width:44px;height:48px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:1.1rem;border-right:1.5px solid #e2e8f0;flex-shrink:0}
-.field-wrap:focus-within .field-icon{color:#2563eb}
-.field-wrap input{flex:1;padding:12px 14px;border:none;outline:none;font-family:'Outfit',sans-serif;font-size:0.9rem;color:#0f172a;background:transparent}
-.field-wrap input::placeholder{color:#94a3b8}
+/* Form fields */
+.field{margin-bottom:14px}
+.field-wrap{
+    display:flex;align-items:center;
+    border:1.5px solid #cbd5e1;
+    border-radius:8px;background:#f8fafc;overflow:hidden;
+    transition:border-color .2s,box-shadow .2s;
+}
+.field-wrap:focus-within{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,0.1)}
+.field-icon{
+    width:44px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    color:#94a3b8;font-size:1.1rem;flex-shrink:0;
+    border-right:1.5px solid #e2e8f0;
+}
+.field-wrap input{
+    flex:1;padding:12px 14px;border:none;outline:none;
+    font-family:'Outfit',sans-serif;font-size:0.9rem;color:#0f172a;background:transparent;
+}
 .field-eye{width:44px;height:48px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:1rem;cursor:pointer;flex-shrink:0;background:transparent;border:none}
-.field-eye:hover{color:#2563eb}
 
-/* OTP note */
-.otp-note{font-size:0.76rem;font-weight:600;color:#2563eb;margin-top:6px;display:none;align-items:center;gap:5px}
-.otp-note.show{display:flex}
-
-/* Options row */
-.field-options{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px}
-.check-label{display:flex;align-items:center;gap:8px;font-size:0.84rem;color:#64748b;cursor:pointer;font-weight:500}
-.check-label input{accent-color:#2563eb;width:15px;height:15px}
-.forgot{font-size:0.84rem;color:#2563eb;font-weight:700}
-.forgot:hover{text-decoration:underline}
-
-/* Buttons */
+/* Login button */
 .btn-login{
-    width:100%;background:#2563eb;color:#fff;border:none;padding:14px;
-    border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;
+    width:100%;background:#2563eb;color:#fff;
+    border:none;padding:14px;border-radius:10px;
+    font-size:0.95rem;font-weight:700;cursor:pointer;
     display:flex;align-items:center;justify-content:center;gap:8px;
-    transition:all .2s;font-family:'Outfit',sans-serif;margin-bottom:12px;
-    letter-spacing:.3px;
+    transition:all .2s;font-family:'Outfit',sans-serif;margin-top:8px;
 }
 .btn-login:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,0.3)}
-.btn-login:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
 
-.divider{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
-.divider span{font-size:0.74rem;color:#94a3b8;font-weight:600;white-space:nowrap}
+.forgot-row{text-align:center;margin-top:14px}
+.forgot{font-size:0.84rem;color:#2563eb;font-weight:700}
 
-.btn-google{
-    width:100%;background:#fff;color:#334155;border:1.5px solid #e2e8f0;
-    padding:12px;border-radius:10px;font-size:0.9rem;font-weight:700;
-    cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
-    transition:all .2s;font-family:'Outfit',sans-serif;margin-bottom:20px;
+/* Help section */
+.help-section{
+    margin-top:40px;padding-top:24px;
+    border-top:1px solid #f1f5f9;
+    text-align:center;
 }
-.btn-google:hover{border-color:#2563eb;background:#f8fafc;transform:translateY(-1px)}
-.btn-google:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.help-section p{font-size:0.8rem;color:#64748b;font-weight:600;margin-bottom:12px}
+.help-section a{font-size:0.85rem;color:#2563eb;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}
 
-/* Google icon SVG */
-.g-icon{width:18px;height:18px;flex-shrink:0}
+.social-row{display:flex;justify-content:center;gap:12px;margin-top:20px}
+.social-icon{
+    width:40px;height:40px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.2rem;color:#fff;transition:all .2s;
+}
+.si-fb{background:#1877f2}.si-li{background:#0a66c2}
+.si-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.si-yt{background:#ff0000}
 
-.signup-link{text-align:center;font-size:0.86rem;color:#64748b}
-.signup-link a{color:#2563eb;font-weight:700}
-.signup-link a:hover{text-decoration:underline}
-
-/* ══ RESPONSIVE ══ */
 @media(max-width:860px){
-    .page{flex-direction:column;min-height:auto}
-    .left-panel{flex:none;padding:24px 20px}
-    .illustration{display:none}
-    .left-tagline{display:none}
-    .brand{margin-bottom:12px}
-    .left-stats{margin-top:10px;gap:8px}
-    .right-panel{width:100%;min-width:unset;box-shadow:none;padding:28px 24px 48px;align-items:flex-start}
-    .login-box{max-width:460px;margin:0 auto;width:100%}
-}
-@media(max-width:560px){
-    .top-bar{height:auto;padding:5px 4%;flex-wrap:wrap;justify-content:center;gap:4px}
-    .top-bar-left{flex-wrap:wrap;justify-content:center;gap:5px}
-    .top-bar-sep{display:none}
-    .top-bar-item{font-size:0.62rem}
-    .top-bar-item.hide-sm{display:none}
-    .top-bar-btn{font-size:0.62rem;padding:3px 10px}
-    .left-panel{padding:16px}
-    .brand-icon{width:40px;height:40px;font-size:1.4rem;border-radius:12px}
-    .brand-name{font-size:1.15rem}
-    .left-stat{font-size:0.65rem;padding:4px 10px}
-    .right-panel{padding:20px 16px 40px}
-    .login-title{font-size:1.35rem}
-    .field-options{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:380px){
-    .top-bar{display:none}
     .left-panel{display:none}
-    .page{flex-direction:column}
-    .right-panel{width:100%;min-height:100vh;padding:28px 16px 40px;align-items:center}
-    .login-box{width:100%}
-    .login-title{font-size:1.25rem}
+    .right-panel{width:100%; min-width: unset; padding: 20px 16px;}
+    .login-box{max-width: 100%;}
+    .login-title{font-size: 1.4rem;}
 }
-@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:480px){
+    .help-section a { font-size: 0.75rem; }
+    .social-icon { width: 32px; height: 32px; font-size: 1rem; }
+}
 </style>
 </head>
 <body>
 
-
-<!-- ══ SPLIT PAGE ══ -->
 <div class="page">
-
-    <!-- LEFT: Blue Panel -->
     <div class="left-panel">
         <div class="grid-bg"></div>
         <div class="left-content">
             <div class="brand">
                 <div class="brand-icon"><i class="ri-graduation-cap-fill"></i></div>
-                <div class="brand-name">Narayan e-Gurukul<span>Smart Learning Platform</span></div>
+                <div class="brand-name">Narayan e-Gurukul<span>Student Portal</span></div>
             </div>
-            <div class="illustration">
-                <div class="illu-badge"><i class="ri-shield-check-line"></i> 100% Free</div>
-                <div class="illu-topbar"></div>
-                <div class="illu-row">
-                    <div class="illu-card"><div class="illu-card-dot" style="background:rgba(96,165,250,0.8)"></div><div class="illu-card-line"></div><div class="illu-card-line short"></div></div>
-                    <div class="illu-card"><div class="illu-card-dot" style="background:rgba(52,211,153,0.8)"></div><div class="illu-card-line"></div><div class="illu-card-line short"></div></div>
-                    <div class="illu-card"><div class="illu-card-dot" style="background:rgba(251,191,36,0.8)"></div><div class="illu-card-line"></div><div class="illu-card-line short"></div></div>
-                </div>
-                <div class="illu-bars">
-                    <div class="illu-bar"></div><div class="illu-bar"></div><div class="illu-bar"></div><div class="illu-bar"></div><div class="illu-bar"></div>
-                </div>
-            </div>
-            <p class="left-tagline"><strong>Learn Better. Practice More.</strong><br>Free notes, PYQs &amp; resources for every student in India.</p>
-            <div class="left-stats">
-                <span class="left-stat"><i class="ri-download-line"></i> 15k+ Downloads</span>
-                <span class="left-stat"><i class="ri-group-line"></i> 150+ Students</span>
-                <span class="left-stat"><i class="ri-book-3-line"></i> B.Tech · JEE · NEET</span>
-            </div>
+            <p class="left-tagline"><strong>Learn Better. Practice More.</strong><br>Free study material for every engineering student.</p>
         </div>
     </div>
 
-    <!-- RIGHT: Login Form -->
     <div class="right-panel">
         <div class="login-box">
-
             <a href="index.html" class="back-link"><i class="ri-arrow-left-line"></i> Back to Home</a>
 
-            <div class="login-title">Welcome Back</div>
-            <div class="login-sub">Enter your credentials to access your account</div>
+            <div class="alert-bar">
+                <div class="alert-bell">
+                    <i class="ri-notification-3-fill"></i>
+                    <div class="alert-dot">1</div>
+                </div>
+                <span>Update Alerts</span>
+            </div>
+
+            <div class="login-title">Sign in to Student Portal</div>
 
             <form id="loginForm">
-                <!-- Email -->
-                <div class="field" id="emailField">
-                    <label>Email Address <span>*</span></label>
+                <div class="field">
                     <div class="field-wrap">
-                        <div class="field-icon"><i class="ri-mail-line"></i></div>
-                        <input type="email" id="emailInput" placeholder="student@example.com" required autocomplete="email">
+                        <div class="field-icon"><i class="ri-user-3-line"></i></div>
+                        <input type="text" id="emailInput" placeholder="Email Address or Username" required>
                     </div>
                 </div>
-
-                <!-- OTP (hidden) -->
-                <div class="field" id="otpField" style="display:none">
-                    <label>OTP <span>*</span></label>
+                <div class="field">
                     <div class="field-wrap">
-                        <div class="field-icon"><i class="ri-key-2-line"></i></div>
-                        <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" pattern="\d{6}" maxlength="6" inputmode="numeric">
-                    </div>
-                    <div class="otp-note show" id="otpNote">
-                        <i class="ri-checkbox-circle-fill"></i> OTP sent to your email address
+                        <div class="field-icon"><i class="ri-lock-password-line"></i></div>
+                        <input type="password" id="passInput" placeholder="Password" required>
+                        <button type="button" class="field-eye" id="eyeBtn"><i class="ri-eye-off-line" id="eyeIcon"></i></button>
                     </div>
                 </div>
-
-                <!-- Options -->
-                <div class="field-options">
-                    <label class="check-label"><input type="checkbox"> Remember me</label>
-                    <a href="forgot-password.html" class="forgot">Forgot password?</a>
-                </div>
-
-                <!-- Send OTP -->
-                <button type="button" class="btn-login" id="sendOtpBtn">
-                    Send OTP <i class="ri-mail-send-line"></i>
-                </button>
-
-                <!-- Login (hidden) -->
-                <button type="submit" class="btn-login" id="loginBtn" style="display:none">
-                    Login <i class="ri-login-circle-line"></i>
-                </button>
+                <button type="submit" class="btn-login" id="loginBtn">LOGIN <i class="ri-login-circle-line"></i></button>
             </form>
 
-            <div class="divider"><span>or continue with</span></div>
+            <div class="forgot-row">
+                <a href="forgot-password.html" class="forgot">Forgot Password?</a>
+            </div>
 
-            <button class="btn-google" id="googleSignInBtn">
-                <svg class="g-icon" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
-                    <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.615 24 12.255 24z"/>
-                    <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/>
-                    <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.64 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
-                </svg>
-                Continue with Google
-            </button>
-
-            <div class="signup-link">Don't have an account? <a href="signup.html">Sign up free</a></div>
-
+            <div class="help-section">
+                <p>Need Help?</p>
+                <a href="tel:+919468974044"><i class="ri-phone-line"></i> +91-9468974044</a>
+                <a href="mailto:egurukulnarayan@gmail.com"><i class="ri-mail-line"></i> egurukulnarayan@gmail.com</a>
+                <a href="https://narayenegurukul.com" target="_blank"><i class="ri-global-line"></i> narayenegurukul.com</a>
+                <div class="social-row">
+                    <a href="#" class="social-icon si-fb"><i class="ri-facebook-fill"></i></a>
+                    <a href="#" class="social-icon si-li"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#" class="social-icon si-ig"><i class="ri-instagram-fill"></i></a>
+                    <a href="#" class="social-icon si-yt"><i class="ri-youtube-fill"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- ══ Firebase ══ -->
+<!-- ══ Firebase & Logic ══ -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
     const firebaseConfig = {
-        apiKey:            "YOUR_API_KEY",
-        authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-        projectId:         "YOUR_PROJECT_ID",
-        storageBucket:     "YOUR_PROJECT_ID.appspot.com",
+        apiKey: "YOUR_API_KEY",
+        authDomain: "narayan-e-gurukul.firebaseapp.com",
+        projectId: "narayan-e-gurukul",
+        storageBucket: "narayan-e-gurukul.appspot.com",
         messagingSenderId: "YOUR_SENDER_ID",
-        appId:             "YOUR_APP_ID"
+        appId: "YOUR_APP_ID"
     };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
 
-    onAuthStateChanged(auth, user => { if(user) window.location.href = 'index.html'; });
+    onAuthStateChanged(auth, user => { if(user) window.location.href = 'student-dashboard.html'; });
 
-    document.getElementById('googleSignInBtn').addEventListener('click', async function(){
-        this.disabled = true;
-        this.innerHTML = `<svg class="g-icon" viewBox="0 0 24 24" style="animation:spin .8s linear infinite"><circle cx="12" cy="12" r="10" fill="none" stroke="#4285F4" stroke-width="3" stroke-dasharray="30 60"/></svg> Signing in...`;
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('emailInput').value;
+        const password = document.getElementById('passInput').value;
+        const btn = document.getElementById('loginBtn');
+        btn.disabled = true; btn.innerHTML = '<i class="ri-loader-4-line ai-spin"></i> Logging in...';
         try {
-            const result = await signInWithPopup(auth, provider);
-            this.innerHTML = `<i class="ri-checkbox-circle-fill" style="color:#10b981;font-size:1.1rem"></i> Welcome, ${result.user.displayName.split(' ')[0]}!`;
-            setTimeout(() => window.location.href = 'index.html', 1200);
-        } catch(err) {
-            this.disabled = false;
-            this.innerHTML = `<svg class="g-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/><path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.615 24 12.255 24z"/><path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/><path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.64 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/></svg> Continue with Google`;
-            if(err.code !== 'auth/popup-closed-by-user') alert('Sign-in failed: ' + err.message);
+            await signInWithEmailAndPassword(auth, email, password);
+            window.location.href = 'student-dashboard.html';
+        } catch (error) {
+            alert("Login failed: " + error.message);
+            btn.disabled = false; btn.innerHTML = 'LOGIN <i class="ri-login-circle-line"></i>';
         }
     });
-</script>
 
-<script>
-    // Eye toggle
-    const eyeBtn = document.getElementById('eyeBtn');
-    if(eyeBtn){ eyeBtn.addEventListener('click', () => { const p = document.getElementById('passInput'); const show = p.type==='password'; p.type = show?'text':'password'; document.getElementById('eyeIcon').className = show?'ri-eye-line':'ri-eye-off-line'; }); }
-
-    // Send OTP
-    document.getElementById('sendOtpBtn').addEventListener('click', function(){
-        const email = document.getElementById('emailInput');
-        if(!email.checkValidity()||!email.value.trim()){ email.reportValidity(); return; }
-        this.disabled = true;
-        this.innerHTML = '<i class="ri-loader-4-line"></i> Sending...';
-        setTimeout(() => {
-            document.getElementById('otpField').style.display = 'block';
-            this.style.display = 'none';
-            document.getElementById('loginBtn').style.display = 'flex';
-            email.readOnly = true; email.style.opacity = '.65';
-        }, 1000);
-    });
-
-    // Login submit
-    document.getElementById('loginForm').addEventListener('submit', function(e){
-        e.preventDefault();
-        if(document.getElementById('otpInput').value.length !== 6){ alert('Enter a valid 6-digit OTP.'); return; }
-        const btn = document.getElementById('loginBtn');
-        btn.disabled = true; btn.innerHTML = '<i class="ri-loader-4-line"></i> Logging in...';
-        setTimeout(() => window.location.href = 'index.html', 1500);
+    document.getElementById('eyeBtn').addEventListener('click', () => {
+        const p = document.getElementById('passInput');
+        const show = p.type === 'password';
+        p.type = show ? 'text' : 'password';
+        document.getElementById('eyeIcon').className = show ? 'ri-eye-line' : 'ri-eye-off-line';
     });
 </script>
 </body>

@@ -1,81 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <!-- ═══ HOMEPAGE — Priority 1.0 ═══ -->
+    <!-- HOMEPAGE — Priority 1.0 -->
     <url>
         <loc>https://narayenegurukul.com/</loc>
-        <lastmod>2026-06-03</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <image:image>
-            <image:loc>https://narayenegurukul.com/03.png</image:loc>
-            <image:title>Narayan e-Gurukul Smart Learning Platform</image:title>
-        </image:image>
     </url>
 
-    <!-- ═══ ABOUT PAGE ═══ -->
+    <!-- ABOUT PAGE -->
     <url>
         <loc>https://narayenegurukul.com/about.html</loc>
-        <lastmod>2026-06-03</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- ═══ B.TECH STUDY MATERIAL ═══ -->
+    <!-- B.TECH STUDY MATERIAL HUB -->
     <url>
         <loc>https://narayenegurukul.com/btech-studymaterial.html</loc>
-        <lastmod>2026-06-03</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- ═══ B.TECH CORE ═══ -->
-    <url>
-        <loc>https://narayenegurukul.com/btech-core.html</loc>
-        <lastmod>2026-06-03</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- ═══ CSE AIDS ═══ -->
+    <!-- CSE AIDS -->
     <url>
         <loc>https://narayenegurukul.com/cse-aids.html</loc>
-        <lastmod>2026-06-03</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- ═══ CSE AIML ═══ -->
+    <!-- CSE AIML -->
     <url>
         <loc>https://narayenegurukul.com/cse-aiml.html</loc>
-        <lastmod>2026-06-03</lastmod>
+        <lastmod>2026-06-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- ═══ BATCH PAGE ═══ -->
+    <!-- LIBRARY -->
     <url>
-        <loc>https://narayenegurukul.com/batch.html</loc>
-        <lastmod>2026-06-03</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://narayenegurukul.com/library.html</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- TEST SERIES -->
+    <url>
+        <loc>https://narayenegurukul.com/test-series.html</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
-    <!-- ═══ LOGIN PAGE ═══ -->
+    <!-- BATCH PAGE -->
     <url>
-        <loc>https://narayenegurukul.com/login.html</loc>
-        <lastmod>2026-06-03</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.4</priority>
-    </url>
-
-    <!-- ═══ SIGNUP PAGE ═══ -->
-    <url>
-        <loc>https://narayenegurukul.com/signup.html</loc>
-        <lastmod>2026-06-03</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.4</priority>
+        <loc>https://narayenegurukul.com/batch.html</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 
 </urlset>

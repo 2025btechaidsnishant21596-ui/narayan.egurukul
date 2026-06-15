@@ -10,25 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Mobile Menu Toggle
-    const menuToggle = document.getElementById('mobile-menu');
+    const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const spans = document.querySelectorAll('.menu-toggle span');
+    const spans = menuToggle ? menuToggle.querySelectorAll('span') : [];
 
-    if (menuToggle && navLinks) {
+    if (menuToggle) {
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Animate Hamburger
-            if (navLinks.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-                navLinks.style.display = 'flex';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-                navLinks.style.display = '';
+            menuToggle.classList.toggle('active');
+            if (navLinks) navLinks.classList.toggle('active');
+
+            // Animate Hamburger (Sync with CSS)
+            const isActive = menuToggle.classList.contains('active');
+            if (spans.length >= 3) {
+                if (isActive) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
             }
         });
     }
@@ -44,12 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 
                 // Close mobile menu if open
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                    navLinks.style.display = '';
+                if (menuToggle && menuToggle.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    if (navLinks) navLinks.classList.remove('active');
+                    if (spans.length >= 3) {
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
                 }
 
                 const offset = 80; // Navbar height
@@ -84,6 +88,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, observerOptions);
+
+    // Filter logic for Study Material page
+    const filterBtn = document.getElementById('filterBtn');
+    if (filterBtn) {
+        filterBtn.addEventListener('click', () => {
+            const branch = document.getElementById('branchFilter').value;
+            const cards = document.querySelectorAll('.branch-card');
+            let visible = 0;
+            cards.forEach(c => {
+                const show = branch === 'all' || c.dataset.branch === branch;
+                c.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+
+            const filterCount = document.getElementById('filterCount');
+            const branchCount = document.getElementById('branchCount');
+            if (filterCount) filterCount.textContent = `Showing ${visible} branch${visible !== 1 ? 'es' : ''}`;
+            if (branchCount) branchCount.textContent = `${visible} branch${visible !== 1 ? 'es' : ''} available`;
+        });
+    }
 
     // Apply observer to all reveal elements
     document.querySelectorAll('.reveal').forEach(el => {
@@ -542,6 +566,117 @@ document.addEventListener('DOMContentLoaded', () => {
             response: reply,
             suggestions: suggestions
         };
+    }
+
+    // ==========================================================================
+    // 📩 FORM SUBMISSIONS CONTROLLER
+    // ==========================================================================
+
+    // 1. Contact Form Handler
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('contactSubmitBtn');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // Get data
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+
+            // UI Feedback
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="ri-loader-4-line ai-spin"></i> Sending...';
+
+            try {
+                const response = await fetch('/api/inquiries', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'General Inquiry',
+                        name,
+                        email,
+                        message
+                    })
+                });
+
+                if (response.ok) {
+                    submitBtn.innerHTML = '<i class="ri-checkbox-circle-line"></i> Sent Successfully!';
+                    submitBtn.style.background = '#10b981';
+                    contactForm.reset();
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                } else {
+                    throw new Error('Failed to send inquiry');
+                }
+            } catch (err) {
+                console.error(err);
+                submitBtn.innerHTML = '<i class="ri-error-warning-line"></i> Failed to send';
+                submitBtn.style.background = '#ef4444';
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.style.background = '';
+                }, 3000);
+            }
+        });
+    }
+
+    // 2. Newsletter Form Handler
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            const submitBtn = newsletterForm.querySelector('button');
+            const originalIcon = submitBtn.innerHTML;
+
+            const email = emailInput.value;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="ri-loader-4-line ai-spin"></i>';
+
+            try {
+                const response = await fetch('/api/inquiries', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'Newsletter Subscription',
+                        name: 'Subscriber',
+                        email: email,
+                        message: 'Wants to stay updated via newsletter.'
+                    })
+                });
+
+                if (response.ok) {
+                    submitBtn.innerHTML = '<i class="ri-check-line"></i>';
+                    submitBtn.style.background = '#10b981';
+                    emailInput.value = '';
+                    emailInput.placeholder = 'Thanks for joining!';
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalIcon;
+                        submitBtn.style.background = '';
+                        emailInput.placeholder = 'Your email';
+                    }, 3000);
+                } else {
+                    throw new Error('Subscription failed');
+                }
+            } catch (err) {
+                console.error(err);
+                submitBtn.innerHTML = '<i class="ri-close-line"></i>';
+                submitBtn.style.background = '#ef4444';
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalIcon;
+                    submitBtn.style.background = '';
+                }, 3000);
+            }
+        });
     }
 });
 

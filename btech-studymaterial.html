@@ -284,7 +284,7 @@ p{color:#64748b}
 <main class="main">
 
     <!-- What we provide -->
-    <div class="info-row" style="margin-bottom:32px">
+    <div class="info-row stagger-reveal" style="margin-bottom:32px">
         <div class="info-card">
             <i class="ri-book-3-line" style="color:#2563eb"></i>
             <h4>Hand-written Notes</h4>
@@ -314,7 +314,7 @@ p{color:#64748b}
     </div>
 
     <!-- Branch Cards -->
-    <div class="cards-grid" id="cardsGrid">
+    <div class="cards-grid stagger-reveal" id="cardsGrid">
 
         <!-- B.Tech Core -->
         <div class="branch-card bc-blue" data-branch="core">
@@ -370,7 +370,7 @@ p{color:#64748b}
     </div>
 
     <!-- Subject List — B.Tech Core Semester 1 -->
-    <div class="subject-section" id="subjectTable" data-branch="core" data-sem="1">
+    <div class="subject-section reveal" id="subjectTable" data-branch="core" data-sem="1">
         <div class="subject-head">
             <h3><i class="ri-instance-line" style="color:#2563eb;margin-right:8px"></i>B.Tech Core — Semester 1 Subjects</h3>
             <span>6 subjects</span>
@@ -416,31 +416,6 @@ p{color:#64748b}
     <div class="footer-copy">&copy; 2026 Narayan e-Gurukul. All resources are 100% free for students.</div>
 </footer>
 
-<script>
-    // Navbar toggle
-    const menuBtn = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-    // Navbar scroll
-    window.addEventListener('scroll', () => {
-        document.getElementById('navbar').style.boxShadow = window.scrollY > 10 ? '0 4px 20px rgba(37,99,235,0.4)' : '0 2px 8px rgba(37,99,235,0.3)';
-    });
-
-    // Filter
-    document.getElementById('filterBtn').addEventListener('click', () => {
-        const branch = document.getElementById('branchFilter').value;
-        const cards  = document.querySelectorAll('.branch-card');
-        let visible  = 0;
-        cards.forEach(c => {
-            const show = branch === 'all' || c.dataset.branch === branch;
-            c.style.display = show ? '' : 'none';
-            if(show) visible++;
-        });
-        document.getElementById('filterCount').textContent = `Showing ${visible} branch${visible!==1?'es':''}`;
-        document.getElementById('branchCount').textContent = `${visible} branch${visible!==1?'es':''} available`;
-    });
-</script>
+    <script src="script.js"></script>
 </body>
 </html>

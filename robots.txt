@@ -1,12 +1,17 @@
-# ═══════════════════════════════════════
 # Narayan e-Gurukul — robots.txt
 # https://narayenegurukul.com
-# ═══════════════════════════════════════
 
 User-agent: *
 Allow: /
 
-# Block private / admin files
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block private / backend files
 Disallow: /admin.html
 Disallow: /server.js
 Disallow: /database.db
@@ -14,6 +19,8 @@ Disallow: /package.json
 Disallow: /package-lock.json
 Disallow: /node_modules/
 Disallow: /SetupNode.bat
+Disallow: /.env
+Disallow: /database.json
 
-# Sitemap location
+# Sitemap
 Sitemap: https://narayenegurukul.com/sitemap.xml

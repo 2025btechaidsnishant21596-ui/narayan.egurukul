@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Narayan e-Gurukul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --text: #334155;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --sidebar-width: 260px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+        .dashboard-container { display: flex; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width); background: var(--secondary); color: white; padding: 2rem 1.5rem;
+            display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh;
+            transition: all 0.3s ease; z-index: 1000;
+        }
+        .sidebar-header { margin-bottom: 3rem; display: flex; align-items: center; gap: 10px; }
+        .sidebar-header i { font-size: 1.5rem; color: var(--primary); }
+        .sidebar-header h2 { font-size: 1.1rem; font-weight: 800; color: #ffffff; }
+        .sidebar-header h2 span { color: var(--primary); }
+
+        .nav-menu { list-style: none; flex: 1; }
+        .nav-item { margin-bottom: 0.5rem; }
+        .nav-link {
+            display: flex; align-items: center; gap: 12px; padding: 0.8rem 1rem;
+            color: #94a3b8; text-decoration: none; border-radius: 8px; transition: all 0.2s;
+            font-weight: 500; cursor: pointer; border: none; background: transparent; width: 100%;
+            font-family: inherit; font-size: 1rem; text-align: left;
+        }
+        .nav-link:hover, .nav-link.active { background: rgba(255,255,255,0.1); color: white; }
+        .nav-link i { font-size: 1.2rem; }
+
+        .logout-btn {
+            margin-top: auto; display: flex; align-items: center; gap: 12px; padding: 0.8rem 1rem;
+            color: #fda4af; text-decoration: none; border-radius: 8px; transition: all 0.2s;
+            font-weight: 600; cursor: pointer; border: none; background: transparent; width: 100%;
+            font-family: inherit; font-size: 1rem;
+        }
+        .logout-btn:hover { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+        /* Main Content */
+        .main-content { flex: 1; padding: 2rem 3rem; overflow-y: auto; position: relative; }
+
+        /* Mobile Header */
+        .mobile-header {
+            display: none; justify-content: space-between; align-items: center;
+            padding: 1rem; background: var(--white); border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 900;
+        }
+        .menu-toggle { font-size: 1.5rem; cursor: pointer; color: var(--secondary); }
+
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; }
+        .user-info { display: flex; align-items: center; gap: 1rem; }
+        .user-avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* Grid Layouts */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .stat-card { background: var(--white); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .stat-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .icon-blue { background: #eff6ff; color: var(--primary); }
+        .icon-green { background: #ecfdf5; color: var(--success); }
+        .icon-amber { background: #fffbeb; color: var(--warning); }
+
+        .stat-details h3 { font-size: 1.5rem; font-weight: 800; color: var(--secondary); line-height: 1.2; }
+        .stat-details p { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+
+        /* Welcome Banner */
+        .welcome-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            border-radius: 20px; padding: 2.5rem; color: white; margin-bottom: 2.5rem;
+            position: relative; overflow: hidden;
+        }
+        .welcome-banner h1 { font-size: 2rem; margin-bottom: 0.5rem; color: white; }
+        .welcome-banner p { color: rgba(255,255,255,0.8); max-width: 500px; }
+        .welcome-banner i.bg-icon { position: absolute; right: -20px; bottom: -20px; font-size: 12rem; color: rgba(255,255,255,0.05); transform: rotate(-15deg); }
+
+        /* Content Sections */
+        .section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+
+        .batch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .batch-card {
+            background: var(--white); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border);
+            transition: all 0.3s ease; position: relative;
+        }
+        .batch-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.08); border-color: var(--primary); }
+        .batch-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .batch-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .batch-link { display: flex; align-items: center; gap: 5px; color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar { width: 80px; padding: 2rem 1rem; align-items: center; }
+            .sidebar-header h2, .nav-link span, .logout-btn span { display: none; }
+            .nav-link, .logout-btn { justify-content: center; padding: 1rem; }
+            .main-content { padding: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header { display: flex; }
+            .sidebar {
+                position: fixed; left: -260px; height: 100vh; width: 260px;
+                top: 0; box-shadow: 10px 0 20px rgba(0,0,0,0.1);
+            }
+            .sidebar.active { left: 0; }
+            .sidebar-header h2, .nav-link span, .logout-btn span { display: block; }
+            .nav-link, .logout-btn { justify-content: flex-start; padding: 0.8rem 1rem; }
+            .sidebar-overlay.active { display: block; }
+
+            .main-content { padding: 1.5rem; }
+            .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .welcome-banner { padding: 1.5rem; }
+            .welcome-banner h1 { font-size: 1.5rem; }
+        }
+
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
+        .hidden { display: none; }
+        .ai-spin { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="ri-graduation-cap-fill"></i>
+            <h2>Narayan <span>e-Gurukul</span></h2>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <button class="nav-link active" onclick="switchTab('home')">
+                    <i class="ri-home-heart-line"></i>
+                    <span>Overview</span>
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" onclick="switchTab('batches')">
+                    <i class="ri-group-line"></i>
+                    <span>My Batches</span>
+                </button>
+            </li>
+            <li class="nav-item">
+                <a href="btech-studymaterial.html" class="nav-link">
+                    <i class="ri-book-read-line"></i>
+                    <span>Study Material</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-global-line"></i>
+                    <span>Back to Website</span>
+                </a>
+            </li>
+        </ul>
+        <button class="logout-btn" id="logoutBtn">
+            <i class="ri-logout-box-r-line"></i>
+            <span>Logout</span>
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="ri-menu-2-line"></i>
+            </div>
+            <div class="sidebar-header" style="margin-bottom:0">
+                <i class="ri-graduation-cap-fill"></i>
+                <h2 style="color:var(--secondary)">Narayan <span style="color:var(--primary)">e-Gurukul</span></h2>
+            </div>
+            <div id="mobileUserAvatar" class="user-avatar" style="width:32px; height:32px; font-size:0.9rem">U</div>
+        </div>
+
+        <div id="tab-home">
+            <div class="header">
+                <div>
+                    <h1 id="welcomeTitle">Welcome Back!</h1>
+                    <p style="color:var(--text-muted)">Your academic progress at a glance.</p>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div style="text-align:right" class="hidden-mobile">
+                        <div style="font-weight:700; color:var(--secondary)" id="userName">Student Name</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted)" id="userEmail">student@example.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="welcome-banner">
+                <i class="ri-rocket-2-line bg-icon"></i>
+                <h1>Accelerate Your Learning</h1>
+                <p>Access hand-written notes, solved PYQs, and specialized engineering materials curated for your success.</p>
+            </div>
+
+            <div class="stats-grid stagger-reveal">
+                <div class="stat-card">
+                    <div class="stat-icon icon-blue"><i class="ri-book-3-line"></i></div>
+                    <div class="stat-details">
+                        <p>Total Resources</p>
+                        <h3>500+</h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-green"><i class="ri-download-cloud-2-line"></i></div>
+                    <div class="stat-details">
+                        <p>My Downloads</p>
+                        <h3>12</h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-amber"><i class="ri-time-line"></i></div>
+                    <div class="stat-details">
+                        <p>Study Hours</p>
+                        <h3>48h</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <i class="ri-star-line" style="color:var(--warning)"></i> Featured Batches
+            </div>
+            <div class="batch-grid stagger-reveal" id="featuredBatches">
+                <!-- Loading State -->
+                <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
+                    <i class="ri-loader-4-line ai-spin" style="font-size: 2rem; color: var(--primary);"></i>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-batches" class="hidden">
+            <div class="header">
+                <h1>Academic Batches</h1>
+            </div>
+            <div class="batch-grid" id="allBatchesGrid"></div>
+        </div>
+    </main>
+</div>
+
+<!-- Firebase Integration -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "narayan-e-gurukul.firebaseapp.com",
+        projectId: "narayan-e-gurukul",
+        storageBucket: "narayan-e-gurukul.appspot.com",
+        messagingSenderId: "YOUR_SENDER_ID",
+        appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, user => {
+        if (!user) {
+            window.location.href = 'login.html';
+        } else {
+            // Update UI with user info
+            const name = user.displayName || 'Student';
+            const email = user.email;
+            const initials = name.charAt(0).toUpperCase();
+
+            document.getElementById('userName').textContent = name;
+            document.getElementById('userEmail').textContent = email;
+            document.getElementById('userAvatar').textContent = initials;
+            document.getElementById('mobileUserAvatar').textContent = initials;
+            document.getElementById('welcomeTitle').textContent = `Welcome, ${name.split(' ')[0]}!`;
+
+            fetchBatches();
+
+            // Initialize Reveal Animations after data is loaded
+            setTimeout(() => {
+                const observerOptions = { threshold: 0.15 };
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) entry.target.classList.add('active');
+                    });
+                }, observerOptions);
+                document.querySelectorAll('.reveal, .stagger-reveal').forEach(el => observer.observe(el));
+            }, 500);
+        }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        signOut(auth).then(() => window.location.href = 'login.html');
+    });
+
+    // Sidebar & Tabs Logic
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const menuToggle = document.getElementById('menuToggle');
+
+    function toggleMobileMenu() {
+        sidebar.classList.toggle('active');
+        sidebarOverlay.classList.toggle('active');
+    }
+
+    menuToggle.addEventListener('click', toggleMobileMenu);
+    sidebarOverlay.addEventListener('click', toggleMobileMenu);
+
+    window.switchTab = (tab) => {
+        document.getElementById('tab-home').classList.add('hidden');
+        document.getElementById('tab-batches').classList.add('hidden');
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+        document.getElementById('tab-' + tab).classList.remove('hidden');
+        event.currentTarget.classList.add('active');
+
+        if (window.innerWidth <= 768) toggleMobileMenu();
+    };
+
+    async function fetchBatches() {
+        try {
+            const res = await fetch('/api/batches');
+            if (!res.ok) throw new Error("API not available");
+            const batches = await res.json();
+            renderBatches(batches);
+        } catch (err) {
+            console.warn("Using local dummy data for batches.");
+            const dummyBatches = [
+                { name: "B.Tech Core", description: "1st Year Engineering Resources", icon: "ri-instance-line", link: "btech-core.html" },
+                { name: "CSE AIDS", description: "AI & Data Science Specialization", icon: "ri-database-2-line", link: "cse-aids.html" },
+                { name: "CSE AIML", description: "AI & Machine Learning Specialization", icon: "ri-robot-2-line", link: "cse-aiml.html" }
+            ];
+            renderBatches(dummyBatches);
+        }
+    }
+
+    function renderBatches(batches) {
+        const featuredGrid = document.getElementById('featuredBatches');
+        const allGrid = document.getElementById('allBatchesGrid');
+
+        featuredGrid.innerHTML = '';
+        allGrid.innerHTML = '';
+
+        if (batches.length === 0) {
+            featuredGrid.innerHTML = '<p>No active batches found.</p>';
+            return;
+        }
+
+        batches.forEach((batch, index) => {
+            const html = `
+                <div class="batch-card">
+                    <div class="stat-icon icon-blue" style="margin-bottom:1rem"><i class="${batch.icon}"></i></div>
+                    <h4>${batch.name}</h4>
+                    <p>${batch.description}</p>
+                    <a href="${batch.link}" class="batch-link">Explore Batch <i class="ri-arrow-right-line"></i></a>
+                </div>
+            `;
+            if (index < 3) featuredGrid.innerHTML += html;
+            allGrid.innerHTML += html;
+        });
+    }
+</script>
+
+</body>
+</html>
