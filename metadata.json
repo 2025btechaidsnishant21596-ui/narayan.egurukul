@@ -1,0 +1,6 @@
+{
+  "name": "Narayan e-Gurukul",
+  "description": "Smart Learning Platform for B.Tech, JEE, NEET and School Students with merged Google login and authentication flow",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

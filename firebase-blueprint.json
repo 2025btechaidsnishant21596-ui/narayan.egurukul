@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "Registered students and staff user accounts",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["student", "admin"] },
+        "authProvider": { "type": "string" },
+        "phone": { "type": "string" },
+        "selectedCourse": { "type": "string" },
+        "xp": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "inquiries": {
+      "title": "Student & Admission Inquiry",
+      "description": "Inquiries submitted by prospective students or parents",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "classStage": { "type": "string" },
+        "investmentRange": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["type", "name", "createdAt"]
+    }
+  }
+}
