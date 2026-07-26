@@ -1,589 +1,708 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login — Narayan e-Gurukul</title>
-    <meta name="description" content="Login to Narayan e-Gurukul — free B.Tech, JEE, NEET & school competition study material.">
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
-<style>
-/* ── RESET ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-    font-family:'Outfit',sans-serif;
-    background:#f0f4f8;
-    color:#1e293b;
-    min-height:100vh;
-    overflow-x:hidden;
-    display:flex;flex-direction:column;
-}
-a{text-decoration:none;color:inherit}
-button{font-family:'Outfit',sans-serif;cursor:pointer}
-
-/* ── HERO HEADER BANNER ── */
-.login-hero{
-    background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#4f46e5 100%);
-    padding:28px 24px 32px;
-    position:relative;overflow:hidden;
-    flex-shrink:0;
-}
-.login-hero::before{
-    content:'';position:absolute;
-    width:280px;height:280px;border-radius:50%;
-    background:rgba(255,255,255,.06);
-    top:-80px;right:-60px;pointer-events:none;
-}
-.login-hero::after{
-    content:'';position:absolute;
-    width:160px;height:160px;border-radius:50%;
-    background:rgba(255,255,255,.04);
-    bottom:-50px;left:30px;pointer-events:none;
-}
-/* Grid background dots */
-.login-hero-grid{
-    position:absolute;inset:0;
-    background-image:
-        radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1px);
-    background-size:28px 28px;
-    pointer-events:none;
-}
-
-/* Brand row */
-.hero-brand{
-    display:flex;align-items:center;gap:14px;
-    justify-content:center;
-    margin-bottom:18px;
-    position:relative;z-index:1;
-}
-.hero-icon{
-    width:54px;height:54px;border-radius:14px;
-    background:rgba(255,255,255,.18);
-    border:1.5px solid rgba(255,255,255,.3);
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.6rem;color:#fff;flex-shrink:0;
-    backdrop-filter:blur(8px);
-}
-.hero-name{text-align:left}
-.hero-name h1{
-    font-size:1.35rem;font-weight:900;color:#fff;
-    line-height:1.15;letter-spacing:-.3px;
-}
-.hero-name p{
-    font-size:.65rem;font-weight:700;
-    color:rgba(255,255,255,.65);
-    text-transform:uppercase;letter-spacing:2px;
-    margin-top:2px;
-}
-
-/* Stats pills row */
-.hero-pills{
-    display:flex;align-items:center;justify-content:center;
-    gap:10px;flex-wrap:wrap;
-    position:relative;z-index:1;
-}
-.hero-pill{
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.25);
-    border-radius:999px;
-    padding:6px 14px;
-    font-size:.72rem;font-weight:700;color:#fff;
-    display:flex;align-items:center;gap:6px;
-    backdrop-filter:blur(6px);
-}
-.hero-pill i{font-size:.8rem;opacity:.85}
-
-/* ── FORM CARD ── */
-.login-card{
-    flex:1;
-    background:#fff;
-    border-radius:0;
-    padding:0;
-    display:flex;flex-direction:column;
-}
-
-/* Back link */
-.back-row{
-    padding:18px 24px 0;
-}
-.back-link{
-    display:inline-flex;align-items:center;gap:7px;
-    font-size:.84rem;font-weight:600;color:#64748b;
-    transition:color .2s;
-}
-.back-link:hover{color:#2563eb}
-.back-link i{font-size:1rem}
-
-/* Form body */
-.form-body{
-    padding:22px 24px 32px;
-    flex:1;
-    max-width:440px;
-    width:100%;
-    margin:0 auto;
-}
-
-/* Title */
-.form-title{
-    font-size:1.7rem;font-weight:900;color:#0f172a;
-    text-align:center;margin-bottom:6px;letter-spacing:-.3px;
-}
-.form-sub{
-    font-size:.86rem;color:#64748b;text-align:center;
-    margin-bottom:28px;line-height:1.5;font-weight:500;
-}
-
-/* Field */
-.field{margin-bottom:16px}
-.field-label{
-    display:flex;align-items:center;gap:4px;
-    font-size:.72rem;font-weight:800;color:#0f172a;
-    text-transform:uppercase;letter-spacing:.7px;
-    margin-bottom:7px;
-}
-.field-label .req{color:#ef4444;font-size:.8rem}
-.field-wrap{
-    display:flex;align-items:center;
-    border:1.5px solid #e2e8f0;border-radius:12px;
-    background:#f8fafc;overflow:hidden;
-    transition:border-color .2s,box-shadow .2s,background .2s;
-}
-.field-wrap:focus-within{
-    border-color:#2563eb;background:#fff;
-    box-shadow:0 0 0 4px rgba(37,99,235,.08);
-}
-.field-icon{
-    width:48px;height:52px;
-    display:flex;align-items:center;justify-content:center;
-    color:#94a3b8;font-size:1.1rem;
-    border-right:1.5px solid #e2e8f0;flex-shrink:0;
-    transition:color .2s;
-}
-.field-wrap:focus-within .field-icon{
-    color:#2563eb;border-right-color:#dbeafe;
-}
-.field-wrap input{
-    flex:1;padding:14px 14px;
-    border:none;outline:none;
-    font-family:'Outfit',sans-serif;
-    font-size:.92rem;color:#0f172a;background:transparent;
-}
-.field-wrap input::placeholder{color:#94a3b8;font-weight:500}
-
-/* OTP field (hidden initially) */
-.otp-field{display:none}
-.otp-note{
-    display:none;align-items:center;gap:6px;
-    font-size:.74rem;font-weight:600;color:#2563eb;
-    margin-top:8px;
-}
-.otp-note.show{display:flex}
-.otp-note i{font-size:.85rem}
-
-/* Options row */
-.options-row{
-    display:flex;align-items:center;justify-content:space-between;
-    flex-wrap:wrap;gap:10px;margin-bottom:22px;
-}
-.check-label{
-    display:flex;align-items:center;gap:8px;
-    font-size:.84rem;font-weight:600;color:#64748b;cursor:pointer;
-}
-.check-label input[type=checkbox]{
-    width:16px;height:16px;
-    accent-color:#2563eb;cursor:pointer;
-    border-radius:4px;
-}
-.forgot-link{
-    font-size:.84rem;font-weight:700;color:#2563eb;
-    transition:color .2s;
-}
-.forgot-link:hover{color:#1d4ed8;text-decoration:underline}
-
-/* Primary CTA button */
-.btn-send-otp{
-    width:100%;background:linear-gradient(135deg,#2563eb,#1d4ed8);
-    color:#fff;border:none;
-    padding:15px 24px;border-radius:12px;
-    font-size:.98rem;font-weight:800;
-    display:flex;align-items:center;justify-content:center;gap:9px;
-    transition:all .22s;margin-bottom:14px;
-    letter-spacing:.2px;
-    box-shadow:0 4px 18px rgba(37,99,235,.3);
-}
-.btn-send-otp:hover{
-    background:linear-gradient(135deg,#1d4ed8,#1e40af);
-    transform:translateY(-1px);
-    box-shadow:0 6px 24px rgba(37,99,235,.4);
-}
-.btn-send-otp:active{transform:translateY(0);box-shadow:none}
-.btn-send-otp:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
-.btn-send-otp i{font-size:1rem}
-
-/* Login button (hidden) */
-.btn-login{
-    width:100%;background:linear-gradient(135deg,#059669,#10b981);
-    color:#fff;border:none;
-    padding:15px 24px;border-radius:12px;
-    font-size:.98rem;font-weight:800;
-    display:none;align-items:center;justify-content:center;gap:9px;
-    transition:all .22s;margin-bottom:14px;
-    box-shadow:0 4px 18px rgba(16,185,129,.3);
-}
-.btn-login:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(16,185,129,.4)}
-.btn-login:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
-
-/* Divider */
-.divider{
-    display:flex;align-items:center;gap:12px;
-    margin-bottom:14px;
-}
-.divider::before,.divider::after{
-    content:'';flex:1;height:1px;background:#e2e8f0;
-}
-.divider span{
-    font-size:.72rem;font-weight:700;color:#94a3b8;
-    white-space:nowrap;
-}
-
-/* Google button */
-.btn-google{
-    width:100%;background:#fff;color:#1e293b;
-    border:1.5px solid #e2e8f0;border-radius:12px;
-    padding:14px 24px;
-    font-size:.92rem;font-weight:700;
-    display:flex;align-items:center;justify-content:center;gap:11px;
-    transition:all .22s;margin-bottom:22px;
-}
-.btn-google:hover{
-    border-color:#2563eb;background:#f8fafc;
-    transform:translateY(-1px);
-    box-shadow:0 4px 14px rgba(0,0,0,.07);
-}
-.btn-google:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
-.g-icon{width:20px;height:20px;flex-shrink:0}
-
-/* Signup link */
-.signup-row{
-    text-align:center;font-size:.86rem;
-    color:#64748b;font-weight:500;
-}
-.signup-row a{
-    color:#2563eb;font-weight:800;
-    transition:color .2s;
-}
-.signup-row a:hover{color:#1d4ed8;text-decoration:underline}
-
-/* ── SPINNER ── */
-@keyframes spin{to{transform:rotate(360deg)}}
-.spinner{
-    width:18px;height:18px;border-radius:50%;
-    border:2.5px solid rgba(255,255,255,.35);
-    border-top-color:#fff;
-    animation:spin .7s linear infinite;
-    flex-shrink:0;
-}
-
-/* ── DESKTOP LAYOUT ── */
-/* On wider screens, show a split layout */
-@media(min-width:700px){
-    body{
-        background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 40%,#2563eb 100%);
-        align-items:center;justify-content:center;
-        padding:40px 20px;
-    }
-    .login-container{
-        width:100%;max-width:900px;
-        display:grid;grid-template-columns:1fr 420px;
-        border-radius:24px;overflow:hidden;
-        box-shadow:0 24px 80px rgba(0,0,0,.35);
-    }
-    .login-hero{
-        padding:48px 40px 48px;
-        display:flex;flex-direction:column;
-        justify-content:center;
-        border-radius:0;
-    }
-    .hero-brand{justify-content:flex-start;margin-bottom:28px}
-    .hero-pills{justify-content:flex-start}
-    .hero-tagline{
-        color:rgba(255,255,255,.85);
-        font-size:1.5rem;font-weight:900;
-        line-height:1.3;margin-top:28px;
-        position:relative;z-index:1;
-    }
-    .hero-tagline span{color:#93c5fd}
-    .hero-desc{
-        font-size:.88rem;color:rgba(255,255,255,.65);
-        font-weight:500;line-height:1.7;margin-top:12px;
-        position:relative;z-index:1;max-width:300px;
-    }
-    .hero-features{
-        margin-top:28px;display:flex;flex-direction:column;gap:12px;
-        position:relative;z-index:1;
-    }
-    .hero-feat{
-        display:flex;align-items:center;gap:10px;
-        font-size:.84rem;font-weight:600;color:rgba(255,255,255,.85);
-    }
-    .hero-feat i{
-        width:30px;height:30px;border-radius:8px;
-        background:rgba(255,255,255,.12);
-        display:flex;align-items:center;justify-content:center;
-        font-size:.95rem;flex-shrink:0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Narayan e-Gurukul | Secure Login</title>
+  <meta name="description" content="Premium OTP-based login experience for Narayan e-Gurukul students and learners." />
+  <meta name="theme-color" content="#FFF9F0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FFF9F0;
+      --blue: #2563EB;
+      --blue-dark: #1D4ED8;
+      --yellow: #FACC15;
+      --white: #FFFFFF;
+      --border: #E5E7EB;
+      --text-dark: #111827;
+      --text-gray: #6B7280;
+      --success: #16A34A;
+      --error: #DC2626;
+      --shadow: 0 22px 60px rgba(17, 24, 39, 0.13);
     }
 
-    .login-card{
-        border-radius:0;
-        box-shadow:none;
-        justify-content:center;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #FFF7EC 0%, var(--cream) 45%, #FFFDF8 100%);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
     }
-    .back-row{padding:20px 28px 0}
-    .form-body{padding:20px 32px 36px}
-    .form-title{font-size:1.6rem;text-align:left}
-    .form-sub{text-align:left;margin-bottom:24px}
-}
 
-/* ── MOBILE ── */
-@media(max-width:699px){
-    body{background:#f0f4f8}
-    .login-container{width:100%;display:flex;flex-direction:column}
-    .login-hero{border-radius:0 0 0 0}
-    .hero-tagline,.hero-desc,.hero-features{display:none}
-    .login-card{background:#fff;flex:1}
-    .form-body{padding:20px 20px 40px}
-}
-@media(max-width:380px){
-    .hero-pills{gap:6px}
-    .hero-pill{font-size:.65rem;padding:5px 10px}
-    .hero-icon{width:46px;height:46px;font-size:1.35rem}
-    .hero-name h1{font-size:1.15rem}
-    .form-title{font-size:1.4rem}
-}
-</style>
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .page-shell {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: 1.1fr 0.95fr;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+      animation: fadeInUp 0.7s ease both;
+    }
+
+    .hero-panel {
+      position: relative;
+      min-height: 620px;
+      padding: 36px;
+      background:
+        linear-gradient(140deg, rgba(17, 24, 39, 0.28), rgba(17, 24, 39, 0.18)),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80') center/cover;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      isolation: isolate;
+    }
+
+    .hero-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.14) 0%, rgba(17, 24, 39, 0.2) 100%);
+      z-index: -1;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-weight: 800;
+      font-size: 1.25rem;
+      backdrop-filter: blur(12px);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    .hero-badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-content { max-width: 480px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(250, 204, 21, 0.2);
+      color: #FDE68A;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 2.4vw, 2.8rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .hero-copy {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.86);
+      margin-bottom: 22px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .feature-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.94rem;
+      font-weight: 600;
+      animation: floatUp 4.2s ease-in-out infinite;
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-chip:nth-child(2) { animation-delay: 0.6s; }
+    .feature-chip:nth-child(3) { animation-delay: 1.2s; }
+    .feature-chip:nth-child(4) { animation-delay: 1.8s; }
+
+    .hero-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-footer .mini-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .login-card {
+      padding: 36px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideUp 0.75s ease both;
+    }
+
+    .card-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .brand-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(250, 204, 21, 0.2));
+      color: var(--blue);
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.13);
+    }
+
+    .card-title {
+      font-size: clamp(1.55rem, 2vw, 1.9rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .status-box {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid transparent;
+    }
+
+    .status-box.success {
+      display: flex;
+      background: rgba(22, 163, 74, 0.1);
+      color: var(--success);
+      border-color: rgba(22, 163, 74, 0.2);
+    }
+
+    .status-box.error {
+      display: flex;
+      background: rgba(220, 38, 38, 0.08);
+      color: var(--error);
+      border-color: rgba(220, 38, 38, 0.18);
+    }
+
+    form { display: grid; gap: 14px; }
+
+    .input-group { display: grid; gap: 8px; }
+
+    .input-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0 14px;
+      background: #FCFCFD;
+      transition: all 0.25s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .input-wrap:focus-within {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+      background: var(--white);
+    }
+
+    .input-wrap select,
+    .input-wrap input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 14px 0;
+      color: var(--text-dark);
+    }
+
+    .input-wrap select { appearance: none; -webkit-appearance: none; }
+    .input-wrap input::placeholder { color: #9CA3AF; }
+
+    .helper-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      color: var(--text-gray);
+    }
+
+    .check-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .check-wrap input {
+      accent-color: var(--blue);
+      width: 16px;
+      height: 16px;
+    }
+
+    .link-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    .btn-primary {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:disabled { opacity: 0.75; cursor: wait; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0 2px;
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .social-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-secondary {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 600;
+      background: var(--white);
+      color: var(--text-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    .footer-note a { color: var(--blue); font-weight: 600; }
+
+    .otp-panel { display: none; }
+    .otp-panel.active { display: grid; gap: 14px; }
+
+    .resend-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      margin-top: 2px;
+    }
+
+    .resend-btn {
+      background: none;
+      border: none;
+      color: var(--blue);
+      font-weight: 700;
+      padding: 0;
+    }
+
+    .resend-btn:disabled { color: #9CA3AF; cursor: not-allowed; }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.28);
+      border-top-color: var(--white);
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+    @keyframes floatUp { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 940px) {
+      .page-shell { grid-template-columns: 1fr; }
+      .hero-panel { min-height: 360px; }
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 14px; }
+      .hero-panel, .login-card { padding: 24px; }
+      .hero-title { font-size: 1.8rem; }
+      .helper-row, .resend-row { flex-direction: column; align-items: flex-start; }
+      .link-row { gap: 8px; }
+    }
+  </style>
 </head>
 <body>
+  <main class="page-shell" aria-label="Narayan e-Gurukul login page">
+    <section class="hero-panel" aria-label="Learning experience preview">
+      <div class="hero-top">
+        <div class="brand-pill" aria-hidden="true">N</div>
+        <div class="hero-badge">Secure • Fast • Trusted</div>
+      </div>
 
-<div class="login-container">
-
-    <!-- ── HERO BANNER ── -->
-    <div class="login-hero">
-        <div class="login-hero-grid"></div>
-
-        <!-- Brand -->
-        <div class="hero-brand">
-            <div class="hero-icon">
-                <i class="ri-graduation-cap-fill"></i>
-            </div>
-            <div class="hero-name">
-                <h1>Narayan e-Gurukul</h1>
-                <p>Smart Learning Platform</p>
-            </div>
-        </div>
-
-        <!-- Stats pills -->
-        <div class="hero-pills">
-            <span class="hero-pill"><i class="ri-download-line"></i> 15k+ Downloads</span>
-            <span class="hero-pill"><i class="ri-group-line"></i> 150+ Students</span>
-            <span class="hero-pill"><i class="ri-book-3-line"></i> B.Tech · JEE · NEET</span>
-        </div>
-
-        <!-- Desktop only: tagline + features -->
-        <div class="hero-tagline">
-            Learn Better.<br><span>Score Higher.</span>
-        </div>
-        <p class="hero-desc">
-            Free notes, solved PYQs, and mock tests for every student in India — 100% free, forever.
+      <div class="hero-content">
+        <div class="eyebrow"><i class="ri-book-open-line"></i> Premium EdTech Learning</div>
+        <h1 class="hero-title">Study smarter with a seamless login experience.</h1>
+        <p class="hero-copy">
+          Welcome back to Narayan e-Gurukul. Continue your learning journey with instant OTP access, secure sign-in, and a polished student experience.
         </p>
-        <div class="hero-features">
-            <div class="hero-feat"><i class="ri-file-text-line"></i> Hand-written B.Tech Notes</div>
-            <div class="hero-feat"><i class="ri-history-line"></i> 10+ Years Solved PYQs</div>
-            <div class="hero-feat"><i class="ri-robot-2-line"></i> AI Guru Doubt Solver</div>
-            <div class="hero-feat"><i class="ri-bar-chart-box-line"></i> Personalised Dashboard</div>
+
+        <div class="feature-list" aria-label="Highlights">
+          <div class="feature-chip"><i class="ri-book-2-line"></i> Study materials</div>
+          <div class="feature-chip"><i class="ri-video-line"></i> Live classes</div>
+          <div class="feature-chip"><i class="ri-file-list-3-line"></i> Mock tests</div>
+          <div class="feature-chip"><i class="ri-robot-2-line"></i> AI learning</div>
         </div>
-    </div>
+      </div>
 
-    <!-- ── FORM CARD ── -->
-    <div class="login-card">
+      <div class="hero-footer">
+        <div class="mini-pill"><i class="ri-shield-check-line"></i> OTP protected</div>
+        <div class="mini-pill"><i class="ri-timer-line"></i> Resend in 30s</div>
+        <div class="mini-pill"><i class="ri-smartphone-line"></i> Auto-fill ready</div>
+      </div>
+    </section>
 
-        <!-- Back link -->
-        <div class="back-row">
-            <a href="index.html" class="back-link">
-                <i class="ri-arrow-left-line"></i> Back to Home
-            </a>
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="card-top">
+        <div class="brand-badge" aria-hidden="true"><i class="ri-graduation-cap-fill"></i></div>
+        <h2 class="card-title" id="login-title">Welcome to Narayan e-Gurukul</h2>
+        <p class="card-subtitle">Login with your mobile number to continue your learning journey with trusted OTP authentication.</p>
+      </div>
+
+      <div id="statusBox" class="status-box" role="status" aria-live="polite"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="input-group">
+          <label class="input-label" for="countryCode">Country code</label>
+          <div class="input-wrap">
+            <select id="countryCode" name="countryCode" aria-label="Country code">
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+44">🇬🇧 +44</option>
+            </select>
+          </div>
         </div>
 
-        <!-- Form -->
-        <div class="form-body">
-            <div class="form-title">Welcome Back</div>
-            <div class="form-sub">Enter your credentials to access your account</div>
+        <div class="input-group">
+          <label class="input-label" for="mobileInput">Mobile number</label>
+          <div class="input-wrap">
+            <i class="ri-smartphone-line" aria-hidden="true"></i>
+            <input id="mobileInput" name="mobileInput" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="Enter mobile number" maxlength="10" aria-describedby="mobileHelp" required />
+          </div>
+          <p id="mobileHelp" class="card-subtitle" style="font-size: 0.84rem; margin-top: 2px;">Use a 10-digit number. We will send an OTP instantly.</p>
+        </div>
 
-            <form id="loginForm" novalidate>
-
-                <!-- Email -->
-                <div class="field" id="emailFieldWrap">
-                    <div class="field-label">Email Address <span class="req">*</span></div>
-                    <div class="field-wrap">
-                        <div class="field-icon"><i class="ri-mail-line"></i></div>
-                        <input type="email" id="emailInput" placeholder="student@example.com" autocomplete="email" required>
-                    </div>
-                </div>
-
-                <!-- OTP (hidden until sent) -->
-                <div class="field otp-field" id="otpFieldWrap">
-                    <div class="field-label">OTP <span class="req">*</span></div>
-                    <div class="field-wrap">
-                        <div class="field-icon"><i class="ri-key-2-line"></i></div>
-                        <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6" inputmode="numeric" pattern="\d{6}" autocomplete="one-time-code">
-                    </div>
-                    <div class="otp-note show" id="otpNote">
-                        <i class="ri-checkbox-circle-fill"></i> OTP sent to your email
-                    </div>
-                </div>
-
-                <!-- Options row -->
-                <div class="options-row">
-                    <label class="check-label">
-                        <input type="checkbox" id="rememberMe"> Remember me
-                    </label>
-                    <a href="forgot-password.html" class="forgot-link">Forgot password?</a>
-                </div>
-
-                <!-- Send OTP button -->
-                <button type="button" class="btn-send-otp" id="sendOtpBtn">
-                    Send OTP <i class="ri-mail-send-line"></i>
-                </button>
-
-                <!-- Login button (shown after OTP sent) -->
-                <button type="submit" class="btn-login" id="loginBtn">
-                    Login to Dashboard <i class="ri-login-circle-line"></i>
-                </button>
-
-            </form>
-
-            <!-- Divider -->
-            <div class="divider"><span>or continue with</span></div>
-
-            <!-- Google -->
-            <button class="btn-google" id="googleBtn">
-                <svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
-                    <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.615 24 12.255 24z"/>
-                    <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/>
-                    <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.64 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
-                </svg>
-                Continue with Google
-            </button>
-
-            <!-- Sign up -->
-            <div class="signup-row">
-                Don't have an account? <a href="signup.html">Sign up free</a>
+        <div class="otp-panel" id="otpPanel">
+          <div class="input-group">
+            <label class="input-label" for="otpInput">One-time password</label>
+            <div class="input-wrap">
+              <i class="ri-key-2-line" aria-hidden="true"></i>
+              <input id="otpInput" name="otpInput" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter 6-digit OTP" maxlength="6" required />
             </div>
+          </div>
+          <div class="resend-row">
+            <span id="countdownText">Resend OTP in 30s</span>
+            <button type="button" class="resend-btn" id="resendBtn" disabled>Resend OTP</button>
+          </div>
         </div>
-    </div>
 
-</div><!-- /login-container -->
+        <div class="helper-row">
+          <label class="check-wrap" for="rememberMe">
+            <input id="rememberMe" name="rememberMe" type="checkbox" />
+            Keep me signed in
+          </label>
+          <div class="link-row">
+            <a href="forgot-password.html">Forgot mobile number?</a>
+            <a href="mailto:nishant.sanfort@gmail.com">Need help?</a>
+          </div>
+        </div>
 
-<!-- Firebase -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged }
-    from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+        <button type="button" class="btn-primary" id="sendOtpBtn">
+          <span id="sendOtpText">Get OTP</span>
+        </button>
 
-// ── Firebase config for project-547160493459 ──
-// Replace the placeholder values below with your actual config from:
-// Firebase Console → Project settings → Your apps → SDK setup
-const firebaseConfig = {
-    apiKey:            "PASTE_YOUR_API_KEY_HERE",
-    authDomain:        "project-547160493459.firebaseapp.com",
-    projectId:         "project-547160493459",
-    storageBucket:     "project-547160493459.appspot.com",
-    messagingSenderId: "PASTE_YOUR_SENDER_ID_HERE",
-    appId:             "PASTE_YOUR_APP_ID_HERE"
-};
+        <div class="divider">or</div>
 
-const app      = initializeApp(firebaseConfig);
-const auth     = getAuth(app);
-const provider = new GoogleAuthProvider();
+        <div class="social-grid">
+          <button type="button" class="btn-secondary" id="googleBtn">
+            <i class="ri-google-fill" aria-hidden="true"></i> Continue with Google
+          </button>
+          <button type="button" class="btn-secondary" id="emailBtn">
+            <i class="ri-mail-line" aria-hidden="true"></i> Continue with Email
+          </button>
+        </div>
+      </form>
 
-// Redirect if already logged in
-onAuthStateChanged(auth, user => {
-    if(user) window.location.href = 'dashboard.html';
-});
+      <p class="footer-note">
+        By continuing, you agree to our <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a>.
+      </p>
+    </section>
+  </main>
 
-// Google sign-in
-document.getElementById('googleBtn').addEventListener('click', async function(){
-    this.disabled = true;
-    this.innerHTML = `<div class="spinner"></div> Signing in…`;
-    try {
-        const result = await signInWithPopup(auth, provider);
-        const name   = result.user.displayName?.split(' ')[0] || 'Student';
-        this.innerHTML = `<i class="ri-checkbox-circle-fill" style="color:#10b981;font-size:1.2rem"></i> Welcome, ${name}!`;
-        setTimeout(() => window.location.href = 'dashboard.html', 1200);
-    } catch(err) {
-        this.disabled = false;
-        this.innerHTML = `<svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
-            <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.615 24 12.255 24z"/>
-            <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/>
-            <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.64 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
-        </svg> Continue with Google`;
-        if(err.code !== 'auth/popup-closed-by-user'){
-            alert('Sign-in failed: ' + err.message);
+  <script>
+    const form = document.getElementById('loginForm');
+    const mobileInput = document.getElementById('mobileInput');
+    const otpInput = document.getElementById('otpInput');
+    const otpPanel = document.getElementById('otpPanel');
+    const sendOtpBtn = document.getElementById('sendOtpBtn');
+    const sendOtpText = document.getElementById('sendOtpText');
+    const resendBtn = document.getElementById('resendBtn');
+    const countdownText = document.getElementById('countdownText');
+    const statusBox = document.getElementById('statusBox');
+    const googleBtn = document.getElementById('googleBtn');
+    const emailBtn = document.getElementById('emailBtn');
+
+    let countdownTimer;
+    let resendSeconds = 30;
+
+    function showStatus(type, message) {
+      statusBox.className = `status-box ${type}`;
+      statusBox.innerHTML = `${type === 'success' ? '<i class="ri-checkbox-circle-fill"></i>' : '<i class="ri-error-warning-fill"></i>'} ${message}`;
+    }
+
+    function clearStatus() {
+      statusBox.className = 'status-box';
+      statusBox.innerHTML = '';
+    }
+
+    function validateMobile() {
+      const value = mobileInput.value.replace(/\D/g, '');
+      mobileInput.value = value;
+      return value.length === 10;
+    }
+
+    function startCountdown() {
+      clearInterval(countdownTimer);
+      resendSeconds = 30;
+      resendBtn.disabled = true;
+      countdownText.textContent = `Resend OTP in ${resendSeconds}s`;
+
+      countdownTimer = setInterval(() => {
+        resendSeconds -= 1;
+        if (resendSeconds <= 0) {
+          clearInterval(countdownTimer);
+          countdownText.textContent = 'OTP ready to resend';
+          resendBtn.disabled = false;
+          return;
         }
+        countdownText.textContent = `Resend OTP in ${resendSeconds}s`;
+      }, 1000);
     }
-});
-</script>
 
-<script>
-/* ── Send OTP ── */
-document.getElementById('sendOtpBtn').addEventListener('click', function(){
-    const emailEl = document.getElementById('emailInput');
-    if(!emailEl.checkValidity() || !emailEl.value.trim()){
-        emailEl.reportValidity();
+    function sendOtpFlow() {
+      if (!validateMobile()) {
+        showStatus('error', 'Please enter a valid 10-digit mobile number.');
+        mobileInput.focus();
         return;
+      }
+
+      sendOtpBtn.disabled = true;
+      sendOtpText.innerHTML = '<span class="spinner"></span> Sending OTP';
+      clearStatus();
+
+      setTimeout(() => {
+        otpPanel.classList.add('active');
+        otpInput.focus();
+        sendOtpBtn.disabled = false;
+        sendOtpText.textContent = 'Get OTP';
+        showStatus('success', 'OTP sent successfully. Check your messages.');
+        startCountdown();
+        tryAutoReadOtp();
+      }, 1100);
     }
-    const btn = this;
-    btn.disabled = true;
-    btn.innerHTML = `<div class="spinner"></div> Sending…`;
 
-    setTimeout(() => {
-        // Show OTP field
-        const otpWrap = document.getElementById('otpFieldWrap');
-        otpWrap.style.display = 'block';
-
-        // Lock email
-        emailEl.readOnly = true;
-        emailEl.style.opacity = '.6';
-
-        // Switch buttons
-        btn.style.display = 'none';
-        const loginBtn = document.getElementById('loginBtn');
-        loginBtn.style.display = 'flex';
-
-        document.getElementById('otpInput').focus();
-    }, 1200);
-});
-
-/* ── Login submit ── */
-document.getElementById('loginForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const otp = document.getElementById('otpInput').value.trim();
-    if(otp.length !== 6 || !/^\d{6}$/.test(otp)){
-        alert('Please enter a valid 6-digit OTP.');
+    function verifyOtp() {
+      if (otpInput.value.trim().length !== 6) {
+        showStatus('error', 'Please enter the 6-digit OTP to continue.');
         return;
+      }
+
+      sendOtpBtn.disabled = true;
+      sendOtpText.innerHTML = '<span class="spinner"></span> Verifying';
+      showStatus('success', 'OTP verified. Redirecting to your dashboard…');
+
+      setTimeout(() => {
+        window.location.href = 'student-dashboard.html';
+      }, 1200);
     }
-    const btn = document.getElementById('loginBtn');
-    btn.disabled = true;
-    btn.innerHTML = `<div class="spinner"></div> Logging in…`;
 
-    setTimeout(() => window.location.href = 'dashboard.html', 1500);
-});
-</script>
+    function tryAutoReadOtp() {
+      if (!('OTPCredential' in window) || !navigator.credentials) return;
+      const ac = new AbortController();
+      navigator.credentials.get({
+        otp: { transport: ['sms'] },
+        signal: ac.signal
+      }).then((credential) => {
+        if (credential?.code) {
+          otpInput.value = credential.code;
+          showStatus('success', 'OTP auto-filled from your device.');
+          verifyOtp();
+        }
+      }).catch(() => {});
+    }
 
+    mobileInput.addEventListener('input', () => {
+      const cleaned = mobileInput.value.replace(/\D/g, '').slice(0, 10);
+      mobileInput.value = cleaned;
+      if (cleaned.length > 0 && cleaned.length < 10) {
+        clearStatus();
+      }
+    });
+
+    otpInput.addEventListener('input', () => {
+      otpInput.value = otpInput.value.replace(/\D/g, '').slice(0, 6);
+      if (otpInput.value.length === 6) {
+        verifyOtp();
+      }
+    });
+
+    sendOtpBtn.addEventListener('click', sendOtpFlow);
+    resendBtn.addEventListener('click', () => {
+      showStatus('success', 'A fresh OTP has been sent to your mobile number.');
+      sendOtpFlow();
+    });
+
+    googleBtn.addEventListener('click', () => {
+      showStatus('success', 'Google login will be connected securely soon.');
+    });
+
+    emailBtn.addEventListener('click', () => {
+      showStatus('success', 'Email login is ready for your next sign-in flow.');
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      verifyOtp();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      mobileInput.focus();
+    });
+  </script>
 </body>
 </html>

@@ -204,7 +204,7 @@
 
     // Redirect if already signed in
     onAuthStateChanged(auth, user => {
-        if(user) window.location.href = 'dashboard.html';
+        if(user) window.location.href = 'student-dashboard.html';
     });
 
     // ── Email/Password Sign Up ──
@@ -225,7 +225,7 @@
             const cred = await createUserWithEmailAndPassword(auth, email, pass);
             await updateProfile(cred.user, { displayName: name });
             btn.innerHTML = '<i class="ri-checkbox-circle-fill"></i> Account created!';
-            setTimeout(() => window.location.href = 'dashboard.html', 1200);
+            setTimeout(() => window.location.href = 'student-dashboard.html', 1200);
         } catch(err) {
             btn.disabled = false;
             btn.innerHTML = 'Sign Up <i class="ri-user-add-line"></i>';
@@ -246,7 +246,7 @@
             const result = await signInWithPopup(auth, provider);
             const name   = result.user.displayName?.split(' ')[0] || 'Student';
             this.innerHTML = `<i class="ri-checkbox-circle-fill" style="color:#10b981"></i> Welcome, ${name}!`;
-            setTimeout(() => window.location.href = 'dashboard.html', 1200);
+            setTimeout(() => window.location.href = 'student-dashboard.html', 1200);
         } catch(err) {
             this.disabled = false;
             this.innerHTML = '<i class="ri-google-fill"></i> Sign up with Google';
